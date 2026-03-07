@@ -20,11 +20,6 @@ interface SchoolDetailsPanelProps {
 }
 
 export function SchoolDetailsPanel({ school, onClose, getRatingColor }: SchoolDetailsPanelProps) {
-  const provinceLabel = school
-    ? ({ BC: 'British Columbia', AB: 'Alberta', QC: 'Quebec', NB: 'New Brunswick' }[school.province] ??
-      school.province)
-    : '';
-
   return (
     <AnimatePresence>
       {school && (
