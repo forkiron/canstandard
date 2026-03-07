@@ -26,6 +26,7 @@ interface GlobeSceneProps {
   className?: string;
   onCountrySelect?: (record: EducationCountryMetric | null) => void;
   selectedIso3?: string | null;
+  targetCoordinates?: { latitude: number; longitude: number } | null;
 }
 
 /* ── precompute country centroids + extents from GeoJSON ── */
@@ -92,9 +93,11 @@ const WORLD_DISTANCE = 2.38;
 
 function CameraController({
   targetIso3,
+  targetCoordinates,
   worldScale,
 }: {
   targetIso3: string | null;
+  targetCoordinates?: { latitude: number; longitude: number } | null;
   worldScale: number;
 }) {
   const { camera } = useThree();
@@ -105,7 +108,18 @@ function CameraController({
   const [isAnimatingState, setIsAnimatingState] = useState(false);
 
   useEffect(() => {
-    if (targetIso3) {
+    if (targetCoordinates) {
+      // Zoom in tight for a specific school location
+      const dist = zoomDistanceForExtent(5, worldScale); 
+      const [cx, cy, cz] = latLonToCartesian(targetCoordinates.latitude, targetCoordinates.longitude, 1);
+      const centroid = new Vector3(cx, cy, cz);
+
+      targetPoint.current.copy(centroid);
+      const dir = centroid.clone().normalize();
+      targetPos.current.copy(dir.multiplyScalar(dist));
+      isAnimating.current = true;
+      setIsAnimatingState(true);
+    } else if (targetIso3) {
       const geo = COUNTRY_GEO_MAP.get(targetIso3);
       if (geo) {
         const dist = zoomDistanceForExtent(geo.angularExtent, worldScale);
@@ -126,7 +140,7 @@ function CameraController({
       isAnimating.current = true;
       setIsAnimatingState(true);
     }
-  }, [targetIso3, camera, worldScale]);
+  }, [targetIso3, targetCoordinates, camera, worldScale]);
 
   useFrame((_, delta) => {
     if (!isAnimating.current) return;
@@ -157,10 +171,10 @@ function CameraController({
   // from a focused country view back to the global auto-rotating view.
   return (
     <OrbitControls
-      key={targetIso3 ?? 'world'}
+      key={targetIso3 ?? (targetCoordinates ? 'school' : 'world')}
       ref={controlsRef}
       enablePan={false}
-      autoRotate={targetIso3 === null && !isAnimatingState}
+      autoRotate={targetIso3 === null && targetCoordinates == null && !isAnimatingState}
       autoRotateSpeed={0.8}
       // Allow deep zoom into countries (controls enforce minDistance)
       minDistance={0.12}
@@ -208,6 +222,7 @@ export function GlobeScene({
   className,
   onCountrySelect,
   selectedIso3 = null,
+  targetCoordinates = null,
 }: GlobeSceneProps) {
   const worldScale = 0.84;
   const [hoveredIso3, setHoveredIso3] = useState<string | null>(null);
@@ -239,7 +254,11 @@ export function GlobeScene({
         <Suspense fallback={null}>
           <GlobeLights />
           <Stars radius={120} depth={60} count={1100} factor={2.2} saturation={0} fade speed={0.12} />
-          <CameraController targetIso3={selectedIso3} worldScale={worldScale} />
+          <CameraController 
+            targetIso3={selectedIso3} 
+            targetCoordinates={targetCoordinates}
+            worldScale={worldScale} 
+          />
           <StaticWorld
             records={records}
             hoveredIso3={hoveredIso3 ?? selectedIso3}

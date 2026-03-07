@@ -4,16 +4,25 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { GlobeScene } from '../components/globe/GlobeScene';
-import type { EducationCountryMetric } from '../lib/types';
+import { SearchBar } from '../components/SearchBar';
+import type { EducationCountryMetric, SchoolDatum } from '../lib/types';
 
 export default function LandingPage() {
   const [selectedRecord, setSelectedRecord] = useState<EducationCountryMetric | null>(null);
+  const [targetSchool, setTargetSchool] = useState<SchoolDatum | null>(null);
 
   const handleCountrySelect = (record: EducationCountryMetric | null) => {
     setSelectedRecord(record);
+    setTargetSchool(null);
   };
 
   const handleBackToGlobe = () => {
+    setSelectedRecord(null);
+    setTargetSchool(null);
+  };
+
+  const handleSchoolSelect = (school: SchoolDatum) => {
+    setTargetSchool(school);
     setSelectedRecord(null);
   };
 
@@ -29,8 +38,13 @@ export default function LandingPage() {
           className="h-screen min-h-screen w-screen rounded-none border-0"
           onCountrySelect={handleCountrySelect}
           selectedIso3={selectedRecord?.iso3 ?? null}
+          targetCoordinates={targetSchool ? { latitude: targetSchool.latitude, longitude: targetSchool.longitude } : null}
         />
       </motion.div>
+
+      <div className="absolute top-6 left-1/2 -translate-x-1/2 z-20 w-full max-w-md px-4">
+        <SearchBar onSelect={handleSchoolSelect} />
+      </div>
 
       <div className="absolute top-6 right-6 z-10 flex gap-3">
         <Link
@@ -39,7 +53,7 @@ export default function LandingPage() {
         >
           AI Test Analyzer →
         </Link>
-        {selectedRecord && (
+        {(selectedRecord || targetSchool) && (
           <button
             type="button"
             onClick={handleBackToGlobe}
@@ -54,6 +68,13 @@ export default function LandingPage() {
         <div className="absolute top-6 left-6 z-10 flex items-center gap-3">
           <span className="rounded-md border border-slate-700 bg-slate-950/70 px-3 py-2 text-xs font-medium text-slate-200">
             {selectedRecord.country}
+          </span>
+        </div>
+      )}
+      {targetSchool && (
+        <div className="absolute top-6 left-6 z-10 flex items-center gap-3">
+          <span className="rounded-md border border-slate-700 bg-slate-950/70 px-3 py-2 text-xs font-medium text-amber-200">
+            {targetSchool.name}
           </span>
         </div>
       )}
