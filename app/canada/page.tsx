@@ -2,6 +2,7 @@
 
 import { useEffect } from 'react';
 import { motion } from 'framer-motion';
+import BackboardQuestionBox from '../../components/BackboardQuestionBox';
 import { AppShell } from '../../components/layout/AppShell';
 import { CanadaMap } from '../../components/map/CanadaMap';
 import { RouteTransitionOverlay } from '../../components/transitions/RouteTransitionOverlay';
@@ -24,6 +25,7 @@ export default function CanadaPage() {
       subtitle="Province intensity and school overlays"
     >
       <RouteTransitionOverlay />
+      <BackboardQuestionBox />
       <motion.section
         initial={{ opacity: 0, scale: 0.985 }}
         animate={{ opacity: 1, scale: 1 }}
