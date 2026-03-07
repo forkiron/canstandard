@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useMemo, useRef, useState } from 'react';
+import { usePathname } from 'next/navigation';
 import type { SchoolAgentContext } from '@/lib/school-agent';
 import { useSchoolTourStore } from '@/stores/useSchoolTourStore';
 
@@ -42,6 +43,7 @@ function messageId() {
 }
 
 export default function BackboardQuestionBox() {
+  const pathname = usePathname();
   const [open, setOpen] = useState(false);
   const [question, setQuestion] = useState('');
   const [loading, setLoading] = useState(false);
@@ -176,6 +178,10 @@ export default function BackboardQuestionBox() {
       },
     ]);
   };
+
+  if (pathname === '/') {
+    return null;
+  }
 
   return (
     <div className="fixed bottom-4 left-1/2 z-50 w-[min(95vw,760px)] -translate-x-1/2">

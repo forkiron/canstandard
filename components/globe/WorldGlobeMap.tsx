@@ -317,6 +317,7 @@ function setProjectionForMode(mapInstance: any, mode: LayerMode) {
 export function WorldGlobeMap({ className }: WorldGlobeMapProps) {
   const [activeLayer, setActiveLayer] = useState<LayerMode>('terrain');
   const [schoolQuery, setSchoolQuery] = useState('');
+  const [minSchoolRating, setMinSchoolRating] = useState<number>(0);
   const [isSchoolSearchOpen, setIsSchoolSearchOpen] = useState(false);
   const [selectedSchool, setSelectedSchool] = useState<BcSchoolRecord | null>(null);
   const [academicHoverCard, setAcademicHoverCard] = useState<AcademicHoverCard | null>(null);
@@ -353,6 +354,13 @@ export function WorldGlobeMap({ className }: WorldGlobeMapProps) {
     () => [...bcSchools, ...abSchools, ...qcSchools, ...nbSchools],
     [bcSchools, abSchools, qcSchools, nbSchools]
   );
+  const visibleCanadaSchools = useMemo(() => {
+    return canadaSchools.filter((school) => {
+      if (!Number.isFinite(school.longitude) || !Number.isFinite(school.latitude)) return false;
+      if (minSchoolRating <= 0) return true;
+      return typeof school.rating === 'number' && Number.isFinite(school.rating) && school.rating >= minSchoolRating;
+    });
+  }, [canadaSchools, minSchoolRating]);
   const tourSchoolIds = useSchoolTourStore((state) => state.schoolIds);
   const tourIndex = useSchoolTourStore((state) => state.currentIndex);
   const prevTourSchool = useSchoolTourStore((state) => state.prevSchool);
@@ -398,7 +406,7 @@ export function WorldGlobeMap({ className }: WorldGlobeMapProps) {
   const bcSchoolGeoJson = useMemo(
     () => ({
       type: 'FeatureCollection',
-      features: canadaSchools.map((school) => ({
+      features: visibleCanadaSchools.map((school) => ({
         type: 'Feature',
         geometry: {
           type: 'Point',
@@ -414,17 +422,17 @@ export function WorldGlobeMap({ className }: WorldGlobeMapProps) {
         },
       })),
     }),
-    [canadaSchools]
+    [visibleCanadaSchools]
   );
 
   const bcBounds = useMemo(() => {
-    if (!canadaSchools.length) return null;
+    if (!visibleCanadaSchools.length) return null;
     let minLng = Infinity;
     let minLat = Infinity;
     let maxLng = -Infinity;
     let maxLat = -Infinity;
 
-    for (const school of canadaSchools) {
+    for (const school of visibleCanadaSchools) {
       if (!Number.isFinite(school.longitude) || !Number.isFinite(school.latitude)) continue;
       minLng = Math.min(minLng, school.longitude);
       minLat = Math.min(minLat, school.latitude);
@@ -437,13 +445,11 @@ export function WorldGlobeMap({ className }: WorldGlobeMapProps) {
       [minLng, minLat],
       [maxLng, maxLat],
     ] as [[number, number], [number, number]];
-  }, [canadaSchools]);
+  }, [visibleCanadaSchools]);
 
   const schoolSearchResults = useMemo(() => {
     const query = normalizeForSearch(schoolQuery);
-    const ranked = canadaSchools.filter(
-      (school) => Number.isFinite(school.longitude) && Number.isFinite(school.latitude)
-    );
+    const ranked = visibleCanadaSchools;
 
     if (!query) {
       return ranked
@@ -474,14 +480,14 @@ export function WorldGlobeMap({ className }: WorldGlobeMapProps) {
           (b.rating ?? -1) - (a.rating ?? -1)
       )
       .slice(0, 8);
-  }, [canadaSchools, schoolQuery]);
+  }, [visibleCanadaSchools, schoolQuery]);
   const schoolById = useMemo(() => {
     const map = new Map<string, BcSchoolRecord>();
-    for (const school of canadaSchools) {
+    for (const school of visibleCanadaSchools) {
       map.set(school.id, school);
     }
     return map;
-  }, [canadaSchools]);
+  }, [visibleCanadaSchools]);
   const schoolTour = useMemo(
     () => tourSchoolIds.map((schoolId) => schoolById.get(schoolId)).filter((school): school is BcSchoolRecord => Boolean(school)),
     [tourSchoolIds, schoolById]
@@ -706,6 +712,13 @@ export function WorldGlobeMap({ className }: WorldGlobeMapProps) {
     },
     [flyToCanada, flyToCountry, flyToSchool, selectedSchool, preSchoolCameraState, activeLayer]
   );
+  useEffect(() => {
+    if (!selectedSchool) return;
+    if (minSchoolRating <= 0) return;
+    if (typeof selectedSchool.rating === 'number' && selectedSchool.rating >= minSchoolRating) return;
+    setSelectedSchool(null);
+  }, [selectedSchool, minSchoolRating]);
+
   useEffect(() => {
     if (schoolTour.length === 0) return;
 
@@ -1026,6 +1039,29 @@ export function WorldGlobeMap({ className }: WorldGlobeMapProps) {
           placeholder="Type school or city"
           className="w-full rounded-md border border-white/20 bg-black/55 px-3 py-2 text-sm text-slate-100 outline-none transition focus:border-white/55"
         />
+        <div className="mt-2 rounded-md border border-white/10 bg-black/35 px-3 py-2">
+          <div className="mb-1 flex items-center justify-between">
+            <label htmlFor="school-rating-filter" className="text-[11px] font-medium text-slate-300">
+              Minimum Rating
+            </label>
+            <span className="text-[11px] text-slate-200">
+              {minSchoolRating <= 0 ? 'All' : `${minSchoolRating.toFixed(1)}+`}
+            </span>
+          </div>
+          <input
+            id="school-rating-filter"
+            type="range"
+            min={0}
+            max={10}
+            step={0.5}
+            value={minSchoolRating}
+            onChange={(event) => setMinSchoolRating(Number(event.target.value))}
+            className="w-full accent-emerald-400"
+          />
+          <p className="mt-1 text-[10px] text-slate-400">
+            Showing {visibleCanadaSchools.length} school{visibleCanadaSchools.length === 1 ? '' : 's'}
+          </p>
+        </div>
         {isSchoolSearchOpen && schoolSearchResults.length > 0 && (
           <div className="mt-2 max-h-64 overflow-y-auto rounded-md border border-white/15 bg-black/80 p-1">
             {schoolSearchResults.map((school) => (
