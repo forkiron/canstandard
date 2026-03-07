@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useRef, useCallback } from 'react';
 import { motion } from 'framer-motion';
 
 interface AnalysisResult {
@@ -9,17 +9,59 @@ interface AnalysisResult {
   rationale: string;
 }
 
+function fileToBase64(file: File): Promise<string> {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.onload = () => {
+      const result = reader.result as string;
+      // Strip data URL prefix: "data:application/pdf;base64,"
+      const base64 = result.split(',')[1];
+      resolve(base64);
+    };
+    reader.onerror = reject;
+    reader.readAsDataURL(file);
+  });
+}
+
 export function TestAnalyzerForm({ onResult }: { onResult: (res: AnalysisResult) => void }) {
-  const [subject, setSubject] = useState('math');
+  const [province, setProvince] = useState('BC');
   const [classAverage, setClassAverage] = useState('85');
   const [testContent, setTestContent] = useState('');
+  const [pdfFile, setPdfFile] = useState<File | null>(null);
+  const [isDragOver, setIsDragOver] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
+  const fileInputRef = useRef<HTMLInputElement>(null);
+
+  const handleFile = useCallback((file: File) => {
+    if (file.type !== 'application/pdf') {
+      setError('Please upload a PDF file.');
+      return;
+    }
+    setPdfFile(file);
+    setError('');
+  }, []);
+
+  const handleDrop = useCallback((e: React.DragEvent) => {
+    e.preventDefault();
+    setIsDragOver(false);
+    const file = e.dataTransfer.files[0];
+    if (file) handleFile(file);
+  }, [handleFile]);
+
+  const handleDragOver = useCallback((e: React.DragEvent) => {
+    e.preventDefault();
+    setIsDragOver(true);
+  }, []);
+
+  const handleDragLeave = useCallback(() => {
+    setIsDragOver(false);
+  }, []);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!testContent.trim()) {
-      setError('Please paste the test content before analyzing.');
+    if (!testContent.trim() && !pdfFile) {
+      setError('Please paste test content or upload a PDF before analyzing.');
       return;
     }
 
@@ -27,15 +69,20 @@ export function TestAnalyzerForm({ onResult }: { onResult: (res: AnalysisResult)
     setError('');
 
     try {
+      let pdfData: string | undefined;
+      if (pdfFile) {
+        pdfData = await fileToBase64(pdfFile);
+      }
+
       const response = await fetch('/api/analyze-test', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          subject,
+          subject: 'general',
+          province,
           classAverage: parseFloat(classAverage),
-          testContent,
+          testContent: testContent.trim() || undefined,
+          pdfData,
         }),
       });
 
@@ -54,56 +101,114 @@ export function TestAnalyzerForm({ onResult }: { onResult: (res: AnalysisResult)
   };
 
   return (
-    <motion.form 
+    <motion.form
       onSubmit={handleSubmit}
       initial={{ opacity: 0, y: 10 }}
       animate={{ opacity: 1, y: 0 }}
-      className="space-y-6 rounded-2xl border border-slate-800 bg-slate-950/80 p-6 backdrop-blur-md"
+      className="space-y-4 rounded-2xl border border-slate-800 bg-slate-950/80 p-4 backdrop-blur-md"
     >
-      <div className="space-y-4">
-        <h3 className="text-xl font-medium text-slate-100 mb-2">Evaluate Test Difficulty</h3>
-        
-        <div className="grid grid-cols-2 gap-4">
-          <div className="space-y-2">
-            <label className="text-sm font-medium text-slate-300">Subject</label>
-            <select 
-              value={subject}
-              onChange={(e) => setSubject(e.target.value)}
+      <div className="space-y-3">
+        <h3 className="mb-1 text-xl font-medium text-slate-100">Evaluate Test Difficulty</h3>
+
+        <div className="space-y-2">
+          <label className="text-sm font-medium text-slate-300">Class Average (%)</label>
+          <div className="relative">
+            <input
+              type="number"
+              value={classAverage}
+              onChange={(e) => setClassAverage(e.target.value)}
+              min="0" max="100" step="0.1" required
               className="w-full rounded-lg border border-slate-700 bg-slate-900 px-4 py-2.5 text-sm text-slate-200 outline-none focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 transition-all"
-            >
-              <option value="math">Mathematics</option>
-              <option value="physics">Physics</option>
-              <option value="english">English Literature</option>
-              <option value="chemistry">Chemistry</option>
-              <option value="biology">Biology</option>
-            </select>
-          </div>
-          
-          <div className="space-y-2">
-            <label className="text-sm font-medium text-slate-300">Class Average (%)</label>
-            <div className="relative">
-              <input 
-                type="number" 
-                value={classAverage}
-                onChange={(e) => setClassAverage(e.target.value)}
-                min="0" max="100" step="0.1" required
-                className="w-full rounded-lg border border-slate-700 bg-slate-900 px-4 py-2.5 text-sm text-slate-200 outline-none focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 transition-all"
-              />
-              <span className="absolute right-4 top-1/2 -translate-y-1/2 text-slate-500">%</span>
-            </div>
+            />
+            <span className="absolute right-4 top-1/2 -translate-y-1/2 text-slate-500">%</span>
           </div>
         </div>
 
-        <div className="space-y-2 pt-2">
+        <div className="space-y-2">
+          <label className="text-sm font-medium text-slate-300">Province / Territory</label>
+          <select
+            value={province}
+            onChange={(e) => setProvince(e.target.value)}
+            className="w-full rounded-lg border border-slate-700 bg-slate-900 px-4 py-2.5 text-sm text-slate-200 outline-none focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 transition-all"
+          >
+            <option value="AB">Alberta</option>
+            <option value="BC">British Columbia</option>
+            <option value="MB">Manitoba</option>
+            <option value="NB">New Brunswick</option>
+            <option value="NL">Newfoundland &amp; Labrador</option>
+            <option value="NS">Nova Scotia</option>
+            <option value="NT">Northwest Territories</option>
+            <option value="NU">Nunavut</option>
+            <option value="ON">Ontario</option>
+            <option value="PE">Prince Edward Island</option>
+            <option value="QC">Quebec</option>
+            <option value="SK">Saskatchewan</option>
+            <option value="YT">Yukon</option>
+          </select>
+        </div>
+
+        <div className="space-y-2 pt-1">
+          <label className="text-sm font-medium text-slate-300">Upload Test PDF</label>
+          <div
+            onDrop={handleDrop}
+            onDragOver={handleDragOver}
+            onDragLeave={handleDragLeave}
+            onClick={() => fileInputRef.current?.click()}
+            className={`flex cursor-pointer flex-col items-center justify-center gap-2 rounded-lg border-2 border-dashed px-4 py-5 text-center transition-all ${
+              isDragOver
+                ? 'border-emerald-500 bg-emerald-500/10'
+                : pdfFile
+                ? 'border-emerald-700 bg-emerald-900/20'
+                : 'border-slate-700 bg-slate-900/50 hover:border-slate-500'
+            }`}
+          >
+            <input
+              ref={fileInputRef}
+              type="file"
+              accept="application/pdf"
+              className="hidden"
+              onChange={(e) => {
+                const file = e.target.files?.[0];
+                if (file) handleFile(file);
+              }}
+            />
+            {pdfFile ? (
+              <>
+                <svg className="h-6 w-6 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                <span className="text-sm font-medium text-emerald-300">{pdfFile.name}</span>
+                <button
+                  type="button"
+                  onClick={(e) => { e.stopPropagation(); setPdfFile(null); }}
+                  className="text-xs text-slate-500 hover:text-rose-400 transition-colors"
+                >
+                  Remove
+                </button>
+              </>
+            ) : (
+              <>
+                <svg className="h-6 w-6 text-slate-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
+                </svg>
+                <p className="text-sm text-slate-400">
+                  <span className="font-medium text-slate-200">Click or drag</span> a PDF here
+                </p>
+              </>
+            )}
+          </div>
+        </div>
+
+        <div className="space-y-2">
           <label className="text-sm font-medium flex justify-between text-slate-300">
-            <span>Test Content</span>
-            <span className="text-xs text-slate-500 font-normal">Paste text from PDF/Doc</span>
+            <span>Additional Notes</span>
+            <span className="text-xs text-slate-500 font-normal">Optional — paste extra context</span>
           </label>
-          <textarea 
+          <textarea
             value={testContent}
             onChange={(e) => setTestContent(e.target.value)}
             placeholder="E.g., 1. Calculate the derivative of f(x) = x^2 * sin(x)..."
-            className="h-48 w-full resize-none rounded-lg border border-slate-700 bg-slate-900 px-4 py-3 text-sm text-slate-200 outline-none focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 transition-all"
+            className="h-24 w-full resize-none rounded-lg border border-slate-700 bg-slate-900 px-4 py-3 text-sm text-slate-200 outline-none focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 transition-all"
           />
         </div>
       </div>
