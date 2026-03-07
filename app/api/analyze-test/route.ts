@@ -6,7 +6,7 @@ import { GoogleGenAI } from '@google/genai';
 export async function POST(request: Request) {
   try {
     const body = await request.json();
-    const { testContent, classAverage, subject } = body;
+    const { testContent, classAverage, subject, apiKey: clientApiKey } = body;
 
     if (!testContent || !classAverage || !subject) {
       return NextResponse.json(
@@ -15,7 +15,8 @@ export async function POST(request: Request) {
       );
     }
 
-    const apiKey = process.env.GEMINI_API_KEY;
+    // Use the client-provided key if it exists, otherwise fall back to server config
+    const apiKey = clientApiKey || process.env.GEMINI_API_KEY;
     if (!apiKey) {
       return NextResponse.json(
         { error: 'Server configuration error: GEMINI_API_KEY is not set.' },
