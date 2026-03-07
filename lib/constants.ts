@@ -43,8 +43,9 @@ export const CANADA_MAP_CAMERA: MapCameraState = {
   longitude: -96,
   latitude: 58,
   zoom: 2.65,
-  pitch: 25,
-  bearing: -6,
+  // remove pitch/bearing so the map displays flat and not slanted
+  pitch: 0,
+  bearing: 0,
 };
 
 export const PROVINCES: ProvinceDatum[] = [
