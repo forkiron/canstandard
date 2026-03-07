@@ -1,63 +1,194 @@
 'use client';
 
-import { Suspense, useMemo, useRef, useState } from 'react';
-import { Canvas, useFrame } from '@react-three/fiber';
+import { Suspense, useEffect, useMemo, useRef, useState, useCallback } from 'react';
+import { Canvas, useFrame, useThree } from '@react-three/fiber';
 import { OrbitControls, Stars } from '@react-three/drei';
-import type { Group } from 'three';
+import { Vector3 } from 'three';
+import type { OrbitControls as OrbitControlsImpl } from 'three-stdlib';
 import educationDataset from '../../lib/data/country-education-metrics.json';
+import countryShapesGeoJson from '../../lib/data/ne_110m_admin_0_countries.json';
 import type { EducationCountryDataset, EducationCountryMetric } from '../../lib/types';
 import { CountryOutlines } from './CountryOutlines';
 import { CountryShapeExtrusions } from './CountryShapeExtrusions';
 import { EarthMesh } from './EarthMesh';
 import { GlobeLights } from './GlobeLights';
+import { latLonToCartesian } from './geo';
+
+/* ── types ── */
+
+interface CountryGeo {
+  centroidLat: number;
+  centroidLon: number;
+  angularExtent: number;
+}
 
 interface GlobeSceneProps {
   className?: string;
-  onCountrySelect?: (countryCode: string) => void;
-  onCanadaSelect?: () => void;
+  onCountrySelect?: (record: EducationCountryMetric | null) => void;
+  selectedIso3?: string | null;
 }
 
-function RotatingWorld({
+/* ── precompute country centroids + extents from GeoJSON ── */
+
+function computeCountryGeoMap(): Map<string, CountryGeo> {
+  const map = new Map<string, CountryGeo>();
+  const fc = countryShapesGeoJson as {
+    features: Array<{
+      properties?: { ISO_A3?: string };
+      geometry: { type: string; coordinates: any };
+    }>;
+  };
+
+  for (const feature of fc.features) {
+    const iso3 = feature.properties?.ISO_A3;
+    if (!iso3 || iso3 === '-99') continue;
+
+    const coords: [number, number][] = [];
+    const collect = (arr: any) => {
+      if (typeof arr[0] === 'number') {
+        coords.push([arr[0] as number, arr[1] as number]);
+      } else {
+        for (const child of arr) collect(child);
+      }
+    };
+    collect(feature.geometry.coordinates);
+    if (coords.length === 0) continue;
+
+    let latSum = 0, lonSum = 0;
+    let minLat = 90, maxLat = -90, minLon = 180, maxLon = -180;
+    for (const [lon, lat] of coords) {
+      latSum += lat;
+      lonSum += lon;
+      if (lat < minLat) minLat = lat;
+      if (lat > maxLat) maxLat = lat;
+      if (lon < minLon) minLon = lon;
+      if (lon > maxLon) maxLon = lon;
+    }
+
+    map.set(iso3, {
+      centroidLat: latSum / coords.length,
+      centroidLon: lonSum / coords.length,
+      angularExtent: Math.max(maxLat - minLat, maxLon - minLon),
+    });
+  }
+
+  return map;
+}
+
+const COUNTRY_GEO_MAP = computeCountryGeoMap();
+
+function zoomDistanceForExtent(angularExtent: number, scale: number): number {
+  // Small countries (< 5°) → very close, large countries (> 60°) → further out
+  const minDist = 1.3;
+  const maxDist = 2.0;
+  const t = Math.min(1, Math.max(0, (angularExtent - 3) / 65));
+  return (minDist + t * (maxDist - minDist)) * scale;
+}
+
+/* ── camera animation + orbit controls manager ── */
+
+const LERP_SPEED = 2.8;
+const WORLD_DISTANCE = 2.38;
+
+function CameraController({
+  targetIso3,
+  worldScale,
+}: {
+  targetIso3: string | null;
+  worldScale: number;
+}) {
+  const { camera } = useThree();
+  const controlsRef = useRef<OrbitControlsImpl>(null);
+  const targetPos = useRef(new Vector3());
+  const isAnimating = useRef(false);
+
+  useEffect(() => {
+    if (targetIso3) {
+      const geo = COUNTRY_GEO_MAP.get(targetIso3);
+      if (geo) {
+        const dist = zoomDistanceForExtent(geo.angularExtent, worldScale);
+        const [cx, cy, cz] = latLonToCartesian(geo.centroidLat, geo.centroidLon, 1);
+        const dir = new Vector3(cx, cy, cz).normalize();
+        targetPos.current.copy(dir.multiplyScalar(dist));
+        isAnimating.current = true;
+      }
+    } else {
+      // Zoom back out — keep current direction
+      targetPos.current.copy(
+        camera.position.clone().normalize().multiplyScalar(WORLD_DISTANCE)
+      );
+      isAnimating.current = true;
+    }
+  }, [targetIso3, camera, worldScale]);
+
+  useFrame((_, delta) => {
+    if (!isAnimating.current) return;
+
+    const alpha = 1 - Math.exp(-LERP_SPEED * delta);
+    camera.position.lerp(targetPos.current, alpha);
+    camera.lookAt(0, 0, 0);
+
+    // Keep OrbitControls target at origin
+    if (controlsRef.current) {
+      controlsRef.current.target.set(0, 0, 0);
+    }
+
+    if (camera.position.distanceTo(targetPos.current) < 0.003) {
+      camera.position.copy(targetPos.current);
+      isAnimating.current = false;
+    }
+  });
+
+  return (
+    <OrbitControls
+      ref={controlsRef}
+      enablePan={false}
+      autoRotate={targetIso3 === null}
+      autoRotateSpeed={0.8}
+      minDistance={1.2}
+      maxDistance={2.95}
+      rotateSpeed={0.42}
+      minPolarAngle={Math.PI * 0.1}
+      maxPolarAngle={Math.PI * 0.9}
+    />
+  );
+}
+
+/* ── static world (no manual rotation) ── */
+
+function StaticWorld({
   records,
   hoveredIso3,
   onMetricHover,
-  onCountrySelect,
+  onCountryClick,
   scale = 1,
 }: {
   records: EducationCountryMetric[];
   hoveredIso3: string | null;
   onMetricHover: (record: EducationCountryMetric | null) => void;
-  onCountrySelect?: (countryCode: string) => void;
+  onCountryClick?: (record: EducationCountryMetric) => void;
   scale?: number;
 }) {
-  const worldRef = useRef<Group>(null);
-
-  useFrame((_, delta) => {
-    if (!worldRef.current) return;
-    worldRef.current.rotation.y += delta * 0.07;
-  });
-
   return (
-    <group ref={worldRef} scale={scale}>
+    <group scale={scale}>
       <EarthMesh />
       <CountryOutlines records={records} />
       <CountryShapeExtrusions
         records={records}
         selectedIso3={hoveredIso3}
-        onCountryHover={(record) => {
-          onMetricHover(record);
-          if (record) {
-            onCountrySelect?.(record.iso2 ?? record.iso3);
-          }
-        }}
+        onCountryHover={onMetricHover}
+        onCountryClick={onCountryClick}
       />
     </group>
   );
 }
 
+/* ── main scene ── */
+
 export function GlobeScene({
   className,
   onCountrySelect,
+  selectedIso3 = null,
 }: GlobeSceneProps) {
   const worldScale = 0.84;
   const [hoveredIso3, setHoveredIso3] = useState<string | null>(null);
@@ -68,27 +199,11 @@ export function GlobeScene({
     [typedDataset.records]
   );
 
-  const selectedRecord = useMemo(
-    () => records.find((record) => record.iso3 === hoveredIso3) ?? null,
-    [records, hoveredIso3]
-  );
-
-  const globalSummary = useMemo(() => {
-    const heatValues = records
-      .map((record) => record.heatScore)
-      .filter((value): value is number => typeof value === 'number');
-    const extrusionValues = records
-      .map((record) => record.extrusionScore)
-      .filter((value): value is number => typeof value === 'number');
-
-    const average = (values: number[]) =>
-      values.length ? values.reduce((sum, value) => sum + value, 0) / values.length : null;
-
-    return {
-      averageHeat: average(heatValues),
-      averageExtrusion: average(extrusionValues),
-    };
-  }, [records]
+  const handleCountryClick = useCallback(
+    (record: EducationCountryMetric) => {
+      onCountrySelect?.(record);
+    },
+    [onCountrySelect]
   );
 
   return (
@@ -96,7 +211,7 @@ export function GlobeScene({
       className={`relative min-h-[520px] overflow-hidden rounded-xl border border-white/10 bg-black ${className ?? ''}`}
     >
       <Canvas
-        camera={{ position: [0, 0, 2.38], fov: 40 }}
+        camera={{ position: [0, 0, WORLD_DISTANCE], fov: 40 }}
         dpr={[1, 1.75]}
         gl={{ antialias: true, alpha: true, powerPreference: 'high-performance' }}
       >
@@ -105,26 +220,18 @@ export function GlobeScene({
         <Suspense fallback={null}>
           <GlobeLights />
           <Stars radius={120} depth={60} count={1100} factor={2.2} saturation={0} fade speed={0.12} />
-          <RotatingWorld
+          <CameraController targetIso3={selectedIso3} worldScale={worldScale} />
+          <StaticWorld
             records={records}
-            hoveredIso3={hoveredIso3}
+            hoveredIso3={hoveredIso3 ?? selectedIso3}
             onMetricHover={(record) => setHoveredIso3(record?.iso3 ?? null)}
-            onCountrySelect={onCountrySelect}
+            onCountryClick={handleCountryClick}
             scale={worldScale}
-          />
-          <OrbitControls
-            enablePan={false}
-            minDistance={1.85}
-            maxDistance={2.95}
-            rotateSpeed={0.32}
-            minPolarAngle={Math.PI * 0.28}
-            maxPolarAngle={Math.PI * 0.72}
           />
         </Suspense>
       </Canvas>
 
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_52%,rgba(0,0,0,0.58)_100%)]" />
-
     </div>
   );
 }

@@ -16,6 +16,7 @@ interface CountryShapeExtrusionsProps {
   records: EducationCountryMetric[];
   selectedIso3?: string | null;
   onCountryHover?: (record: EducationCountryMetric | null) => void;
+  onCountryClick?: (record: EducationCountryMetric) => void;
 }
 
 type GeoJsonFeature = {
@@ -127,6 +128,7 @@ export function CountryShapeExtrusions({
   records,
   selectedIso3,
   onCountryHover,
+  onCountryClick,
 }: CountryShapeExtrusionsProps) {
   useCursor(Boolean(selectedIso3), 'pointer', 'auto');
 
@@ -198,6 +200,10 @@ export function CountryShapeExtrusions({
           <mesh
             key={mesh.key}
             geometry={mesh.geometry}
+            onClick={(event) => {
+              event.stopPropagation();
+              onCountryClick?.(mesh.record);
+            }}
             onPointerOver={(event) => {
               event.stopPropagation();
               onCountryHover?.(mesh.record);
