@@ -1,0 +1,50 @@
+import abSchoolRankings from '@/lib/data/ab-school-rankings.json';
+import bcSchoolRankings from '@/lib/data/bc-school-rankings.json';
+import nbSchoolRankings from '@/lib/data/nb-school-rankings.json';
+import qcSchoolRankings from '@/lib/data/qc-school-rankings.json';
+
+export interface AnalyzerSchoolOption {
+  id: string;
+  schoolName: string;
+  city: string;
+  province: string;
+}
+
+function pickSchools(source: unknown): AnalyzerSchoolOption[] {
+  const raw = source as { schools?: unknown[] };
+  if (!Array.isArray(raw.schools)) return [];
+
+  return raw.schools
+    .map((entry) => {
+      const school = entry as {
+        id?: unknown;
+        schoolName?: unknown;
+        city?: unknown;
+        province?: unknown;
+      };
+
+      if (
+        typeof school.id !== 'string' ||
+        typeof school.schoolName !== 'string' ||
+        typeof school.city !== 'string' ||
+        typeof school.province !== 'string'
+      ) {
+        return null;
+      }
+
+      return {
+        id: school.id,
+        schoolName: school.schoolName,
+        city: school.city,
+        province: school.province,
+      } satisfies AnalyzerSchoolOption;
+    })
+    .filter((school): school is AnalyzerSchoolOption => school !== null);
+}
+
+export const ANALYZER_SCHOOL_OPTIONS: AnalyzerSchoolOption[] = [
+  ...pickSchools(abSchoolRankings),
+  ...pickSchools(bcSchoolRankings),
+  ...pickSchools(nbSchoolRankings),
+  ...pickSchools(qcSchoolRankings),
+];

@@ -1,7 +1,8 @@
 'use client';
 
-import { useState, useRef, useCallback } from 'react';
+import { useState, useRef, useCallback, useMemo } from 'react';
 import { motion } from 'framer-motion';
+import { ANALYZER_SCHOOL_OPTIONS, type AnalyzerSchoolOption } from '@/lib/all-schools';
 
 interface AnalysisResult {
   estimatedDifficulty: number;
@@ -24,16 +25,33 @@ function fileToBase64(file: File): Promise<string> {
 }
 
 export function TestAnalyzerForm({ onResult }: { onResult: (res: AnalysisResult) => void }) {
-  const [subject, setSubject] = useState('math');
   const [province, setProvince] = useState('BC');
   const [classAverage, setClassAverage] = useState('85');
-  const [timeLimit, setTimeLimit] = useState('');
+  const [schoolSearch, setSchoolSearch] = useState('');
+  const [selectedSchool, setSelectedSchool] = useState<AnalyzerSchoolOption | null>(null);
+  const [showSchoolDropdown, setShowSchoolDropdown] = useState(false);
   const [testContent, setTestContent] = useState('');
   const [pdfFile, setPdfFile] = useState<File | null>(null);
   const [isDragOver, setIsDragOver] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
   const fileInputRef = useRef<HTMLInputElement>(null);
+
+  const filteredSchools = useMemo(() => {
+    const q = schoolSearch.trim().toLowerCase();
+
+    if (!q) {
+      return ANALYZER_SCHOOL_OPTIONS.filter((school) => school.province === province).slice(0, 10);
+    }
+
+    return ANALYZER_SCHOOL_OPTIONS.filter((school) => {
+      return (
+        school.schoolName.toLowerCase().includes(q) ||
+        school.city.toLowerCase().includes(q) ||
+        school.province.toLowerCase().includes(q)
+      );
+    }).slice(0, 10);
+  }, [province, schoolSearch]);
 
   const handleFile = useCallback((file: File) => {
     if (file.type !== 'application/pdf') {
@@ -80,10 +98,17 @@ export function TestAnalyzerForm({ onResult }: { onResult: (res: AnalysisResult)
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          subject,
+          subject: 'general',
           province,
           classAverage: parseFloat(classAverage),
-          timeLimit: timeLimit ? parseFloat(timeLimit) : undefined,
+          school: selectedSchool
+            ? {
+                id: selectedSchool.id,
+                name: selectedSchool.schoolName,
+                city: selectedSchool.city,
+                province: selectedSchool.province,
+              }
+            : schoolSearch.trim() || undefined,
           testContent: testContent.trim() || undefined,
           pdfData,
         }),
@@ -108,43 +133,75 @@ export function TestAnalyzerForm({ onResult }: { onResult: (res: AnalysisResult)
       onSubmit={handleSubmit}
       initial={{ opacity: 0, y: 10 }}
       animate={{ opacity: 1, y: 0 }}
-      className="space-y-6 rounded-2xl border border-slate-800 bg-slate-950/80 p-6 backdrop-blur-md"
+      className="space-y-4 rounded-2xl border border-slate-800 bg-slate-950/80 p-4 backdrop-blur-md"
     >
-      <div className="space-y-4">
-        <h3 className="text-xl font-medium text-slate-100 mb-2">Evaluate Test Difficulty</h3>
+      <div className="space-y-3">
+        <h3 className="mb-1 text-xl font-medium text-slate-100">Evaluate Test Difficulty</h3>
 
-        <div className="grid grid-cols-2 gap-4">
-          <div className="space-y-2">
-            <label className="text-sm font-medium text-slate-300">Subject</label>
-            <select
-              value={subject}
-              onChange={(e) => setSubject(e.target.value)}
+        <div className="space-y-2">
+          <label className="text-sm font-medium text-slate-300">School (Search + Select)</label>
+          <div className="relative">
+            <input
+              type="text"
+              value={schoolSearch}
+              onChange={(e) => {
+                setSchoolSearch(e.target.value);
+                setSelectedSchool(null);
+                setShowSchoolDropdown(true);
+              }}
+              onFocus={() => setShowSchoolDropdown(true)}
+              onBlur={() => {
+                window.setTimeout(() => setShowSchoolDropdown(false), 120);
+              }}
+              placeholder="Type school name, city, or province..."
               className="w-full rounded-lg border border-slate-700 bg-slate-900 px-4 py-2.5 text-sm text-slate-200 outline-none focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 transition-all"
-            >
-              <option value="math">Mathematics</option>
-              <option value="physics">Physics</option>
-              <option value="english">English Literature</option>
-              <option value="chemistry">Chemistry</option>
-              <option value="biology">Biology</option>
-            </select>
+            />
+            {showSchoolDropdown && filteredSchools.length > 0 && (
+              <ul className="absolute z-50 mt-1 max-h-56 w-full overflow-y-auto rounded-lg border border-slate-700 bg-slate-900 shadow-xl">
+                {filteredSchools.map((school) => (
+                  <li
+                    key={school.id}
+                    onMouseDown={() => {
+                      setSelectedSchool(school);
+                      setSchoolSearch(school.schoolName);
+                      setProvince(school.province);
+                      setShowSchoolDropdown(false);
+                    }}
+                    className="flex cursor-pointer items-center justify-between px-4 py-2.5 text-sm transition-colors hover:bg-slate-800"
+                  >
+                    <span className="font-medium text-slate-200">{school.schoolName}</span>
+                    <span className="ml-2 text-xs text-slate-500">{school.city}, {school.province}</span>
+                  </li>
+                ))}
+              </ul>
+            )}
+            {showSchoolDropdown && schoolSearch.trim().length > 0 && filteredSchools.length === 0 && (
+              <div className="absolute z-50 mt-1 w-full rounded-lg border border-slate-700 bg-slate-900 px-4 py-3 text-sm text-slate-400 shadow-xl">
+                No schools found.
+              </div>
+            )}
           </div>
+          {selectedSchool && (
+            <p className="text-xs text-emerald-400">
+              Selected: {selectedSchool.schoolName} ({selectedSchool.city}, {selectedSchool.province})
+            </p>
+          )}
+        </div>
 
-          <div className="space-y-2">
-            <label className="text-sm font-medium text-slate-300">Class Average (%)</label>
-            <div className="relative">
-              <input
-                type="number"
-                value={classAverage}
-                onChange={(e) => setClassAverage(e.target.value)}
-                min="0" max="100" step="0.1" required
-                className="w-full rounded-lg border border-slate-700 bg-slate-900 px-4 py-2.5 text-sm text-slate-200 outline-none focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 transition-all"
-              />
-              <span className="absolute right-4 top-1/2 -translate-y-1/2 text-slate-500">%</span>
-            </div>
+        <div className="space-y-2">
+          <label className="text-sm font-medium text-slate-300">Class Average (%)</label>
+          <div className="relative">
+            <input
+              type="number"
+              value={classAverage}
+              onChange={(e) => setClassAverage(e.target.value)}
+              min="0" max="100" step="0.1" required
+              className="w-full rounded-lg border border-slate-700 bg-slate-900 px-4 py-2.5 text-sm text-slate-200 outline-none focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 transition-all"
+            />
+            <span className="absolute right-4 top-1/2 -translate-y-1/2 text-slate-500">%</span>
           </div>
         </div>
 
-        {/* Province selector */}
         <div className="space-y-2">
           <label className="text-sm font-medium text-slate-300">Province / Territory</label>
           <select
@@ -168,31 +225,14 @@ export function TestAnalyzerForm({ onResult }: { onResult: (res: AnalysisResult)
           </select>
         </div>
 
-        {/* Test conditions */}
-        <div className="space-y-2">
-          <label className="text-sm font-medium text-slate-300">Time Limit</label>
-          <div className="relative">
-            <input
-              type="number"
-              value={timeLimit}
-              onChange={(e) => setTimeLimit(e.target.value)}
-              placeholder="e.g. 75"
-              min="1"
-              className="w-full rounded-lg border border-slate-700 bg-slate-900 px-3 py-2.5 text-sm text-slate-200 outline-none focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 transition-all pr-10"
-            />
-            <span className="absolute right-3 top-1/2 -translate-y-1/2 text-xs text-slate-500">min</span>
-          </div>
-        </div>
-
-        {/* PDF Drop Zone */}
-        <div className="space-y-2 pt-2">
+        <div className="space-y-2 pt-1">
           <label className="text-sm font-medium text-slate-300">Upload Test PDF</label>
           <div
             onDrop={handleDrop}
             onDragOver={handleDragOver}
             onDragLeave={handleDragLeave}
             onClick={() => fileInputRef.current?.click()}
-            className={`flex cursor-pointer flex-col items-center justify-center gap-2 rounded-lg border-2 border-dashed px-4 py-6 text-center transition-all ${
+            className={`flex cursor-pointer flex-col items-center justify-center gap-2 rounded-lg border-2 border-dashed px-4 py-5 text-center transition-all ${
               isDragOver
                 ? 'border-emerald-500 bg-emerald-500/10'
                 : pdfFile
@@ -237,7 +277,6 @@ export function TestAnalyzerForm({ onResult }: { onResult: (res: AnalysisResult)
           </div>
         </div>
 
-        {/* Optional text area */}
         <div className="space-y-2">
           <label className="text-sm font-medium flex justify-between text-slate-300">
             <span>Additional Notes</span>
@@ -247,7 +286,7 @@ export function TestAnalyzerForm({ onResult }: { onResult: (res: AnalysisResult)
             value={testContent}
             onChange={(e) => setTestContent(e.target.value)}
             placeholder="E.g., 1. Calculate the derivative of f(x) = x^2 * sin(x)..."
-            className="h-28 w-full resize-none rounded-lg border border-slate-700 bg-slate-900 px-4 py-3 text-sm text-slate-200 outline-none focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 transition-all"
+            className="h-24 w-full resize-none rounded-lg border border-slate-700 bg-slate-900 px-4 py-3 text-sm text-slate-200 outline-none focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 transition-all"
           />
         </div>
       </div>
