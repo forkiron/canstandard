@@ -100,7 +100,9 @@ function CameraController({
   const { camera } = useThree();
   const controlsRef = useRef<OrbitControlsImpl>(null);
   const targetPos = useRef(new Vector3());
+  const targetPoint = useRef(new Vector3(0, 0, 0));
   const isAnimating = useRef(false);
+  const [isAnimatingState, setIsAnimatingState] = useState(false);
 
   useEffect(() => {
     if (targetIso3) {
@@ -108,16 +110,21 @@ function CameraController({
       if (geo) {
         const dist = zoomDistanceForExtent(geo.angularExtent, worldScale);
         const [cx, cy, cz] = latLonToCartesian(geo.centroidLat, geo.centroidLon, 1);
-        const dir = new Vector3(cx, cy, cz).normalize();
+        const centroid = new Vector3(cx, cy, cz);
+
+        // Focus the camera on the country centroid (not the globe origin)
+        targetPoint.current.copy(centroid);
+        const dir = centroid.clone().normalize();
         targetPos.current.copy(dir.multiplyScalar(dist));
         isAnimating.current = true;
+        setIsAnimatingState(true);
       }
     } else {
-      // Zoom back out — keep current direction
-      targetPos.current.copy(
-        camera.position.clone().normalize().multiplyScalar(WORLD_DISTANCE)
-      );
+      // Zoom back out — reset to the default world view camera position
+      targetPoint.current.set(0, 0, 0);
+      targetPos.current.set(0, 0, WORLD_DISTANCE);
       isAnimating.current = true;
+      setIsAnimatingState(true);
     }
   }, [targetIso3, camera, worldScale]);
 
@@ -126,27 +133,39 @@ function CameraController({
 
     const alpha = 1 - Math.exp(-LERP_SPEED * delta);
     camera.position.lerp(targetPos.current, alpha);
-    camera.lookAt(0, 0, 0);
+    camera.lookAt(targetPoint.current);
 
-    // Keep OrbitControls target at origin
+    // Keep OrbitControls targeting the current focus point
     if (controlsRef.current) {
-      controlsRef.current.target.set(0, 0, 0);
+      controlsRef.current.target.copy(targetPoint.current);
+      controlsRef.current.update();
     }
 
-    if (camera.position.distanceTo(targetPos.current) < 0.003) {
+    if (camera.position.distanceTo(targetPos.current) < 0.01) {
       camera.position.copy(targetPos.current);
+      camera.lookAt(targetPoint.current);
+      if (controlsRef.current) {
+        controlsRef.current.target.copy(targetPoint.current);
+        controlsRef.current.update();
+      }
       isAnimating.current = false;
+      setIsAnimatingState(false);
     }
   });
 
+  // Keying the controls ensures internal OrbitControls state resets when we change
+  // from a focused country view back to the global auto-rotating view.
   return (
     <OrbitControls
+      key={targetIso3 ?? 'world'}
       ref={controlsRef}
       enablePan={false}
-      autoRotate={targetIso3 === null}
+      autoRotate={targetIso3 === null && !isAnimatingState}
       autoRotateSpeed={0.8}
-      minDistance={1.2}
-      maxDistance={2.95}
+      // Allow deep zoom into countries (controls enforce minDistance)
+      minDistance={0.12}
+      // Allow zooming out further for a good globe view
+      maxDistance={6}
       rotateSpeed={0.42}
       minPolarAngle={Math.PI * 0.1}
       maxPolarAngle={Math.PI * 0.9}
