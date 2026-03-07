@@ -11,11 +11,14 @@ const PROVINCE_NAMES: Record<string, string> = {
 export async function POST(request: Request) {
   try {
     const body = await request.json();
-    const { testContent, classAverage, subject, pdfData, province, timeLimit } = body;
+    const { testContent, classAverage, subject, pdfData, province, timeLimit, school } = body;
+    const resolvedSubject = typeof subject === 'string' && subject.trim().length > 0
+      ? subject.trim()
+      : 'general high school';
 
-    if (!classAverage || !subject || (!testContent && !pdfData)) {
+    if (classAverage == null || (!testContent && !pdfData)) {
       return NextResponse.json(
-        { error: 'Missing required fields: subject, classAverage, and either testContent or pdfData' },
+        { error: 'Missing required fields: classAverage and either testContent or pdfData' },
         { status: 400 }
       );
     }
@@ -31,13 +34,19 @@ export async function POST(request: Request) {
     const ai = new GoogleGenAI({ apiKey });
 
     const provinceName = province ? (PROVINCE_NAMES[province] ?? province) : 'Unknown';
+    const schoolContext = typeof school === 'string'
+      ? school
+      : school && typeof school === 'object'
+        ? `${school.name ?? 'Unknown School'} (${school.city ?? 'Unknown City'}, ${school.province ?? 'Unknown Province'})`
+        : '';
 
     const instructionText = `
 You are an expert Canadian educational evaluator specializing in high school curriculum standards across Canadian provinces and territories.
 
-SUBJECT: ${subject}
+SUBJECT: ${resolvedSubject}
 PROVINCE / TERRITORY: ${provinceName}
 CLASS AVERAGE SCORE: ${classAverage}%
+${schoolContext ? `TARGET SCHOOL CONTEXT: ${schoolContext}` : ''}
 ${timeLimit ? `TIME LIMIT: ${timeLimit} minutes — use the question count you detect to compute and comment on time pressure per question.` : ''}
 ${testContent ? `\nADDITIONAL CONTEXT:\n"""\n${testContent}\n"""` : ''}
 

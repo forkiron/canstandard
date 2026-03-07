@@ -2,7 +2,7 @@
 
 import { useState, useMemo } from 'react';
 import { motion } from 'framer-motion';
-import bcSchoolDataset from '../../lib/data/bc-school-rankings.json';
+import { ANALYZER_SCHOOL_OPTIONS, type AnalyzerSchoolOption } from '@/lib/all-schools';
 
 interface AnalysisResult {
   estimatedDifficulty: number;
@@ -13,18 +13,9 @@ interface AnalysisResult {
   questionCount?: number;
 }
 
-interface School {
-  id: string;
-  schoolName: string;
-  city: string;
-  province: string;
-}
-
-const ALL_SCHOOLS: School[] = (bcSchoolDataset as any).schools as School[];
-
 export function TestAnalyzerResult({ result, onReset }: { result: AnalysisResult, onReset: () => void }) {
   const [schoolSearch, setSchoolSearch] = useState('');
-  const [selectedSchool, setSelectedSchool] = useState<School | null>(null);
+  const [selectedSchool, setSelectedSchool] = useState<AnalyzerSchoolOption | null>(null);
   const [saveStatus, setSaveStatus] = useState<'idle' | 'saving' | 'saved' | 'error'>('idle');
   const [showDropdown, setShowDropdown] = useState(false);
 
@@ -48,12 +39,12 @@ export function TestAnalyzerResult({ result, onReset }: { result: AnalysisResult
   const filteredSchools = useMemo(() => {
     if (!schoolSearch.trim()) return [];
     const q = schoolSearch.toLowerCase();
-    return ALL_SCHOOLS.filter(s =>
+    return ANALYZER_SCHOOL_OPTIONS.filter(s =>
       s.schoolName.toLowerCase().includes(q) || s.city.toLowerCase().includes(q)
     ).slice(0, 8);
   }, [schoolSearch]);
 
-  const handleSelectSchool = (school: School) => {
+  const handleSelectSchool = (school: AnalyzerSchoolOption) => {
     setSelectedSchool(school);
     setSchoolSearch(school.schoolName);
     setShowDropdown(false);

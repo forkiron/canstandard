@@ -59,7 +59,7 @@ export function AnalyzerOverlay() {
               animate={{ x: 0, opacity: 1 }}
               exit={{ x: 520, opacity: 0 }}
               transition={{ duration: 0.3, ease: 'easeOut' }}
-              className="fixed right-2 top-1/2 z-[80] max-h-[88vh] w-[min(36rem,calc(100vw-1rem))] -translate-y-1/2 overflow-y-auto rounded-2xl border border-white/10 bg-[#05070de8] p-3 shadow-2xl backdrop-blur-xl sm:right-4 sm:w-[min(38rem,calc(100vw-2rem))] sm:p-4"
+              className="fixed inset-y-2 right-2 z-[80] w-[min(36rem,calc(100vw-1rem))] overflow-y-auto rounded-2xl border border-white/10 bg-[#05070de8] p-3 shadow-2xl backdrop-blur-xl sm:inset-y-4 sm:right-4 sm:w-[min(38rem,calc(100vw-2rem))] sm:p-4"
             >
               <div className="mb-4 flex items-start justify-between gap-4">
                 <div>

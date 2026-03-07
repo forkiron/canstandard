@@ -1,7 +1,8 @@
 'use client';
 
-import { useState, useRef, useCallback } from 'react';
+import { useState, useRef, useCallback, useMemo } from 'react';
 import { motion } from 'framer-motion';
+import { ANALYZER_SCHOOL_OPTIONS, type AnalyzerSchoolOption } from '@/lib/all-schools';
 
 interface AnalysisResult {
   estimatedDifficulty: number;
@@ -26,12 +27,31 @@ function fileToBase64(file: File): Promise<string> {
 export function TestAnalyzerForm({ onResult }: { onResult: (res: AnalysisResult) => void }) {
   const [province, setProvince] = useState('BC');
   const [classAverage, setClassAverage] = useState('85');
+  const [schoolSearch, setSchoolSearch] = useState('');
+  const [selectedSchool, setSelectedSchool] = useState<AnalyzerSchoolOption | null>(null);
+  const [showSchoolDropdown, setShowSchoolDropdown] = useState(false);
   const [testContent, setTestContent] = useState('');
   const [pdfFile, setPdfFile] = useState<File | null>(null);
   const [isDragOver, setIsDragOver] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
   const fileInputRef = useRef<HTMLInputElement>(null);
+
+  const filteredSchools = useMemo(() => {
+    const q = schoolSearch.trim().toLowerCase();
+
+    if (!q) {
+      return ANALYZER_SCHOOL_OPTIONS.filter((school) => school.province === province).slice(0, 10);
+    }
+
+    return ANALYZER_SCHOOL_OPTIONS.filter((school) => {
+      return (
+        school.schoolName.toLowerCase().includes(q) ||
+        school.city.toLowerCase().includes(q) ||
+        school.province.toLowerCase().includes(q)
+      );
+    }).slice(0, 10);
+  }, [province, schoolSearch]);
 
   const handleFile = useCallback((file: File) => {
     if (file.type !== 'application/pdf') {
@@ -81,6 +101,14 @@ export function TestAnalyzerForm({ onResult }: { onResult: (res: AnalysisResult)
           subject: 'general',
           province,
           classAverage: parseFloat(classAverage),
+          school: selectedSchool
+            ? {
+                id: selectedSchool.id,
+                name: selectedSchool.schoolName,
+                city: selectedSchool.city,
+                province: selectedSchool.province,
+              }
+            : schoolSearch.trim() || undefined,
           testContent: testContent.trim() || undefined,
           pdfData,
         }),
@@ -109,6 +137,56 @@ export function TestAnalyzerForm({ onResult }: { onResult: (res: AnalysisResult)
     >
       <div className="space-y-3">
         <h3 className="mb-1 text-xl font-medium text-slate-100">Evaluate Test Difficulty</h3>
+
+        <div className="space-y-2">
+          <label className="text-sm font-medium text-slate-300">School (Search + Select)</label>
+          <div className="relative">
+            <input
+              type="text"
+              value={schoolSearch}
+              onChange={(e) => {
+                setSchoolSearch(e.target.value);
+                setSelectedSchool(null);
+                setShowSchoolDropdown(true);
+              }}
+              onFocus={() => setShowSchoolDropdown(true)}
+              onBlur={() => {
+                window.setTimeout(() => setShowSchoolDropdown(false), 120);
+              }}
+              placeholder="Type school name, city, or province..."
+              className="w-full rounded-lg border border-slate-700 bg-slate-900 px-4 py-2.5 text-sm text-slate-200 outline-none focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 transition-all"
+            />
+            {showSchoolDropdown && filteredSchools.length > 0 && (
+              <ul className="absolute z-50 mt-1 max-h-56 w-full overflow-y-auto rounded-lg border border-slate-700 bg-slate-900 shadow-xl">
+                {filteredSchools.map((school) => (
+                  <li
+                    key={school.id}
+                    onMouseDown={() => {
+                      setSelectedSchool(school);
+                      setSchoolSearch(school.schoolName);
+                      setProvince(school.province);
+                      setShowSchoolDropdown(false);
+                    }}
+                    className="flex cursor-pointer items-center justify-between px-4 py-2.5 text-sm transition-colors hover:bg-slate-800"
+                  >
+                    <span className="font-medium text-slate-200">{school.schoolName}</span>
+                    <span className="ml-2 text-xs text-slate-500">{school.city}, {school.province}</span>
+                  </li>
+                ))}
+              </ul>
+            )}
+            {showSchoolDropdown && schoolSearch.trim().length > 0 && filteredSchools.length === 0 && (
+              <div className="absolute z-50 mt-1 w-full rounded-lg border border-slate-700 bg-slate-900 px-4 py-3 text-sm text-slate-400 shadow-xl">
+                No schools found.
+              </div>
+            )}
+          </div>
+          {selectedSchool && (
+            <p className="text-xs text-emerald-400">
+              Selected: {selectedSchool.schoolName} ({selectedSchool.city}, {selectedSchool.province})
+            </p>
+          )}
+        </div>
 
         <div className="space-y-2">
           <label className="text-sm font-medium text-slate-300">Class Average (%)</label>
