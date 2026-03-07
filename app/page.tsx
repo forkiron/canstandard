@@ -33,6 +33,14 @@ export default function LandingPage() {
           onCanadaSelect={handleCanadaSelect}
         />
       </motion.div>
+
+      <button
+        type="button"
+        onClick={handleCanadaSelect}
+        className="absolute top-6 right-6 z-10 rounded-md border border-slate-700 bg-slate-950/70 px-3 py-2 text-xs font-medium text-slate-200 hover:bg-slate-800 transition-colors"
+      >
+        View Canada →
+      </button>
     </main>
   );
 }
