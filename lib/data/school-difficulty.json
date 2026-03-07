@@ -1,110 +1,1302 @@
 [
   {
-    "id": "school-toronto-west",
-    "name": "Toronto West Collegiate",
+    "id": "northern-secondary",
+    "name": "Northern Secondary School",
     "city": "Toronto",
     "provinceSlug": "on",
-    "latitude": 43.6532,
-    "longitude": -79.3832,
-    "difficulty": { "math": 7.8, "physics": 8.2, "english": 6.9 }
+    "latitude": 43.7227,
+    "longitude": -79.4244,
+    "difficulty": {
+      "math": 7.9,
+      "physics": 7.7,
+      "english": 7.3
+    }
   },
   {
-    "id": "school-vancouver-central",
-    "name": "Vancouver Central Secondary",
-    "city": "Vancouver",
-    "provinceSlug": "bc",
-    "latitude": 49.2827,
-    "longitude": -123.1207,
-    "difficulty": { "math": 7.1, "physics": 6.8, "english": 7.4 }
+    "id": "western-technical-commercial",
+    "name": "Western Technical-Commercial School",
+    "city": "Toronto",
+    "provinceSlug": "on",
+    "latitude": 43.6713,
+    "longitude": -79.4036,
+    "difficulty": {
+      "math": 7.2,
+      "physics": 7,
+      "english": 7.1
+    }
   },
   {
-    "id": "school-calgary-north",
-    "name": "Calgary North High",
-    "city": "Calgary",
-    "provinceSlug": "ab",
-    "latitude": 51.0447,
-    "longitude": -114.0719,
-    "difficulty": { "math": 6.4, "physics": 6.7, "english": 5.9 }
+    "id": "earl-haig-secondary",
+    "name": "Earl Haig Secondary School",
+    "city": "Toronto",
+    "provinceSlug": "on",
+    "latitude": 43.747,
+    "longitude": -79.3723,
+    "difficulty": {
+      "math": 8.2,
+      "physics": 7.9,
+      "english": 8
+    }
   },
   {
-    "id": "school-montreal-est",
-    "name": "Montreal Est Academique",
-    "city": "Montreal",
-    "provinceSlug": "qc",
-    "latitude": 45.5017,
-    "longitude": -73.5673,
-    "difficulty": { "math": 8.5, "physics": 8.0, "english": 7.2 }
+    "id": "leaside-high",
+    "name": "Leaside High School",
+    "city": "Toronto",
+    "provinceSlug": "on",
+    "latitude": 43.7096,
+    "longitude": -79.3665,
+    "difficulty": {
+      "math": 7.6,
+      "physics": 7.4,
+      "english": 7.5
+    }
   },
   {
-    "id": "school-halifax-south",
-    "name": "Halifax South Secondary",
-    "city": "Halifax",
-    "provinceSlug": "ns",
-    "latitude": 44.6488,
-    "longitude": -63.5752,
-    "difficulty": { "math": 5.9, "physics": 5.5, "english": 6.3 }
+    "id": "runnymede-collegiate",
+    "name": "Runnymede Collegiate Institute",
+    "city": "Toronto",
+    "provinceSlug": "on",
+    "latitude": 43.6527,
+    "longitude": -79.458,
+    "difficulty": {
+      "math": 7.3,
+      "physics": 7.1,
+      "english": 7
+    }
   },
   {
-    "id": "school-regina-central",
-    "name": "Regina Central Collegiate",
-    "city": "Regina",
-    "provinceSlug": "sk",
-    "latitude": 50.4452,
-    "longitude": -104.6189,
-    "difficulty": { "math": 6.8, "physics": 6.1, "english": 6.0 }
+    "id": "don-mills-collegiate",
+    "name": "Don Mills Collegiate Institute",
+    "city": "Toronto",
+    "provinceSlug": "on",
+    "latitude": 43.7681,
+    "longitude": -79.3318,
+    "difficulty": {
+      "math": 7,
+      "physics": 6.8,
+      "english": 7.1
+    }
   },
   {
-    "id": "school-winnipeg-east",
-    "name": "Winnipeg East High",
-    "city": "Winnipeg",
-    "provinceSlug": "mb",
-    "latitude": 49.8954,
-    "longitude": -97.1385,
-    "difficulty": { "math": 6.2, "physics": 5.8, "english": 6.5 }
+    "id": "birchmount-park-collegiate",
+    "name": "Birchmount Park Collegiate Institute",
+    "city": "Toronto",
+    "provinceSlug": "on",
+    "latitude": 43.7213,
+    "longitude": -79.2789,
+    "difficulty": {
+      "math": 6.8,
+      "physics": 6.6,
+      "english": 6.9
+    }
   },
   {
-    "id": "school-ottawa-north",
-    "name": "Ottawa North Academy",
+    "id": "oakwood-collegiate",
+    "name": "Oakwood Collegiate Institute",
+    "city": "Toronto",
+    "provinceSlug": "on",
+    "latitude": 43.689,
+    "longitude": -79.4447,
+    "difficulty": {
+      "math": 7.1,
+      "physics": 6.9,
+      "english": 7.2
+    }
+  },
+  {
+    "id": "malvern-collegiate",
+    "name": "Malvern Collegiate Institute",
+    "city": "Toronto",
+    "provinceSlug": "on",
+    "latitude": 43.7618,
+    "longitude": -79.2355,
+    "difficulty": {
+      "math": 7.4,
+      "physics": 7.2,
+      "english": 7.3
+    }
+  },
+  {
+    "id": "jarvis-collegiate",
+    "name": "Jarvis Collegiate Institute",
+    "city": "Toronto",
+    "provinceSlug": "on",
+    "latitude": 43.667,
+    "longitude": -79.3783,
+    "difficulty": {
+      "math": 7,
+      "physics": 6.8,
+      "english": 7.2
+    }
+  },
+  {
+    "id": "woburn-collegiate",
+    "name": "Woburn Collegiate Institute",
+    "city": "Toronto",
+    "provinceSlug": "on",
+    "latitude": 43.7911,
+    "longitude": -79.2555,
+    "difficulty": {
+      "math": 6.6,
+      "physics": 6.4,
+      "english": 6.8
+    }
+  },
+  {
+    "id": "etobicoke-school-of-the-arts",
+    "name": "Etobicoke School of the Arts",
+    "city": "Toronto",
+    "provinceSlug": "on",
+    "latitude": 43.6309,
+    "longitude": -79.5359,
+    "difficulty": {
+      "math": 7.3,
+      "physics": 7.1,
+      "english": 7.6
+    }
+  },
+  {
+    "id": "central-technical-school",
+    "name": "Central Technical School",
+    "city": "Toronto",
+    "provinceSlug": "on",
+    "latitude": 43.6557,
+    "longitude": -79.3997,
+    "difficulty": {
+      "math": 7.5,
+      "physics": 7.2,
+      "english": 7.4
+    }
+  },
+  {
+    "id": "central-secondary-hamilton",
+    "name": "Central Secondary School",
+    "city": "Hamilton",
+    "provinceSlug": "on",
+    "latitude": 43.2574,
+    "longitude": -79.8711,
+    "difficulty": {
+      "math": 6.9,
+      "physics": 6.7,
+      "english": 7
+    }
+  },
+  {
+    "id": "westdale-secondary",
+    "name": "Westdale Secondary School",
+    "city": "Hamilton",
+    "provinceSlug": "on",
+    "latitude": 43.2646,
+    "longitude": -79.9318,
+    "difficulty": {
+      "math": 6.8,
+      "physics": 6.6,
+      "english": 6.9
+    }
+  },
+  {
+    "id": "glendale-secondary",
+    "name": "Glendale Secondary School",
+    "city": "Hamilton",
+    "provinceSlug": "on",
+    "latitude": 43.2249,
+    "longitude": -79.9387,
+    "difficulty": {
+      "math": 6.4,
+      "physics": 6.3,
+      "english": 6.5
+    }
+  },
+  {
+    "id": "sir-winston-churchill-st-catharines",
+    "name": "Sir Winston Churchill Secondary School",
+    "city": "St. Catharines",
+    "provinceSlug": "on",
+    "latitude": 43.1652,
+    "longitude": -79.2481,
+    "difficulty": {
+      "math": 6.7,
+      "physics": 6.5,
+      "english": 6.8
+    }
+  },
+  {
+    "id": "glebe-collegiate",
+    "name": "Glebe Collegiate Institute",
     "city": "Ottawa",
     "provinceSlug": "on",
-    "latitude": 45.4215,
-    "longitude": -75.6972,
-    "difficulty": { "math": 8.0, "physics": 7.9, "english": 7.5 }
+    "latitude": 45.4123,
+    "longitude": -75.69,
+    "difficulty": {
+      "math": 7.1,
+      "physics": 7,
+      "english": 7.2
+    }
   },
   {
-    "id": "school-edmonton-west",
-    "name": "Edmonton West Institute",
+    "id": "lisgar-collegiate",
+    "name": "Lisgar Collegiate Institute",
+    "city": "Ottawa",
+    "provinceSlug": "on",
+    "latitude": 45.4207,
+    "longitude": -75.7039,
+    "difficulty": {
+      "math": 8,
+      "physics": 7.8,
+      "english": 8.2
+    }
+  },
+  {
+    "id": "colonel-by-secondary",
+    "name": "Colonel By Secondary School",
+    "city": "Ottawa",
+    "provinceSlug": "on",
+    "latitude": 45.3871,
+    "longitude": -75.6706,
+    "difficulty": {
+      "math": 7.4,
+      "physics": 7.3,
+      "english": 7.5
+    }
+  },
+  {
+    "id": "canterbury-high",
+    "name": "Canterbury High School",
+    "city": "Ottawa",
+    "provinceSlug": "on",
+    "latitude": 45.357,
+    "longitude": -75.7246,
+    "difficulty": {
+      "math": 7.2,
+      "physics": 7,
+      "english": 7.3
+    }
+  },
+  {
+    "id": "nepean-high",
+    "name": "Nepean High School",
+    "city": "Ottawa",
+    "provinceSlug": "on",
+    "latitude": 45.3543,
+    "longitude": -75.7478,
+    "difficulty": {
+      "math": 6.9,
+      "physics": 6.8,
+      "english": 7
+    }
+  },
+  {
+    "id": "western-secondary-london",
+    "name": "Western Secondary School",
+    "city": "London",
+    "provinceSlug": "on",
+    "latitude": 42.9982,
+    "longitude": -81.2853,
+    "difficulty": {
+      "math": 6.5,
+      "physics": 6.3,
+      "english": 6.7
+    }
+  },
+  {
+    "id": "oakridge-secondary-london",
+    "name": "Oakridge Secondary School",
+    "city": "London",
+    "provinceSlug": "on",
+    "latitude": 43.0009,
+    "longitude": -81.2836,
+    "difficulty": {
+      "math": 6.6,
+      "physics": 6.4,
+      "english": 6.8
+    }
+  },
+  {
+    "id": "western-canada-high",
+    "name": "Western Canada High School",
+    "city": "Calgary",
+    "provinceSlug": "ab",
+    "latitude": 51.05,
+    "longitude": -114.0867,
+    "difficulty": {
+      "math": 8.1,
+      "physics": 7.9,
+      "english": 8
+    }
+  },
+  {
+    "id": "sir-winston-churchill-calgary",
+    "name": "Sir Winston Churchill High School",
+    "city": "Calgary",
+    "provinceSlug": "ab",
+    "latitude": 51.0875,
+    "longitude": -114.177,
+    "difficulty": {
+      "math": 7.8,
+      "physics": 7.6,
+      "english": 7.7
+    }
+  },
+  {
+    "id": "henry-wise-wood",
+    "name": "Henry Wise Wood High School",
+    "city": "Calgary",
+    "provinceSlug": "ab",
+    "latitude": 51.0115,
+    "longitude": -114.0719,
+    "difficulty": {
+      "math": 7,
+      "physics": 7.2,
+      "english": 6.6
+    }
+  },
+  {
+    "id": "ernest-manning-high",
+    "name": "Ernest Manning High School",
+    "city": "Calgary",
+    "provinceSlug": "ab",
+    "latitude": 51.0265,
+    "longitude": -114.0914,
+    "difficulty": {
+      "math": 7.3,
+      "physics": 7.1,
+      "english": 7
+    }
+  },
+  {
+    "id": "lethbridge-collegiate",
+    "name": "Lethbridge Collegiate Institute",
+    "city": "Lethbridge",
+    "provinceSlug": "ab",
+    "latitude": 49.7174,
+    "longitude": -112.8254,
+    "difficulty": {
+      "math": 6.5,
+      "physics": 6.2,
+      "english": 6.7
+    }
+  },
+  {
+    "id": "old-scona-academic",
+    "name": "Old Scona Academic",
     "city": "Edmonton",
     "provinceSlug": "ab",
-    "latitude": 53.5461,
-    "longitude": -113.4938,
-    "difficulty": { "math": 7.3, "physics": 7.0, "english": 6.7 }
+    "latitude": 53.5232,
+    "longitude": -113.5161,
+    "difficulty": {
+      "math": 8.2,
+      "physics": 8,
+      "english": 8.3
+    }
   },
   {
-    "id": "school-saskatoon-central",
-    "name": "Saskatoon Central High",
+    "id": "victoria-school-of-the-arts",
+    "name": "Victoria School of the Arts",
+    "city": "Edmonton",
+    "provinceSlug": "ab",
+    "latitude": 53.5136,
+    "longitude": -113.5206,
+    "difficulty": {
+      "math": 7.8,
+      "physics": 7.6,
+      "english": 8
+    }
+  },
+  {
+    "id": "jasper-place-high",
+    "name": "Jasper Place High School",
+    "city": "Edmonton",
+    "provinceSlug": "ab",
+    "latitude": 53.5074,
+    "longitude": -113.6071,
+    "difficulty": {
+      "math": 6.9,
+      "physics": 6.7,
+      "english": 6.8
+    }
+  },
+  {
+    "id": "strathcona-high",
+    "name": "Strathcona High School",
+    "city": "Edmonton",
+    "provinceSlug": "ab",
+    "latitude": 53.4871,
+    "longitude": -113.4719,
+    "difficulty": {
+      "math": 6.8,
+      "physics": 6.6,
+      "english": 6.7
+    }
+  },
+  {
+    "id": "holy-trinity-catholic",
+    "name": "Holy Trinity Catholic High School",
+    "city": "Edmonton",
+    "provinceSlug": "ab",
+    "latitude": 53.5524,
+    "longitude": -113.5148,
+    "difficulty": {
+      "math": 7.2,
+      "physics": 7,
+      "english": 7.3
+    }
+  },
+  {
+    "id": "kelvin-high",
+    "name": "Kelvin High School",
+    "city": "Winnipeg",
+    "provinceSlug": "mb",
+    "latitude": 49.8818,
+    "longitude": -97.1716,
+    "difficulty": {
+      "math": 6.8,
+      "physics": 6.5,
+      "english": 6.9
+    }
+  },
+  {
+    "id": "st-johns-ravenscourt",
+    "name": "St. John’s-Ravenscourt School",
+    "city": "Winnipeg",
+    "provinceSlug": "mb",
+    "latitude": 49.868,
+    "longitude": -97.1709,
+    "difficulty": {
+      "math": 8,
+      "physics": 7.8,
+      "english": 8.2
+    }
+  },
+  {
+    "id": "river-east-collegiate",
+    "name": "River East Collegiate",
+    "city": "Winnipeg",
+    "provinceSlug": "mb",
+    "latitude": 49.8811,
+    "longitude": -97.048,
+    "difficulty": {
+      "math": 6.4,
+      "physics": 6.2,
+      "english": 6.6
+    }
+  },
+  {
+    "id": "churchill-high",
+    "name": "Churchill High School",
+    "city": "Winnipeg",
+    "provinceSlug": "mb",
+    "latitude": 49.883,
+    "longitude": -97.1101,
+    "difficulty": {
+      "math": 6.2,
+      "physics": 5.9,
+      "english": 6.3
+    }
+  },
+  {
+    "id": "vincent-massey-collegiate",
+    "name": "Vincent Massey Collegiate Institute",
+    "city": "Winnipeg",
+    "provinceSlug": "mb",
+    "latitude": 49.885,
+    "longitude": -97.1492,
+    "difficulty": {
+      "math": 6.6,
+      "physics": 6.3,
+      "english": 6.7
+    }
+  },
+  {
+    "id": "fort-richmond-collegiate",
+    "name": "Fort Richmond Collegiate",
+    "city": "Winnipeg",
+    "provinceSlug": "mb",
+    "latitude": 49.835,
+    "longitude": -97.1636,
+    "difficulty": {
+      "math": 6.3,
+      "physics": 6.1,
+      "english": 6.5
+    }
+  },
+  {
+    "id": "aden-bowman-collegiate",
+    "name": "Aden Bowman Collegiate",
     "city": "Saskatoon",
     "provinceSlug": "sk",
-    "latitude": 52.1332,
-    "longitude": -106.6700,
-    "difficulty": { "math": 6.5, "physics": 5.9, "english": 6.1 }
+    "latitude": 52.1135,
+    "longitude": -106.7204,
+    "difficulty": {
+      "math": 6.9,
+      "physics": 6.7,
+      "english": 6.8
+    }
   },
   {
-    "id": "school-stjohns-east",
-    "name": "St. John's East Secondary",
-    "city": "St. John’s",
-    "provinceSlug": "nl",
-    "latitude": 47.5615,
-    "longitude": -52.7126,
-    "difficulty": { "math": 5.4, "physics": 5.1, "english": 5.8 }
+    "id": "tommy-douglas-collegiate",
+    "name": "Tommy Douglas Collegiate",
+    "city": "Saskatoon",
+    "provinceSlug": "sk",
+    "latitude": 52.1253,
+    "longitude": -106.663,
+    "difficulty": {
+      "math": 6.7,
+      "physics": 6.5,
+      "english": 6.6
+    }
   },
   {
-    "id": "school-queens-park",
-    "name": "Queen’s Park High",
+    "id": "luther-college-high",
+    "name": "Luther College High School",
+    "city": "Regina",
+    "provinceSlug": "sk",
+    "latitude": 50.4317,
+    "longitude": -104.5826,
+    "difficulty": {
+      "math": 7.3,
+      "physics": 7.1,
+      "english": 7.2
+    }
+  },
+  {
+    "id": "campbell-collegiate",
+    "name": "Campbell Collegiate",
+    "city": "Regina",
+    "provinceSlug": "sk",
+    "latitude": 50.4248,
+    "longitude": -104.607,
+    "difficulty": {
+      "math": 6.8,
+      "physics": 6.5,
+      "english": 6.7
+    }
+  },
+  {
+    "id": "riffel-high",
+    "name": "Riffel High School",
+    "city": "Regina",
+    "provinceSlug": "sk",
+    "latitude": 50.4233,
+    "longitude": -104.576,
+    "difficulty": {
+      "math": 6.5,
+      "physics": 6.3,
+      "english": 6.6
+    }
+  },
+  {
+    "id": "westmount-high",
+    "name": "Westmount High School",
+    "city": "Montreal",
+    "provinceSlug": "qc",
+    "latitude": 45.4841,
+    "longitude": -73.6117,
+    "difficulty": {
+      "math": 7.2,
+      "physics": 7,
+      "english": 7.4
+    }
+  },
+  {
+    "id": "royal-vale-school",
+    "name": "Royal Vale School",
+    "city": "Montreal",
+    "provinceSlug": "qc",
+    "latitude": 45.4785,
+    "longitude": -73.6213,
+    "difficulty": {
+      "math": 7.5,
+      "physics": 7.2,
+      "english": 7.7
+    }
+  },
+  {
+    "id": "beaconsfield-high",
+    "name": "Beaconsfield High School",
+    "city": "Beaconsfield",
+    "provinceSlug": "qc",
+    "latitude": 45.4497,
+    "longitude": -73.9037,
+    "difficulty": {
+      "math": 7,
+      "physics": 6.8,
+      "english": 7.1
+    }
+  },
+  {
+    "id": "lindsay-place-high",
+    "name": "Lindsay Place High School",
+    "city": "Pointe-Claire",
+    "provinceSlug": "qc",
+    "latitude": 45.4502,
+    "longitude": -73.8285,
+    "difficulty": {
+      "math": 6.9,
+      "physics": 6.7,
+      "english": 7
+    }
+  },
+  {
+    "id": "centennial-regional",
+    "name": "Centennial Regional High School",
+    "city": "Greenfield Park",
+    "provinceSlug": "qc",
+    "latitude": 45.4874,
+    "longitude": -73.4503,
+    "difficulty": {
+      "math": 6.6,
+      "physics": 6.4,
+      "english": 6.8
+    }
+  },
+  {
+    "id": "lower-canada-college",
+    "name": "Lower Canada College",
+    "city": "Montreal",
+    "provinceSlug": "qc",
+    "latitude": 45.4955,
+    "longitude": -73.588,
+    "difficulty": {
+      "math": 8.3,
+      "physics": 8.1,
+      "english": 8.5
+    }
+  },
+  {
+    "id": "the-study",
+    "name": "The Study",
+    "city": "Montreal",
+    "provinceSlug": "qc",
+    "latitude": 45.5351,
+    "longitude": -73.6181,
+    "difficulty": {
+      "math": 8,
+      "physics": 7.8,
+      "english": 8.2
+    }
+  },
+  {
+    "id": "citadel-high",
+    "name": "Citadel High School",
+    "city": "Halifax",
+    "provinceSlug": "ns",
+    "latitude": 44.6409,
+    "longitude": -63.5972,
+    "difficulty": {
+      "math": 6.5,
+      "physics": 6.3,
+      "english": 6.7
+    }
+  },
+  {
+    "id": "dartmouth-high",
+    "name": "Dartmouth High School",
+    "city": "Dartmouth",
+    "provinceSlug": "ns",
+    "latitude": 44.6618,
+    "longitude": -63.5671,
+    "difficulty": {
+      "math": 6.2,
+      "physics": 6,
+      "english": 6.4
+    }
+  },
+  {
+    "id": "auburn-drive-high",
+    "name": "Auburn Drive High School",
+    "city": "Dartmouth",
+    "provinceSlug": "ns",
+    "latitude": 44.6494,
+    "longitude": -63.5581,
+    "difficulty": {
+      "math": 6.3,
+      "physics": 6.1,
+      "english": 6.5
+    }
+  },
+  {
+    "id": "maple-grove-education",
+    "name": "Maple Grove Education Centre",
+    "city": "Windsor",
+    "provinceSlug": "ns",
+    "latitude": 44.8927,
+    "longitude": -64.3336,
+    "difficulty": {
+      "math": 5.9,
+      "physics": 5.7,
+      "english": 6
+    }
+  },
+  {
+    "id": "kennebecasis-valley-high",
+    "name": "Kennebecasis Valley High School",
+    "city": "Quispamsis",
+    "provinceSlug": "nb",
+    "latitude": 45.3474,
+    "longitude": -65.9982,
+    "difficulty": {
+      "math": 6.7,
+      "physics": 6.5,
+      "english": 6.8
+    }
+  },
+  {
+    "id": "harbour-view-high",
+    "name": "Harbour View High School",
+    "city": "Saint John",
+    "provinceSlug": "nb",
+    "latitude": 45.306,
+    "longitude": -66.041,
+    "difficulty": {
+      "math": 6.4,
+      "physics": 6.2,
+      "english": 6.6
+    }
+  },
+  {
+    "id": "rothesay-high",
+    "name": "Rothesay High School",
+    "city": "Rothesay",
+    "provinceSlug": "nb",
+    "latitude": 45.3791,
+    "longitude": -65.9401,
+    "difficulty": {
+      "math": 6.8,
+      "physics": 6.6,
+      "english": 6.9
+    }
+  },
+  {
+    "id": "bluefield-high",
+    "name": "Bluefield High School",
+    "city": "Summerside",
+    "provinceSlug": "pe",
+    "latitude": 46.3916,
+    "longitude": -63.7954,
+    "difficulty": {
+      "math": 6.1,
+      "physics": 5.9,
+      "english": 6.2
+    }
+  },
+  {
+    "id": "charlottetown-rural-high",
+    "name": "Charlottetown Rural High School",
     "city": "Charlottetown",
     "provinceSlug": "pe",
-    "latitude": 46.2382,
-    "longitude": -63.1311,
-    "difficulty": { "math": 6.0, "physics": 5.7, "english": 6.2 }
+    "latitude": 46.2537,
+    "longitude": -63.131,
+    "difficulty": {
+      "math": 6.5,
+      "physics": 6.3,
+      "english": 6.6
+    }
+  },
+  {
+    "id": "holy-heart-of-mary",
+    "name": "Holy Heart of Mary High School",
+    "city": "St. John’s",
+    "provinceSlug": "nl",
+    "latitude": 47.5655,
+    "longitude": -52.6957,
+    "difficulty": {
+      "math": 6.4,
+      "physics": 6.2,
+      "english": 6.5
+    }
+  },
+  {
+    "id": "gonzaga-high",
+    "name": "Gonzaga High School",
+    "city": "St. John’s",
+    "provinceSlug": "nl",
+    "latitude": 47.6002,
+    "longitude": -52.7163,
+    "difficulty": {
+      "math": 6.7,
+      "physics": 6.5,
+      "english": 6.8
+    }
+  },
+  {
+    "id": "porter-creek-secondary",
+    "name": "Porter Creek Secondary School",
+    "city": "Whitehorse",
+    "provinceSlug": "yt",
+    "latitude": 60.7317,
+    "longitude": -135.08,
+    "difficulty": {
+      "math": 6.3,
+      "physics": 6.1,
+      "english": 6.4
+    }
+  },
+  {
+    "id": "vanier-catholic-secondary",
+    "name": "Vanier Catholic Secondary School",
+    "city": "Whitehorse",
+    "provinceSlug": "yt",
+    "latitude": 60.7291,
+    "longitude": -135.0694,
+    "difficulty": {
+      "math": 6.4,
+      "physics": 6.2,
+      "english": 6.6
+    }
+  },
+  {
+    "id": "thebacha-composite-high",
+    "name": "Thebacha Composite High School",
+    "city": "Fort Smith",
+    "provinceSlug": "nt",
+    "latitude": 60.0005,
+    "longitude": -111.9391,
+    "difficulty": {
+      "math": 5.9,
+      "physics": 5.7,
+      "english": 6
+    }
+  },
+  {
+    "id": "inuvik-high-school",
+    "name": "Inuvik High School",
+    "city": "Inuvik",
+    "provinceSlug": "nt",
+    "latitude": 68.3496,
+    "longitude": -133.7182,
+    "difficulty": {
+      "math": 5.8,
+      "physics": 5.6,
+      "english": 5.9
+    }
+  },
+  {
+    "id": "inuksuk-high-school",
+    "name": "Inuksuk High School",
+    "city": "Iqaluit",
+    "provinceSlug": "nu",
+    "latitude": 63.7467,
+    "longitude": -68.5164,
+    "difficulty": {
+      "math": 5.6,
+      "physics": 5.4,
+      "english": 5.7
+    }
+  },
+  {
+    "id": "britannia-secondary",
+    "name": "Britannia Secondary School",
+    "city": "Vancouver",
+    "provinceSlug": "bc",
+    "latitude": 49.2642,
+    "longitude": -123.182,
+    "difficulty": {
+      "math": 7.1,
+      "physics": 7,
+      "english": 7.2
+    }
+  },
+  {
+    "id": "lord-byng-secondary",
+    "name": "Lord Byng Secondary School",
+    "city": "Vancouver",
+    "provinceSlug": "bc",
+    "latitude": 49.2637,
+    "longitude": -123.1455,
+    "difficulty": {
+      "math": 7,
+      "physics": 6.9,
+      "english": 7.1
+    }
+  },
+  {
+    "id": "kitsilano-secondary",
+    "name": "Kitsilano Secondary School",
+    "city": "Vancouver",
+    "provinceSlug": "bc",
+    "latitude": 49.263,
+    "longitude": -123.1517,
+    "difficulty": {
+      "math": 7.1,
+      "physics": 7,
+      "english": 7.2
+    }
+  },
+  {
+    "id": "prince-of-wales-secondary",
+    "name": "Prince of Wales Secondary School",
+    "city": "Vancouver",
+    "provinceSlug": "bc",
+    "latitude": 49.2547,
+    "longitude": -123.129,
+    "difficulty": {
+      "math": 7.2,
+      "physics": 7,
+      "english": 7.1
+    }
+  },
+  {
+    "id": "vancouver-technical",
+    "name": "Vancouver Technical Secondary School",
+    "city": "Vancouver",
+    "provinceSlug": "bc",
+    "latitude": 49.262,
+    "longitude": -123.1207,
+    "difficulty": {
+      "math": 7,
+      "physics": 6.9,
+      "english": 7
+    }
+  },
+  {
+    "id": "eric-hamber-secondary",
+    "name": "Eric Hamber Secondary School",
+    "city": "Vancouver",
+    "provinceSlug": "bc",
+    "latitude": 49.2404,
+    "longitude": -123.0695,
+    "difficulty": {
+      "math": 6.9,
+      "physics": 6.7,
+      "english": 7
+    }
+  },
+  {
+    "id": "new-westminster-secondary",
+    "name": "New Westminster Secondary School",
+    "city": "New Westminster",
+    "provinceSlug": "bc",
+    "latitude": 49.2078,
+    "longitude": -122.9144,
+    "difficulty": {
+      "math": 6.8,
+      "physics": 6.6,
+      "english": 6.9
+    }
+  },
+  {
+    "id": "burnaby-central-secondary",
+    "name": "Burnaby Central Secondary School",
+    "city": "Burnaby",
+    "provinceSlug": "bc",
+    "latitude": 49.2663,
+    "longitude": -122.9504,
+    "difficulty": {
+      "math": 6.7,
+      "physics": 6.5,
+      "english": 6.8
+    }
+  },
+  {
+    "id": "oak-bay-high",
+    "name": "Oak Bay High School",
+    "city": "Victoria",
+    "provinceSlug": "bc",
+    "latitude": 48.421,
+    "longitude": -123.3131,
+    "difficulty": {
+      "math": 6.8,
+      "physics": 6.6,
+      "english": 6.9
+    }
+  },
+  {
+    "id": "st-georges-school",
+    "name": "St. George’s School",
+    "city": "Vancouver",
+    "provinceSlug": "bc",
+    "latitude": 49.2541,
+    "longitude": -123.13,
+    "difficulty": {
+      "math": 8.4,
+      "physics": 8.2,
+      "english": 8.5
+    }
+  },
+  {
+    "id": "university-of-toronto-schools",
+    "name": "University of Toronto Schools",
+    "city": "Toronto",
+    "provinceSlug": "on",
+    "latitude": 43.662,
+    "longitude": -79.395,
+    "difficulty": {
+      "math": 8.5,
+      "physics": 8.3,
+      "english": 8.4
+    }
+  },
+  {
+    "id": "st-michaels-choir-school",
+    "name": "St. Michael’s Choir School",
+    "city": "Toronto",
+    "provinceSlug": "on",
+    "latitude": 43.6546,
+    "longitude": -79.3876,
+    "difficulty": {
+      "math": 8,
+      "physics": 7.8,
+      "english": 8.3
+    }
+  },
+  {
+    "id": "humber-collegiate-institute",
+    "name": "Humber Collegiate Institute",
+    "city": "Toronto",
+    "provinceSlug": "on",
+    "latitude": 43.7034,
+    "longitude": -79.4506,
+    "difficulty": {
+      "math": 6.8,
+      "physics": 6.6,
+      "english": 6.9
+    }
+  },
+  {
+    "id": "agincourt-collegiate",
+    "name": "Agincourt Collegiate Institute",
+    "city": "Toronto",
+    "provinceSlug": "on",
+    "latitude": 43.7905,
+    "longitude": -79.2552,
+    "difficulty": {
+      "math": 6.5,
+      "physics": 6.3,
+      "english": 6.7
+    }
+  },
+  {
+    "id": "william-lyon-mackenzie",
+    "name": "William Lyon Mackenzie Collegiate Institute",
+    "city": "Toronto",
+    "provinceSlug": "on",
+    "latitude": 43.7008,
+    "longitude": -79.4301,
+    "difficulty": {
+      "math": 6.9,
+      "physics": 6.7,
+      "english": 7
+    }
+  },
+  {
+    "id": "westview-centennial",
+    "name": "Westview Centennial Secondary School",
+    "city": "Toronto",
+    "provinceSlug": "on",
+    "latitude": 43.7032,
+    "longitude": -79.6193,
+    "difficulty": {
+      "math": 6.6,
+      "physics": 6.4,
+      "english": 6.7
+    }
+  },
+  {
+    "id": "crescent-heights-high",
+    "name": "Crescent Heights High School",
+    "city": "Calgary",
+    "provinceSlug": "ab",
+    "latitude": 51.0488,
+    "longitude": -114.0637,
+    "difficulty": {
+      "math": 7.2,
+      "physics": 7,
+      "english": 7.1
+    }
+  },
+  {
+    "id": "st-marys-high",
+    "name": "St. Mary’s High School",
+    "city": "Calgary",
+    "provinceSlug": "ab",
+    "latitude": 51.0532,
+    "longitude": -114.0643,
+    "difficulty": {
+      "math": 7.1,
+      "physics": 6.9,
+      "english": 7
+    }
+  },
+  {
+    "id": "bowness-high-school",
+    "name": "Bowness High School",
+    "city": "Calgary",
+    "provinceSlug": "ab",
+    "latitude": 51.0795,
+    "longitude": -114.1514,
+    "difficulty": {
+      "math": 6.7,
+      "physics": 6.5,
+      "english": 6.8
+    }
+  },
+  {
+    "id": "bishop-carroll-high",
+    "name": "Bishop Carroll High School",
+    "city": "Calgary",
+    "provinceSlug": "ab",
+    "latitude": 51.0237,
+    "longitude": -114.0765,
+    "difficulty": {
+      "math": 7,
+      "physics": 6.8,
+      "english": 7
+    }
+  },
+  {
+    "id": "sir-charles-tupper-secondary",
+    "name": "Sir Charles Tupper Secondary School",
+    "city": "Vancouver",
+    "provinceSlug": "bc",
+    "latitude": 49.2665,
+    "longitude": -123.0998,
+    "difficulty": {
+      "math": 6.9,
+      "physics": 6.8,
+      "english": 7
+    }
+  },
+  {
+    "id": "prince-of-wales-collegiate",
+    "name": "Prince of Wales Collegiate",
+    "city": "St. John’s",
+    "provinceSlug": "nl",
+    "latitude": 47.5482,
+    "longitude": -52.7238,
+    "difficulty": {
+      "math": 6.5,
+      "physics": 6.3,
+      "english": 6.6
+    }
+  },
+  {
+    "id": "fredericton-high",
+    "name": "Fredericton High School",
+    "city": "Fredericton",
+    "provinceSlug": "nb",
+    "latitude": 45.9454,
+    "longitude": -66.6384,
+    "difficulty": {
+      "math": 6.4,
+      "physics": 6.2,
+      "english": 6.5
+    }
+  },
+  {
+    "id": "saint-john-high",
+    "name": "Saint John High School",
+    "city": "Saint John",
+    "provinceSlug": "nb",
+    "latitude": 45.2666,
+    "longitude": -66.068,
+    "difficulty": {
+      "math": 6.2,
+      "physics": 6,
+      "english": 6.3
+    }
+  },
+  {
+    "id": "halifax-west-high",
+    "name": "Halifax West High School",
+    "city": "Halifax",
+    "provinceSlug": "ns",
+    "latitude": 44.6888,
+    "longitude": -63.622,
+    "difficulty": {
+      "math": 6.4,
+      "physics": 6.2,
+      "english": 6.5
+    }
+  },
+  {
+    "id": "colonel-gray-high",
+    "name": "Colonel Gray High School",
+    "city": "Charlottetown",
+    "provinceSlug": "pe",
+    "latitude": 46.2522,
+    "longitude": -63.119,
+    "difficulty": {
+      "math": 6.3,
+      "physics": 6.1,
+      "english": 6.4
+    }
+  },
+  {
+    "id": "ecole-secondaire-georges-vanier",
+    "name": "École secondaire Georges-Vanier",
+    "city": "Québec City",
+    "provinceSlug": "qc",
+    "latitude": 46.7926,
+    "longitude": -71.2857,
+    "difficulty": {
+      "math": 6.8,
+      "physics": 6.6,
+      "english": 6.9
+    }
+  },
+  {
+    "id": "ecole-de-rochebelle",
+    "name": "École secondaire De Rochebelle",
+    "city": "Québec City",
+    "provinceSlug": "qc",
+    "latitude": 46.8753,
+    "longitude": -71.2561,
+    "difficulty": {
+      "math": 6.5,
+      "physics": 6.4,
+      "english": 6.6
+    }
+  },
+  {
+    "id": "gordon-bell-high",
+    "name": "Gordon Bell High School",
+    "city": "Winnipeg",
+    "provinceSlug": "mb",
+    "latitude": 49.887,
+    "longitude": -97.1324,
+    "difficulty": {
+      "math": 6.2,
+      "physics": 6,
+      "english": 6.3
+    }
+  },
+  {
+    "id": "marion-m-graham-collegiate",
+    "name": "Marion M. Graham Collegiate",
+    "city": "Saskatoon",
+    "provinceSlug": "sk",
+    "latitude": 52.1455,
+    "longitude": -106.654,
+    "difficulty": {
+      "math": 6.8,
+      "physics": 6.6,
+      "english": 6.9
+    }
+  },
+  {
+    "id": "riverview-high",
+    "name": "Riverview High School",
+    "city": "Riverview",
+    "provinceSlug": "nb",
+    "latitude": 45.4873,
+    "longitude": -65.6847,
+    "difficulty": {
+      "math": 6.4,
+      "physics": 6.2,
+      "english": 6.5
+    }
+  },
+  {
+    "id": "john-oliver-secondary",
+    "name": "John Oliver Secondary School",
+    "city": "Vancouver",
+    "provinceSlug": "bc",
+    "latitude": 49.2529,
+    "longitude": -123.1147,
+    "difficulty": {
+      "math": 6.9,
+      "physics": 6.7,
+      "english": 6.9
+    }
   }
 ]
