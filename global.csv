@@ -1,0 +1,203 @@
+"flagCode","country","EducationRankings_PublicEducationSystemScoreUSNews_2024","EducationRankingsWorldTop20_2026"
+"DK","Denmark",100,3
+"SE","Sweden",99.9,15
+"GB","United Kingdom",96.8,16
+"FI","Finland",96.6,8
+"DE","Germany",95.9,7
+"CA","Canada",95.7,19
+"NO","Norway",93.6,9
+"JP","Japan",91,2
+"CH","Switzerland",90.1,28
+"AU","Australia",84.1,17
+"NL","Netherlands",80.7,6
+"US","United States",79.2,31
+"FR","France",77.5,12
+"KR","South Korea",72.5,1
+"AT","Austria",68.4,35
+"BE","Belgium",65.4,4
+"NZ","New Zealand",65.1,27
+"IE","Ireland",54.7,10
+"SG","Singapore",49.6,11
+"LU","Luxembourg",48.7,42
+"CN","China",47.2,13
+"ES","Spain",40.8,20
+"IT","Italy",40.4,36
+"PL","Poland",35.8,23
+"IL","Israel",27.7,21
+"PT","Portugal",27.2,24
+"RU","Russia",27.1,22
+"LV","Latvia",19.3,25
+"AE","United Arab Emirates",19.1,164
+"CZ","Czechia",18.7,34
+"HU","Hungary",17.4,30
+"LT","Lithuania",16.2,29
+"GR","Greece",15.5,33
+"EE","Estonia",14.8,26
+"HR","Croatia",12.4,76
+"RO","Romania",10.2,99
+"SA","Saudi Arabia",8.6,45
+"MY","Malaysia",8.4,89
+"QA","Qatar",8.2,91
+"SI","Slovenia",7.8,5
+"IR","Iran",6.5,81
+"CY","Cyprus",6.4,163
+"BY","Belarus",6.1,57
+"ZA","South Africa",6,114
+"SK","Slovakia",5.4,41
+"AR","Argentina",5.3,38
+"OM","Oman",5.2,58
+"TR","Turkey",5,37
+"AZ","Azerbaijan",4.8,86
+"BG","Bulgaria",4.7,134
+"CL","Chile",4.6,40
+"UA","Ukraine",4.4,166
+"IN","India",4.3,101
+"VN","Vietnam",4.1,53
+"GH","Ghana",4,106
+"EC","Ecuador",3.8,54
+"RS","Serbia",3.8,68
+"BH","Bahrain",3.8,82
+"EG","Egypt",3.6,84
+"PH","Philippines",3.4,71
+"KW","Kuwait",3.2,93
+"JO","Jordan",3,127
+"CM","Cameroon",2.9,141
+"KE","Kenya",2.8,90
+"ZW","Zimbabwe",2.7,192
+"DO","Dominican Republic",2.7,96
+"UZ","Uzbekistan",2.6,63
+"MX","Mexico",2.4,39
+"TH","Thailand",2.4,107
+"PE","Peru",2.3,77
+"UY","Uruguay",2.1,103
+"LK","Sri Lanka",2,61
+"KZ","Kazakhstan",1.9,43
+"CR","Costa Rica",1.9,44
+"ID","Indonesia",1.8,67
+"DZ","Algeria",1.8,73
+"GT","Guatemala",1.6,126
+"BD","Bangladesh",1.5,122
+"BR","Brazil",1.4,145
+"MA","Morocco",1.3,113
+"CO","Colombia",1.1,74
+"TN","Tunisia",1.1,104
+"LB","Lebanon",1.1,174
+"KH","Cambodia",1,120
+"SV","El Salvador",1,112
+"MM","Myanmar",0.8,109
+"HN","Honduras",0.6,132
+"PK","Pakistan",,136
+"NG","Nigeria",,191
+"ET","Ethiopia",,179
+"CD","DR Congo",,200
+"TZ","Tanzania",,149
+"SD","Sudan",,138
+"UG","Uganda",,156
+"IQ","Iraq",,188
+"AF","Afghanistan",,146
+"YE","Yemen",,131
+"AO","Angola",,196
+"MZ","Mozambique",,159
+"MG","Madagascar",,148
+"CI","Ivory Coast",,135
+"NP","Nepal",,56
+"NE","Niger",,147
+"VE","Venezuela",,111
+"KP","North Korea",,110
+"SY","Syria",,197
+"ML","Mali",,155
+"BF","Burkina Faso",,143
+"TW","Taiwan",,32
+"MW","Malawi",,176
+"ZM","Zambia",,198
+"TD","Chad",,160
+"SO","Somalia",,203
+"SN","Senegal",,154
+"GN","Guinea",,162
+"BJ","Benin",,130
+"RW","Rwanda",,133
+"BI","Burundi",,151
+"BO","Bolivia",,95
+"SS","South Sudan",,202
+"HT","Haiti",,193
+"TJ","Tajikistan",,87
+"PG","Papua New Guinea",,123
+"CU","Cuba",,144
+"TG","Togo",,121
+"SL","Sierra Leone",,125
+"LA","Laos",,102
+"TM","Turkmenistan",,169
+"LY","Libya",,187
+"KG","Kyrgyzstan",,64
+"HK","Hong Kong",,14
+"NI","Nicaragua",,189
+"PY","Paraguay",,180
+"CG","Republic of the Congo",,184
+"LR","Liberia",,150
+"CF","Central African Republic",,161
+"PS","Palestine",,181
+"MR","Mauritania",,139
+"PA","Panama",,116
+"GE","Georgia",,70
+"ER","Eritrea",,142
+"MN","Mongolia",,52
+"PR","Puerto Rico",,172
+"NA","Namibia",,177
+"BA","Bosnia and Herzegovina",,175
+"MD","Moldova",,108
+"AM","Armenia",,98
+"GM","Gambia",,158
+"JM","Jamaica",,115
+"AL","Albania",,66
+"GA","Gabon",,194
+"BW","Botswana",,185
+"LS","Lesotho",,129
+"GW","Guinea-Bissau",,195
+"GQ","Equatorial Guinea",,186
+"MK","North Macedonia",,167
+"TT","Trinidad and Tobago",,170
+"TL","Timor-Leste",,69
+"SZ","Eswatini",,105
+"MU","Mauritius",,78
+"DJ","Djibouti",,137
+"FJ","Fiji",,49
+"KM","Comoros",,152
+"SB","Solomon Islands",,117
+"GY","Guyana",,171
+"BT","Bhutan",,88
+"MO","Macau",,62
+"SR","Suriname",,128
+"ME","Montenegro",,80
+"MT","Malta",,55
+"MV","Maldives",,60
+"CV","Cape Verde",,118
+"BN","Brunei",,47
+"BZ","Belize",,85
+"BS","Bahamas",,157
+"IS","Iceland",,18
+"VU","Vanuatu",,178
+"BB","Barbados",,140
+"ST","Sao Tome and Principe",,119
+"WS","Samoa",,50
+"LC","Saint Lucia",,97
+"KI","Kiribati",,72
+"SC","Seychelles",,51
+"GD","Grenada",,46
+"FM","Micronesia",,190
+"AW","Aruba",,165
+"TO","Tonga",,182
+"VC","Saint Vincent and the Grenadines",,65
+"AG","Antigua and Barbuda",,75
+"AD","Andorra",,201
+"DM","Dominica",,94
+"BM","Bermuda",,183
+"KN","Saint Kitts and Nevis",,59
+"GI","Gibraltar",,79
+"LI","Liechtenstein",,83
+"VG","British Virgin Islands",,100
+"MH","Marshall Islands",,153
+"SM","San Marino",,48
+"PW","Palau",,173
+"NR","Nauru",,92
+"TV","Tuvalu",,124
+"NU","Niue",,168
