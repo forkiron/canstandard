@@ -1,0 +1,1405 @@
+{
+  "generatedAt": "2026-03-07T22:00:40.615Z",
+  "provider": "OpenStreetMap Overpass",
+  "count": 233,
+  "schools": [
+    {
+      "name": "Douglas Elementary School",
+      "city": null,
+      "latitude": 45.9801443,
+      "longitude": -66.7438338
+    },
+    {
+      "name": "Dr. A. T. Leatherbarrow Primary School",
+      "city": null,
+      "latitude": 45.5360211,
+      "longitude": -65.8283542
+    },
+    {
+      "name": "Hampton Elementary School",
+      "city": null,
+      "latitude": 45.5339244,
+      "longitude": -65.8274422
+    },
+    {
+      "name": "River Valley Middle School",
+      "city": null,
+      "latitude": 45.3213595,
+      "longitude": -66.1983102
+    },
+    {
+      "name": "Ecole Secondaire Nepisiguit",
+      "city": null,
+      "latitude": 47.6251733,
+      "longitude": -65.6841371
+    },
+    {
+      "name": "Place des Jeunes",
+      "city": null,
+      "latitude": 47.6254305,
+      "longitude": -65.685844
+    },
+    {
+      "name": "École Arthur-Pinet",
+      "city": null,
+      "latitude": 48.0186611,
+      "longitude": -66.41882
+    },
+    {
+      "name": "École Le Coin-des-Amis",
+      "city": null,
+      "latitude": 48.0044936,
+      "longitude": -66.477062
+    },
+    {
+      "name": "École Le Rendez-vous-des-Jeunes",
+      "city": null,
+      "latitude": 47.8873502,
+      "longitude": -66.7575232
+    },
+    {
+      "name": "Burton Elementary School",
+      "city": null,
+      "latitude": 45.8752553,
+      "longitude": -66.3702358
+    },
+    {
+      "name": "Havelock School",
+      "city": null,
+      "latitude": 45.9921709,
+      "longitude": -65.3170509
+    },
+    {
+      "name": "Chipman Elementary School",
+      "city": null,
+      "latitude": 46.1817093,
+      "longitude": -65.889704
+    },
+    {
+      "name": "Harvey High School",
+      "city": null,
+      "latitude": 45.7202011,
+      "longitude": -67.0082522
+    },
+    {
+      "name": "Belleisle Regional High School",
+      "city": null,
+      "latitude": 45.6711394,
+      "longitude": -65.8329384
+    },
+    {
+      "name": "Norton Elementary School",
+      "city": null,
+      "latitude": 45.6407061,
+      "longitude": -65.7009268
+    },
+    {
+      "name": "Hartland Community School",
+      "city": null,
+      "latitude": 46.3066243,
+      "longitude": -67.513922
+    },
+    {
+      "name": "Central New Brunswick Academy",
+      "city": null,
+      "latitude": 46.4981191,
+      "longitude": -66.292876
+    },
+    {
+      "name": "Juniper Elementary School",
+      "city": null,
+      "latitude": 46.5477911,
+      "longitude": -67.1983588
+    },
+    {
+      "name": "Harcourt School",
+      "city": null,
+      "latitude": 46.4727398,
+      "longitude": -65.249766
+    },
+    {
+      "name": "École Saint-Paul",
+      "city": null,
+      "latitude": 46.3272698,
+      "longitude": -65.0162866
+    },
+    {
+      "name": "École Mont Carmel",
+      "city": null,
+      "latitude": 46.4155696,
+      "longitude": -64.8268007
+    },
+    {
+      "name": "École Notre-Dame",
+      "city": null,
+      "latitude": 46.307096,
+      "longitude": -64.7347023
+    },
+    {
+      "name": "École Blanche-Bourgeois",
+      "city": null,
+      "latitude": 46.3477988,
+      "longitude": -64.6157965
+    },
+    {
+      "name": "École Grande-Digue",
+      "city": null,
+      "latitude": 46.293897,
+      "longitude": -64.5677004
+    },
+    {
+      "name": "Bonar Law Memorial School",
+      "city": null,
+      "latitude": 46.6413557,
+      "longitude": -64.8585095
+    },
+    {
+      "name": "École Secondaire Assomption",
+      "city": null,
+      "latitude": 46.7318378,
+      "longitude": -65.422709
+    },
+    {
+      "name": "Millerton School",
+      "city": null,
+      "latitude": 46.9001961,
+      "longitude": -65.6362011
+    },
+    {
+      "name": "Nelson Rural School",
+      "city": null,
+      "latitude": 46.9783991,
+      "longitude": -65.5538419
+    },
+    {
+      "name": "Napan Elementary School",
+      "city": null,
+      "latitude": 47.0156482,
+      "longitude": -65.401043
+    },
+    {
+      "name": "Tabusintac Rural School",
+      "city": null,
+      "latitude": 47.3822059,
+      "longitude": -64.9553924
+    },
+    {
+      "name": "École L'Amitié",
+      "city": null,
+      "latitude": 47.4222543,
+      "longitude": -64.9576187
+    },
+    {
+      "name": "École La Passerelle",
+      "city": null,
+      "latitude": 47.5757692,
+      "longitude": -64.9527606
+    },
+    {
+      "name": "École La Découverte-de-Saint-Sauveur",
+      "city": null,
+      "latitude": 47.5263465,
+      "longitude": -65.2890839
+    },
+    {
+      "name": "École Le Maillon",
+      "city": null,
+      "latitude": 47.7708578,
+      "longitude": -65.1712524
+    },
+    {
+      "name": "École Léandre-LeGresley",
+      "city": null,
+      "latitude": 47.8111356,
+      "longitude": -65.1865819
+    },
+    {
+      "name": "École l’Escale-des-Jeunes",
+      "city": null,
+      "latitude": 47.7981705,
+      "longitude": -64.8304613
+    },
+    {
+      "name": "Eastern Colledge",
+      "city": null,
+      "latitude": 45.3102018,
+      "longitude": -66.0186295
+    },
+    {
+      "name": "Woodstock Christian Academy",
+      "city": "Woodstock",
+      "latitude": 46.1426559,
+      "longitude": -67.5828155
+    },
+    {
+      "name": "Kreative Cosmetology Institute",
+      "city": null,
+      "latitude": 46.1498881,
+      "longitude": -67.5732599
+    },
+    {
+      "name": "Dow Settlement School",
+      "city": null,
+      "latitude": 45.9500733,
+      "longitude": -67.4783248
+    },
+    {
+      "name": "Arnold H. McLeod School",
+      "city": null,
+      "latitude": 46.1099781,
+      "longitude": -64.7544271
+    },
+    {
+      "name": "École des Bâtisseurs",
+      "city": null,
+      "latitude": 45.9418902,
+      "longitude": -66.6516846
+    },
+    {
+      "name": "École Sainte-Anne",
+      "city": null,
+      "latitude": 45.9420739,
+      "longitude": -66.6531623
+    },
+    {
+      "name": "Elsipogtog School",
+      "city": null,
+      "latitude": 46.5937695,
+      "longitude": -64.9889765
+    },
+    {
+      "name": "Nashwaaksis Middle School",
+      "city": null,
+      "latitude": 45.98538,
+      "longitude": -66.642982
+    },
+    {
+      "name": "Leo Hayes High School",
+      "city": null,
+      "latitude": 45.9787895,
+      "longitude": -66.6222336
+    },
+    {
+      "name": "Nashwaaksis Middle School",
+      "city": null,
+      "latitude": 45.9857263,
+      "longitude": -66.6444815
+    },
+    {
+      "name": "Fredericton High School",
+      "city": null,
+      "latitude": 45.9421188,
+      "longitude": -66.6637257
+    },
+    {
+      "name": "New Maryland Elementary School",
+      "city": "New Maryland",
+      "latitude": 45.896541,
+      "longitude": -66.6927285
+    },
+    {
+      "name": "École Polyvalente Thomas-Albert",
+      "city": null,
+      "latitude": 47.0565242,
+      "longitude": -67.7307608
+    },
+    {
+      "name": "École Mgr-Lang",
+      "city": null,
+      "latitude": 47.040197,
+      "longitude": -67.6894104
+    },
+    {
+      "name": "Ecole Saint-Henri",
+      "city": "Moncton",
+      "latitude": 46.1049445,
+      "longitude": -64.809909
+    },
+    {
+      "name": "Sunny Brae Middle School",
+      "city": "Moncton",
+      "latitude": 46.10737,
+      "longitude": -64.777428
+    },
+    {
+      "name": "Harrison Trimble High School",
+      "city": "Moncton",
+      "latitude": 46.0987135,
+      "longitude": -64.810451
+    },
+    {
+      "name": "Forest Glen School",
+      "city": "Moncton",
+      "latitude": 46.1217245,
+      "longitude": -64.7735969
+    },
+    {
+      "name": "Claude D Taylor School",
+      "city": null,
+      "latitude": 46.0498298,
+      "longitude": -64.8177093
+    },
+    {
+      "name": "Magnetic Hill School",
+      "city": "Moncton",
+      "latitude": 46.1356696,
+      "longitude": -64.9136537
+    },
+    {
+      "name": "École Louis-J.-Robichaud",
+      "city": null,
+      "latitude": 46.2182069,
+      "longitude": -64.5315798
+    },
+    {
+      "name": "Southern Carleton Elementary School",
+      "city": null,
+      "latitude": 46.1474786,
+      "longitude": -67.6269778
+    },
+    {
+      "name": "Woodstock High School",
+      "city": null,
+      "latitude": 46.1617103,
+      "longitude": -67.5909144
+    },
+    {
+      "name": "Saint Francis School",
+      "city": null,
+      "latitude": 45.2934218,
+      "longitude": -66.0738626
+    },
+    {
+      "name": "Hampton Middle School",
+      "city": null,
+      "latitude": 45.5337327,
+      "longitude": -65.8306341
+    },
+    {
+      "name": "Montgomery Street Elementary School",
+      "city": "Fredericton",
+      "latitude": 45.943607,
+      "longitude": -66.6505407
+    },
+    {
+      "name": "Forest Hill Elementary School",
+      "city": "Fredericton",
+      "latitude": 45.9361461,
+      "longitude": -66.6328726
+    },
+    {
+      "name": "Kingsclear Elementary School",
+      "city": "Fredericton",
+      "latitude": 45.9651185,
+      "longitude": -66.7701328
+    },
+    {
+      "name": "Park Street Elementary School",
+      "city": null,
+      "latitude": 45.9814345,
+      "longitude": -66.6465395
+    },
+    {
+      "name": "Royal Road Elementary School",
+      "city": "Fredericton",
+      "latitude": 45.9964299,
+      "longitude": -66.670621
+    },
+    {
+      "name": "Priestman Street Elementary School",
+      "city": null,
+      "latitude": 45.9436393,
+      "longitude": -66.661008
+    },
+    {
+      "name": "École Versant-Nord",
+      "city": null,
+      "latitude": 47.987594,
+      "longitude": -66.722567
+    },
+    {
+      "name": "École Mgr-Melanson",
+      "city": null,
+      "latitude": 47.9544409,
+      "longitude": -66.6837624
+    },
+    {
+      "name": "Assiniboine Avenue Elementary School",
+      "city": null,
+      "latitude": 45.8380667,
+      "longitude": -66.4778154
+    },
+    {
+      "name": "Gesner Street Elementary School",
+      "city": null,
+      "latitude": 45.8439247,
+      "longitude": -66.4841706
+    },
+    {
+      "name": "Summerhill Elementary School",
+      "city": null,
+      "latitude": 45.8470646,
+      "longitude": -66.4907601
+    },
+    {
+      "name": "Westfield Elementary School",
+      "city": null,
+      "latitude": 45.3432452,
+      "longitude": -66.224918
+    },
+    {
+      "name": "École Sainte-Anne",
+      "city": null,
+      "latitude": 47.2495315,
+      "longitude": -68.0289607
+    },
+    {
+      "name": "Birchmount School",
+      "city": "Moncton",
+      "latitude": 46.103149,
+      "longitude": -64.830434
+    },
+    {
+      "name": "Champlain Heights School",
+      "city": "Saint John",
+      "latitude": 45.2912829,
+      "longitude": -66.0016423
+    },
+    {
+      "name": "Bayview School",
+      "city": null,
+      "latitude": 45.2886681,
+      "longitude": -66.0318867
+    },
+    {
+      "name": "Bayside Middle School",
+      "city": null,
+      "latitude": 45.2853233,
+      "longitude": -66.0393648
+    },
+    {
+      "name": "Princess Elizabeth School",
+      "city": null,
+      "latitude": 45.2833009,
+      "longitude": -66.0693498
+    },
+    {
+      "name": "Prince Charles School",
+      "city": "Saint John",
+      "latitude": 45.276781,
+      "longitude": -66.0528085
+    },
+    {
+      "name": "Centre Scolaire Samuel-de-Champlain",
+      "city": "Saint John",
+      "latitude": 45.2944343,
+      "longitude": -66.1164938
+    },
+    {
+      "name": "Millidgeville North School",
+      "city": "Saint John",
+      "latitude": 45.2960043,
+      "longitude": -66.1132132
+    },
+    {
+      "name": "M. Gerald Teed Memorial School",
+      "city": null,
+      "latitude": 45.296607,
+      "longitude": -66.1025615
+    },
+    {
+      "name": "Seawood School",
+      "city": null,
+      "latitude": 45.2459666,
+      "longitude": -66.0924155
+    },
+    {
+      "name": "Rothesay Netherwood School",
+      "city": null,
+      "latitude": 45.3793173,
+      "longitude": -65.989564
+    },
+    {
+      "name": "Lakewood Heights School",
+      "city": null,
+      "latitude": 45.3147492,
+      "longitude": -65.9795862
+    },
+    {
+      "name": "Quispamsis Middle School",
+      "city": null,
+      "latitude": 45.4265714,
+      "longitude": -65.9673792
+    },
+    {
+      "name": "École Saint-Joseph",
+      "city": null,
+      "latitude": 47.4548043,
+      "longitude": -68.3165199
+    },
+    {
+      "name": "Sussex Corner Elementary School",
+      "city": null,
+      "latitude": 45.7055966,
+      "longitude": -65.4771904
+    },
+    {
+      "name": "École Abbey-Landry",
+      "city": null,
+      "latitude": 45.9807237,
+      "longitude": -64.5681565
+    },
+    {
+      "name": "Dorchester Consolidated School",
+      "city": null,
+      "latitude": 45.89538,
+      "longitude": -64.5161485
+    },
+    {
+      "name": "Tantramar Regional High School",
+      "city": "Sackville",
+      "latitude": 45.9102552,
+      "longitude": -64.3692725
+    },
+    {
+      "name": "Carleton North High School",
+      "city": "Florenceville-Bristol",
+      "latitude": 46.4671745,
+      "longitude": -67.5798958
+    },
+    {
+      "name": "Upper Miramichi Elementary School",
+      "city": null,
+      "latitude": 46.4517967,
+      "longitude": -66.4328889
+    },
+    {
+      "name": "Doaktown Elementary School",
+      "city": null,
+      "latitude": 46.5564323,
+      "longitude": -66.1251629
+    },
+    {
+      "name": "Andover Elementary School",
+      "city": null,
+      "latitude": 46.7480917,
+      "longitude": -67.6990737
+    },
+    {
+      "name": "Polyvalente Louis-Mailloux",
+      "city": "Caraquet",
+      "latitude": 47.7875133,
+      "longitude": -64.9595518
+    },
+    {
+      "name": "École Clément-Cormier",
+      "city": null,
+      "latitude": 46.4756172,
+      "longitude": -64.7242208
+    },
+    {
+      "name": "Rexton Elementary School",
+      "city": null,
+      "latitude": 46.640785,
+      "longitude": -64.868814
+    },
+    {
+      "name": "École W.F.-Boisvert",
+      "city": null,
+      "latitude": 46.7335083,
+      "longitude": -65.4211178
+    },
+    {
+      "name": "Croft Elementary School",
+      "city": null,
+      "latitude": 46.9958735,
+      "longitude": -65.5787675
+    },
+    {
+      "name": "Ecole Régionale de Baie Sainte-Anne",
+      "city": null,
+      "latitude": 47.0483452,
+      "longitude": -64.9654499
+    },
+    {
+      "name": "Miramichi Rural School",
+      "city": null,
+      "latitude": 47.0377204,
+      "longitude": -65.1806374
+    },
+    {
+      "name": "St. Andrews Elementary School",
+      "city": null,
+      "latitude": 47.0377247,
+      "longitude": -65.4620145
+    },
+    {
+      "name": "Centre Scolaire La Fontaine",
+      "city": null,
+      "latitude": 47.2427239,
+      "longitude": -65.0804
+    },
+    {
+      "name": "Gretna Green Elementary School",
+      "city": null,
+      "latitude": 47.0264595,
+      "longitude": -65.5215302
+    },
+    {
+      "name": "Harold Peterson Middle School",
+      "city": null,
+      "latitude": 45.8416556,
+      "longitude": -66.4813906
+    },
+    {
+      "name": "École La Villa des Amis",
+      "city": null,
+      "latitude": 47.4444051,
+      "longitude": -64.9160629
+    },
+    {
+      "name": "Polyvalente W.-Arthur-Losier",
+      "city": null,
+      "latitude": 47.5132311,
+      "longitude": -64.9208602
+    },
+    {
+      "name": "École La Relève",
+      "city": null,
+      "latitude": 47.5547644,
+      "longitude": -65.0511963
+    },
+    {
+      "name": "Saint Malachy's Memorial High School",
+      "city": "Saint John",
+      "latitude": 45.2727446,
+      "longitude": -66.0560052
+    },
+    {
+      "name": "College Communautaire du Nouveau-Brunswick",
+      "city": null,
+      "latitude": 47.6515767,
+      "longitude": -65.6748759
+    },
+    {
+      "name": "Parkwood Elementary School",
+      "city": null,
+      "latitude": 47.6337267,
+      "longitude": -65.6953377
+    },
+    {
+      "name": "École Cité de l'Amitié",
+      "city": null,
+      "latitude": 47.6374432,
+      "longitude": -65.686242
+    },
+    {
+      "name": "École Carrefour-Étudiant",
+      "city": null,
+      "latitude": 47.7055149,
+      "longitude": -65.7023603
+    },
+    {
+      "name": "École La Croisée de Robertville",
+      "city": null,
+      "latitude": 47.6961653,
+      "longitude": -65.772142
+    },
+    {
+      "name": "École Le Domaine Étudiant",
+      "city": null,
+      "latitude": 47.7796459,
+      "longitude": -65.7203141
+    },
+    {
+      "name": "École Le Tournesol",
+      "city": null,
+      "latitude": 47.7823243,
+      "longitude": -65.7154909
+    },
+    {
+      "name": "Belledune School",
+      "city": null,
+      "latitude": 47.9145123,
+      "longitude": -65.9064669
+    },
+    {
+      "name": "École Sœur-Saint-Alexandre",
+      "city": null,
+      "latitude": 47.7963479,
+      "longitude": -64.648574
+    },
+    {
+      "name": "Jacquet River School",
+      "city": null,
+      "latitude": 47.9182613,
+      "longitude": -66.0049907
+    },
+    {
+      "name": "École Le Domaine-des-Copains",
+      "city": null,
+      "latitude": 47.9651029,
+      "longitude": -66.4814751
+    },
+    {
+      "name": "Divine Mercy Catholic School",
+      "city": "Saint John",
+      "latitude": 45.2737574,
+      "longitude": -66.0809362
+    },
+    {
+      "name": "Saint John High School",
+      "city": null,
+      "latitude": 45.2691631,
+      "longitude": -66.0607284
+    },
+    {
+      "name": "Saint John the Baptist/King Edward School",
+      "city": null,
+      "latitude": 45.2692654,
+      "longitude": -66.0510429
+    },
+    {
+      "name": "Connaught Street Elementary School",
+      "city": null,
+      "latitude": 45.9552038,
+      "longitude": -66.6569473
+    },
+    {
+      "name": "Saint Rose School",
+      "city": null,
+      "latitude": 45.2553343,
+      "longitude": -66.1027591
+    },
+    {
+      "name": "Montgomery Street Elementary School",
+      "city": null,
+      "latitude": 45.9434969,
+      "longitude": -66.6504971
+    },
+    {
+      "name": "Eleanor W. Graham Middle School",
+      "city": null,
+      "latitude": 46.6382094,
+      "longitude": -64.8640298
+    },
+    {
+      "name": "Bonar Law Memorial School",
+      "city": null,
+      "latitude": 46.6415067,
+      "longitude": -64.8584782
+    },
+    {
+      "name": "Bonar Law High School",
+      "city": null,
+      "latitude": 46.6416024,
+      "longitude": -64.8590013
+    },
+    {
+      "name": "Eleanor W. Graham Middle School",
+      "city": null,
+      "latitude": 46.6378825,
+      "longitude": -64.8644139
+    },
+    {
+      "name": "Rexton Elementary School",
+      "city": null,
+      "latitude": 46.6403291,
+      "longitude": -64.8683483
+    },
+    {
+      "name": "École Soleil Levant",
+      "city": null,
+      "latitude": 46.6955924,
+      "longitude": -64.8653376
+    },
+    {
+      "name": "Riverside Consolidated School",
+      "city": null,
+      "latitude": 45.7482843,
+      "longitude": -64.7313257
+    },
+    {
+      "name": "École Mgr-Martin",
+      "city": null,
+      "latitude": 47.5107823,
+      "longitude": -67.3886424
+    },
+    {
+      "name": "Polyvalente A.-J.-Savoie",
+      "city": "Saint-Quentin",
+      "latitude": 47.5155889,
+      "longitude": -67.3854325
+    },
+    {
+      "name": "Queen Elizabeth",
+      "city": "Moncton",
+      "latitude": 46.1012275,
+      "longitude": -64.8037415
+    },
+    {
+      "name": "Ecole Odysée",
+      "city": null,
+      "latitude": 46.1190643,
+      "longitude": -64.7906377
+    },
+    {
+      "name": "Lou MacNarin School",
+      "city": null,
+      "latitude": 46.0977494,
+      "longitude": -64.7326015
+    },
+    {
+      "name": "Cité des Jeunes A.-M.-Sormany",
+      "city": null,
+      "latitude": 47.3715351,
+      "longitude": -68.3109213
+    },
+    {
+      "name": "Carrefour de la Jeunesse",
+      "city": null,
+      "latitude": 47.3643201,
+      "longitude": -68.3385641
+    },
+    {
+      "name": "Hubbard Avenue Elementary School",
+      "city": null,
+      "latitude": 45.8423428,
+      "longitude": -66.4745105
+    },
+    {
+      "name": "Evergreen Park School",
+      "city": null,
+      "latitude": 46.1130153,
+      "longitude": -64.8595878
+    },
+    {
+      "name": "Chris Saunders Memorial Elementary",
+      "city": null,
+      "latitude": 45.4260854,
+      "longitude": -65.9692098
+    },
+    {
+      "name": "École des Pionniers",
+      "city": "Quispamsis",
+      "latitude": 45.425471,
+      "longitude": -65.9623687
+    },
+    {
+      "name": "École Les Éclaireurs",
+      "city": null,
+      "latitude": 45.9716384,
+      "longitude": -66.6168903
+    },
+    {
+      "name": "Nashwaaksis Memorial School",
+      "city": null,
+      "latitude": 45.9802902,
+      "longitude": -66.6602947
+    },
+    {
+      "name": "Devon Middle School",
+      "city": null,
+      "latitude": 45.9680306,
+      "longitude": -66.6244893
+    },
+    {
+      "name": "Bliss Carmen Middle School",
+      "city": null,
+      "latitude": 45.9303834,
+      "longitude": -66.6327602
+    },
+    {
+      "name": "Vincent Massey Elementary School",
+      "city": null,
+      "latitude": 45.0772331,
+      "longitude": -67.0479612
+    },
+    {
+      "name": "Le Galion des Appalaches",
+      "city": null,
+      "latitude": 48.0008445,
+      "longitude": -66.6654185
+    },
+    {
+      "name": "Sugarloaf Senior High School",
+      "city": null,
+      "latitude": 47.9984877,
+      "longitude": -66.6753576
+    },
+    {
+      "name": "Lord Beaverbrook Elementary School",
+      "city": null,
+      "latitude": 48.0004174,
+      "longitude": -66.6801606
+    },
+    {
+      "name": "Campbellton Middle School",
+      "city": null,
+      "latitude": 48.0008142,
+      "longitude": -66.672208
+    },
+    {
+      "name": "Cambridge-Narrows School",
+      "city": null,
+      "latitude": 45.8370817,
+      "longitude": -65.9532102
+    },
+    {
+      "name": "École Monseigneur-François-Bourgeois",
+      "city": null,
+      "latitude": 46.2238897,
+      "longitude": -64.5387033
+    },
+    {
+      "name": "Pointe-du-Chêne Recreational & Community Center Ltd",
+      "city": null,
+      "latitude": 46.2341332,
+      "longitude": -64.5162139
+    },
+    {
+      "name": "École Père-Edgar-T.-LeBlanc",
+      "city": null,
+      "latitude": 46.2237025,
+      "longitude": -64.4217728
+    },
+    {
+      "name": "MacDonald Consolidated School",
+      "city": null,
+      "latitude": 45.5020919,
+      "longitude": -65.9750125
+    },
+    {
+      "name": "George Street Middle School",
+      "city": null,
+      "latitude": 45.9588334,
+      "longitude": -66.6414786
+    },
+    {
+      "name": "Barkers Point Elementary School",
+      "city": null,
+      "latitude": 45.9525973,
+      "longitude": -66.6174778
+    },
+    {
+      "name": "École Sainte-Thérèse",
+      "city": null,
+      "latitude": 46.098021,
+      "longitude": -64.7496441
+    },
+    {
+      "name": "Harbour View High School",
+      "city": null,
+      "latitude": 45.2658806,
+      "longitude": -66.0839268
+    },
+    {
+      "name": "École Mathieu-Martin",
+      "city": null,
+      "latitude": 46.1005871,
+      "longitude": -64.7343833
+    },
+    {
+      "name": "St. Stephen Elementary School",
+      "city": "St. Stephen",
+      "latitude": 45.2010908,
+      "longitude": -67.2703125
+    },
+    {
+      "name": "St. Stephen Middle School",
+      "city": "St. Stephen",
+      "latitude": 45.1957121,
+      "longitude": -67.2791065
+    },
+    {
+      "name": "Milltown Elementary School",
+      "city": "St. Stephen",
+      "latitude": 45.1745335,
+      "longitude": -67.2951855
+    },
+    {
+      "name": "Académie Assomption",
+      "city": null,
+      "latitude": 47.6099592,
+      "longitude": -65.6326718
+    },
+    {
+      "name": "Marshview Middle School",
+      "city": null,
+      "latitude": 45.8920053,
+      "longitude": -64.3693562
+    },
+    {
+      "name": "Sussex Elementary School",
+      "city": null,
+      "latitude": 45.7250876,
+      "longitude": -65.5177097
+    },
+    {
+      "name": "Garden Creek Elementary School",
+      "city": null,
+      "latitude": 45.9645072,
+      "longitude": -66.7032729
+    },
+    {
+      "name": "Eel Ground School",
+      "city": null,
+      "latitude": 46.9644151,
+      "longitude": -65.6274055
+    },
+    {
+      "name": "École Clément-Cormier",
+      "city": null,
+      "latitude": 46.4765464,
+      "longitude": -64.7245785
+    },
+    {
+      "name": "Fredericton Christian Academy",
+      "city": null,
+      "latitude": 45.9651081,
+      "longitude": -66.618982
+    },
+    {
+      "name": "McAdam Avenue Elementary School",
+      "city": null,
+      "latitude": 45.981748,
+      "longitude": -66.6773859
+    },
+    {
+      "name": "Gibson-Neill Memorial Elementary School",
+      "city": null,
+      "latitude": 45.9807273,
+      "longitude": -66.606185
+    },
+    {
+      "name": "Rothesay High School",
+      "city": null,
+      "latitude": 45.3941967,
+      "longitude": -65.9890229
+    },
+    {
+      "name": "Rothesay Park Elementary",
+      "city": null,
+      "latitude": 45.3889583,
+      "longitude": -65.9849764
+    },
+    {
+      "name": "King Street Elementary School",
+      "city": null,
+      "latitude": 47.0271958,
+      "longitude": -65.4556663
+    },
+    {
+      "name": "Lou MacNarin School",
+      "city": null,
+      "latitude": 46.0979269,
+      "longitude": -64.7319461
+    },
+    {
+      "name": "Riverview High School Grounds",
+      "city": null,
+      "latitude": 46.0564293,
+      "longitude": -64.8016716
+    },
+    {
+      "name": "Moncton High School",
+      "city": null,
+      "latitude": 46.1641075,
+      "longitude": -64.7907836
+    },
+    {
+      "name": "Claude D Taylor School",
+      "city": null,
+      "latitude": 46.0502776,
+      "longitude": -64.8179129
+    },
+    {
+      "name": "École Champlain",
+      "city": null,
+      "latitude": 46.1210388,
+      "longitude": -64.7357976
+    },
+    {
+      "name": "JMA Armstrong High School",
+      "city": null,
+      "latitude": 46.0245948,
+      "longitude": -65.0409206
+    },
+    {
+      "name": "Salisbury Regional Elementary School",
+      "city": null,
+      "latitude": 46.0246266,
+      "longitude": -65.0385371
+    },
+    {
+      "name": "Quispamsis Elementary School",
+      "city": null,
+      "latitude": 45.4128268,
+      "longitude": -65.9571303
+    },
+    {
+      "name": "Tide Head School",
+      "city": null,
+      "latitude": 47.9832395,
+      "longitude": -66.7682593
+    },
+    {
+      "name": "Island View School",
+      "city": null,
+      "latitude": 45.2379928,
+      "longitude": -66.1288914
+    },
+    {
+      "name": "Dalhousie Regional High School",
+      "city": null,
+      "latitude": 48.0589336,
+      "longitude": -66.3839985
+    },
+    {
+      "name": "École René-Chouinard",
+      "city": null,
+      "latitude": 47.2269155,
+      "longitude": -65.1823745
+    },
+    {
+      "name": "Esgenoôpetitj School",
+      "city": null,
+      "latitude": 47.2069994,
+      "longitude": -65.1182276
+    },
+    {
+      "name": "Académie Notre-Dame",
+      "city": null,
+      "latitude": 48.0628596,
+      "longitude": -66.3687391
+    },
+    {
+      "name": "Harry Miller Middle School",
+      "city": null,
+      "latitude": 45.3956837,
+      "longitude": -65.9903523
+    },
+    {
+      "name": "Touchstone Academy",
+      "city": null,
+      "latitude": 45.3931424,
+      "longitude": -65.9860519
+    },
+    {
+      "name": "Rothesay Park Miller School",
+      "city": null,
+      "latitude": 45.3879035,
+      "longitude": -65.9964924
+    },
+    {
+      "name": "Centennial School",
+      "city": null,
+      "latitude": 45.2817977,
+      "longitude": -66.0837218
+    },
+    {
+      "name": "Seaside Park Elementary School",
+      "city": null,
+      "latitude": 45.2502548,
+      "longitude": -66.0816799
+    },
+    {
+      "name": "Beaconsfield Middle School",
+      "city": null,
+      "latitude": 45.2508986,
+      "longitude": -66.0780219
+    },
+    {
+      "name": "Loch Lomond School",
+      "city": null,
+      "latitude": 45.3340205,
+      "longitude": -65.9009099
+    },
+    {
+      "name": "Barnhill Memorial School",
+      "city": null,
+      "latitude": 45.2545136,
+      "longitude": -66.1038911
+    },
+    {
+      "name": "Elsipogtog School",
+      "city": "Elsipogtog",
+      "latitude": 46.5939022,
+      "longitude": -64.9889521
+    },
+    {
+      "name": "Kennebecasis Park Elementary School",
+      "city": null,
+      "latitude": 45.349085,
+      "longitude": -66.0257721
+    },
+    {
+      "name": "Compass Educational Support Program",
+      "city": null,
+      "latitude": 45.2889564,
+      "longitude": -66.039287
+    },
+    {
+      "name": "Simonds High School",
+      "city": "Saint John",
+      "latitude": 45.2985623,
+      "longitude": -65.9925817
+    },
+    {
+      "name": "Cuffman Street Elementary School",
+      "city": null,
+      "latitude": 45.9761183,
+      "longitude": -66.6142491
+    },
+    {
+      "name": "Hampton High School",
+      "city": null,
+      "latitude": 45.51863,
+      "longitude": -65.8374261
+    },
+    {
+      "name": "Forest Hills School",
+      "city": null,
+      "latitude": 45.3144078,
+      "longitude": -66.0062543
+    },
+    {
+      "name": "Glen Falls Elementary School",
+      "city": null,
+      "latitude": 45.3169062,
+      "longitude": -66.0246241
+    },
+    {
+      "name": "Grand Bay Primary",
+      "city": null,
+      "latitude": 45.3138879,
+      "longitude": -66.1952535
+    },
+    {
+      "name": "Fairvale Elementary School",
+      "city": null,
+      "latitude": 45.4110271,
+      "longitude": -65.9898505
+    },
+    {
+      "name": "Lakefield Elementary School",
+      "city": null,
+      "latitude": 45.4178936,
+      "longitude": -65.9752185
+    },
+    {
+      "name": "Fundy Middle and High School",
+      "city": null,
+      "latitude": 45.1244634,
+      "longitude": -66.8101821
+    },
+    {
+      "name": "Inglewood School",
+      "city": null,
+      "latitude": 45.3100729,
+      "longitude": -66.1973527
+    },
+    {
+      "name": "Saint Martins School",
+      "city": "Saint Martins",
+      "latitude": 45.3507512,
+      "longitude": -65.5519437
+    },
+    {
+      "name": "École Anna-Malenfant",
+      "city": null,
+      "latitude": 46.0861739,
+      "longitude": -64.716839
+    },
+    {
+      "name": "Ridgeview Middle School",
+      "city": null,
+      "latitude": 45.8477986,
+      "longitude": -66.4725661
+    },
+    {
+      "name": "Oromoncto High School",
+      "city": null,
+      "latitude": 45.8460681,
+      "longitude": -66.4791351
+    },
+    {
+      "name": "Lewisville Middle School",
+      "city": null,
+      "latitude": 46.1070748,
+      "longitude": -64.7405922
+    },
+    {
+      "name": "Miramichi Valley High School",
+      "city": null,
+      "latitude": 47.007281,
+      "longitude": -65.582989
+    },
+    {
+      "name": "Dr. Losier Middle School",
+      "city": null,
+      "latitude": 47.0238862,
+      "longitude": -65.4609808
+    },
+    {
+      "name": "James M. Hill High School",
+      "city": null,
+      "latitude": 47.0225565,
+      "longitude": -65.4578393
+    },
+    {
+      "name": "École François-Xavier-Daigle",
+      "city": null,
+      "latitude": 47.4757912,
+      "longitude": -65.4945606
+    },
+    {
+      "name": "École l’Étincelle",
+      "city": null,
+      "latitude": 47.8011825,
+      "longitude": -64.5682574
+    },
+    {
+      "name": "École Marie-Esther",
+      "city": null,
+      "latitude": 47.7401839,
+      "longitude": -64.7172611
+    },
+    {
+      "name": "École L'Envolée",
+      "city": null,
+      "latitude": 47.7389603,
+      "longitude": -64.7313555
+    },
+    {
+      "name": "St. Stephen High School",
+      "city": "St. Stephen",
+      "latitude": 45.2072666,
+      "longitude": -67.2751679
+    },
+    {
+      "name": "Summerhill Elementary School",
+      "city": null,
+      "latitude": 45.8469446,
+      "longitude": -66.4901814
+    },
+    {
+      "name": "McAdam High School",
+      "city": null,
+      "latitude": 45.5940901,
+      "longitude": -67.3308605
+    },
+    {
+      "name": "Back Bay Elementary School",
+      "city": "Back Bay",
+      "latitude": 45.0566205,
+      "longitude": -66.8729674
+    },
+    {
+      "name": "École Calixte-F.-Savoie",
+      "city": null,
+      "latitude": 46.5519623,
+      "longitude": -64.7730117
+    }
+  ]
+}

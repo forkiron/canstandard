@@ -1,0 +1,543 @@
+{
+  "generatedAt": "2026-03-07T21:55:37.935Z",
+  "source": "nb_schools.csv",
+  "provider": "OpenStreetMap Nominatim",
+  "schools": {
+    "upper miramichi regional high school|boiestown": {
+      "latitude": 46.452404,
+      "longitude": -66.431155,
+      "coordinateSource": "geocoded-address",
+      "geocodeScore": 7,
+      "displayName": "Route 625, Boiestown, Ludlow Parish, Rural Community of Upper Miramichi, Northumberland County, New Brunswick, E6A 1E2, Canada",
+      "sourceQuery": "3466 Route 625, Boiestown, New Brunswick, E6A 1C8, Canada"
+    },
+    "grand manan community school|grand manan": {
+      "latitude": 44.687729,
+      "longitude": -66.765847,
+      "coordinateSource": "geocoded-school",
+      "geocodeScore": 26,
+      "displayName": "Grand Manan Community School, 1141, Route 776, Woodwards Cove, Grand Manan, Grand Manan Parish, Village of Grand Manan, Charlotte County, New Brunswick, E5G 4M1, Canada",
+      "sourceQuery": "Grand Manan Community School, Grand Manan, New Brunswick, Canada"
+    },
+    "fredericton high school|fredericton": {
+      "latitude": 45.94218,
+      "longitude": -66.663716,
+      "coordinateSource": "geocoded-school",
+      "geocodeScore": 25,
+      "displayName": "Fredericton High School, Prospect Street, Prospect, Uptown, Fredericton, City of Fredericton, York County, New Brunswick, E3B 3C1, Canada",
+      "sourceQuery": "Fredericton High School, Fredericton, New Brunswick, Canada"
+    },
+    "miramichi valley high school|miramichi": {
+      "latitude": 47.007468,
+      "longitude": -65.582924,
+      "coordinateSource": "geocoded-school",
+      "geocodeScore": 26,
+      "displayName": "Miramichi Valley High School, High Plain Crescent, Newcastle, Miramichi, City of Miramichi, Northumberland County, New Brunswick, E1V 1A1, Canada",
+      "sourceQuery": "Miramichi Valley High School, Miramichi, New Brunswick, Canada"
+    },
+    "blackville school|blackville": {
+      "latitude": 46.739604,
+      "longitude": -65.837397,
+      "coordinateSource": "geocoded-school",
+      "geocodeScore": 24,
+      "displayName": "Blackville School, 12, MacLaggan Drive, Blackville, Blackville Parish, Rural Community of Miramichi River Valley, Northumberland County, New Brunswick, E9B 1N8, Canada",
+      "sourceQuery": "Blackville School, Blackville, New Brunswick, Canada"
+    },
+    "petitcodiac regional school|petitcodiac": {
+      "latitude": 45.93432,
+      "longitude": -65.179592,
+      "coordinateSource": "geocoded-school",
+      "geocodeScore": 25,
+      "displayName": "Petitcodiac Regional School, Corey Avenue, Petitcodiac, Salisbury Parish, Petitcodiac, Community of Three Rivers, Westmorland County, New Brunswick, E4Z 4L2, Canada",
+      "sourceQuery": "Petitcodiac Regional School, Petitcodiac, New Brunswick, Canada"
+    },
+    "north & south esk regional high school|sunny corner": {
+      "latitude": 46.950634,
+      "longitude": -65.817869,
+      "coordinateSource": "geocoded-address",
+      "geocodeScore": 7,
+      "displayName": "Northwest Road, Sunny Corner, Northesk Parish, Rural Community of Miramichi River Valley, Northumberland County, New Brunswick, E9E 1J1, Canada",
+      "sourceQuery": "40 Northwest Road, Sunny Corner, New Brunswick, E9E 1J4, Canada"
+    },
+    "riverview high school|riverview": {
+      "latitude": 46.05675,
+      "longitude": -64.801214,
+      "coordinateSource": "geocoded-school",
+      "geocodeScore": 25,
+      "displayName": "Riverview High School, Findlay Boulevard, Riverview, Coverdale Parish, Albert County, New Brunswick, E1B 0E4, Canada",
+      "sourceQuery": "Riverview High School, Riverview, New Brunswick, Canada"
+    },
+    "jma armstrong salisbury middle school|salisbury": {
+      "latitude": 48.221807,
+      "longitude": -64.884251,
+      "coordinateSource": "city-hash",
+      "geocodeScore": null,
+      "displayName": null,
+      "sourceQuery": null
+    },
+    "belleisle regional high school|springfield": {
+      "latitude": 46.303952,
+      "longitude": -64.266033,
+      "coordinateSource": "city-hash",
+      "geocodeScore": null,
+      "displayName": null,
+      "sourceQuery": null
+    },
+    "kennebecasis valley high school|rothesay": {
+      "latitude": 46.354897,
+      "longitude": -68.531018,
+      "coordinateSource": "city-hash",
+      "geocodeScore": null,
+      "displayName": null,
+      "sourceQuery": null
+    },
+    "saint mary's academy|edmundston": {
+      "latitude": 47.3737,
+      "longitude": -68.3251,
+      "coordinateSource": "city-anchor",
+      "geocodeScore": null,
+      "displayName": null,
+      "sourceQuery": null
+    },
+    "james m hill memorial high school|miramichi": {
+      "latitude": 47.0299,
+      "longitude": -65.5019,
+      "coordinateSource": "city-anchor",
+      "geocodeScore": null,
+      "displayName": null,
+      "sourceQuery": null
+    },
+    "carleton north senior high school|bristol": {
+      "latitude": 48.567639,
+      "longitude": -64.640581,
+      "coordinateSource": "city-hash",
+      "geocodeScore": null,
+      "displayName": null,
+      "sourceQuery": null
+    },
+    "tobique valley high school|plaster rock": {
+      "latitude": 45.240545,
+      "longitude": -64.343207,
+      "coordinateSource": "city-hash",
+      "geocodeScore": null,
+      "displayName": null,
+      "sourceQuery": null
+    },
+    "hampton high school|hampton": {
+      "latitude": 46.460057,
+      "longitude": -68.14397,
+      "coordinateSource": "city-hash",
+      "geocodeScore": null,
+      "displayName": null,
+      "sourceQuery": null
+    },
+    "leo hayes high school|fredericton": {
+      "latitude": 45.9636,
+      "longitude": -66.6431,
+      "coordinateSource": "city-anchor",
+      "geocodeScore": null,
+      "displayName": null,
+      "sourceQuery": null
+    },
+    "saint john high school|saint john": {
+      "latitude": 45.2733,
+      "longitude": -66.0633,
+      "coordinateSource": "city-anchor",
+      "geocodeScore": null,
+      "displayName": null,
+      "sourceQuery": null
+    },
+    "oromocto high school|oromocto": {
+      "latitude": 45.8351,
+      "longitude": -66.4796,
+      "coordinateSource": "city-anchor",
+      "geocodeScore": null,
+      "displayName": null,
+      "sourceQuery": null
+    },
+    "harvey high school|harvey station": {
+      "latitude": 47.008989,
+      "longitude": -67.807618,
+      "coordinateSource": "city-hash",
+      "geocodeScore": null,
+      "displayName": null,
+      "sourceQuery": null
+    },
+    "sussex regional high school|sussex": {
+      "latitude": 48.427836,
+      "longitude": -68.590693,
+      "coordinateSource": "city-hash",
+      "geocodeScore": null,
+      "displayName": null,
+      "sourceQuery": null
+    },
+    "woodstock high school|woodstock": {
+      "latitude": 46.152,
+      "longitude": -67.5922,
+      "coordinateSource": "city-anchor",
+      "geocodeScore": null,
+      "displayName": null,
+      "sourceQuery": null
+    },
+    "st malachys memorial high school|saint john": {
+      "latitude": 45.2733,
+      "longitude": -66.0633,
+      "coordinateSource": "city-anchor",
+      "geocodeScore": null,
+      "displayName": null,
+      "sourceQuery": null
+    },
+    "st stephen high school|saint stephen": {
+      "latitude": 45.896099,
+      "longitude": -67.085857,
+      "coordinateSource": "city-hash",
+      "geocodeScore": null,
+      "displayName": null,
+      "sourceQuery": null
+    },
+    "fundy high school|saint george": {
+      "latitude": 46.859735,
+      "longitude": -66.092642,
+      "coordinateSource": "city-hash",
+      "geocodeScore": null,
+      "displayName": null,
+      "sourceQuery": null
+    },
+    "rothesay high school|rothesay": {
+      "latitude": 46.354897,
+      "longitude": -68.531018,
+      "coordinateSource": "city-hash",
+      "geocodeScore": null,
+      "displayName": null,
+      "sourceQuery": null
+    },
+    "southern victoria high school|perth-andover": {
+      "latitude": 45.644558,
+      "longitude": -68.69023,
+      "coordinateSource": "city-hash",
+      "geocodeScore": null,
+      "displayName": null,
+      "sourceQuery": null
+    },
+    "tantramar regional high school|sackville": {
+      "latitude": 47.572447,
+      "longitude": -67.645497,
+      "coordinateSource": "city-hash",
+      "geocodeScore": null,
+      "displayName": null,
+      "sourceQuery": null
+    },
+    "dalhousie regional high school|dalhousie": {
+      "latitude": 48.0625,
+      "longitude": -66.3786,
+      "coordinateSource": "city-anchor",
+      "geocodeScore": null,
+      "displayName": null,
+      "sourceQuery": null
+    },
+    "bathurst high school|bathurst": {
+      "latitude": 47.6186,
+      "longitude": -65.6519,
+      "coordinateSource": "city-anchor",
+      "geocodeScore": null,
+      "displayName": null,
+      "sourceQuery": null
+    },
+    "harbour view high school|saint john": {
+      "latitude": 45.2733,
+      "longitude": -66.0633,
+      "coordinateSource": "city-anchor",
+      "geocodeScore": null,
+      "displayName": null,
+      "sourceQuery": null
+    },
+    "moncton high school|moncton": {
+      "latitude": 46.0878,
+      "longitude": -64.7782,
+      "coordinateSource": "city-anchor",
+      "geocodeScore": null,
+      "displayName": null,
+      "sourceQuery": null
+    },
+    "bernice macnaughton high school|moncton": {
+      "latitude": 46.0878,
+      "longitude": -64.7782,
+      "coordinateSource": "city-anchor",
+      "geocodeScore": null,
+      "displayName": null,
+      "sourceQuery": null
+    },
+    "stanley regional high school|stanley": {
+      "latitude": 47.883565,
+      "longitude": -66.310381,
+      "coordinateSource": "city-hash",
+      "geocodeScore": null,
+      "displayName": null,
+      "sourceQuery": null
+    },
+    "sugarloaf senior high school|campbellton": {
+      "latitude": 48.0075,
+      "longitude": -66.6727,
+      "coordinateSource": "city-anchor",
+      "geocodeScore": null,
+      "displayName": null,
+      "sourceQuery": null
+    },
+    "doaktown consolidated high school|doaktown": {
+      "latitude": 46.556969,
+      "longitude": -68.436555,
+      "coordinateSource": "city-hash",
+      "geocodeScore": null,
+      "displayName": null,
+      "sourceQuery": null
+    },
+    "harrison trimble high school|moncton": {
+      "latitude": 46.0987,
+      "longitude": -64.810422,
+      "coordinateSource": "geocoded-school",
+      "geocodeScore": 26,
+      "displayName": "Harrison Trimble High School, 80, Echo Drive, Moncton, Moncton Parish, City of Moncton, Westmorland County, New Brunswick, E1C 3H8, Canada",
+      "sourceQuery": "Harrison Trimble High School School, Moncton, New Brunswick, Canada"
+    },
+    "sir james dunn academy|saint andrews": {
+      "latitude": 45.0779,
+      "longitude": -67.050322,
+      "coordinateSource": "geocoded-school",
+      "geocodeScore": 18,
+      "displayName": "Sir James Dunn Academy, Saint Andrews, Saint Andrews Parish, Town of Saint Andrews, Charlotte County, New Brunswick, E5B 1Y7, Canada",
+      "sourceQuery": "Sir James Dunn Academy, Saint Andrews, New Brunswick, Canada"
+    },
+    "hartland high school|hartland": {
+      "latitude": 46.301248,
+      "longitude": -67.52662,
+      "coordinateSource": "geocoded-school",
+      "geocodeScore": 19,
+      "displayName": "Hartland High School, High Street, Hartland, Brighton Parish, Town of Hartland, Carleton County, New Brunswick, E7P 1A0, Canada",
+      "sourceQuery": "Hartland High School, Hartland, New Brunswick, Canada"
+    },
+    "chipman forest avenue school|chipman": {
+      "latitude": 46.183086,
+      "longitude": -65.867451,
+      "coordinateSource": "geocoded-school",
+      "geocodeScore": 26,
+      "displayName": "Chipman Forest Avenue School, Forest Avenue, Chipman, Chipman Parish, Municipality of Grand Lake, Queens County, New Brunswick, E4A 2H1, Canada",
+      "sourceQuery": "Chipman Forest Avenue School, Chipman, New Brunswick, Canada"
+    },
+    "caledonia regional high school|hillsborough": {
+      "latitude": 45.928705,
+      "longitude": -64.653785,
+      "coordinateSource": "geocoded-school",
+      "geocodeScore": 26,
+      "displayName": "Caledonia Regional High School, School Road, Hillsborough, Hillsborough Parish, Fundy Albert, Albert County, New Brunswick, E4H 2X4, Canada",
+      "sourceQuery": "Caledonia Regional High School, Hillsborough, New Brunswick, Canada"
+    },
+    "bonar law memorial school|rexton": {
+      "latitude": 46.64145,
+      "longitude": -64.85849,
+      "coordinateSource": "geocoded-school",
+      "geocodeScore": 25,
+      "displayName": "Bonar Law Memorial School, 197, Main Street, Rexton, Richibucto Parish, Five Rivers, Kent County, New Brunswick, E4W 1V9, Canada",
+      "sourceQuery": "Bonar Law Memorial School, Rexton, New Brunswick, Canada"
+    },
+    "cambridge narrows school|cambridge narrows": {
+      "latitude": 45.837031,
+      "longitude": -65.953189,
+      "coordinateSource": "geocoded-school",
+      "geocodeScore": 18,
+      "displayName": "Cambridge-Narrows School, Lakeview Road, Cambridge Narrows, Cambridge Parish, Village of Arcadia, Queens County, New Brunswick, E4C 1N8, Canada",
+      "sourceQuery": "Cambridge Narrows School, Cambridge Narrows, New Brunswick, Canada"
+    },
+    "simonds high school|saint john": {
+      "latitude": 45.298568,
+      "longitude": -65.993074,
+      "coordinateSource": "geocoded-school",
+      "geocodeScore": 25,
+      "displayName": "Simonds High School, 1490, Hickey Road, Eastwood, Saint John, Saint Johns Parish, City of Saint John, Saint John County, New Brunswick, E2J 4E7, Canada",
+      "sourceQuery": "Simonds High School, Saint John, New Brunswick, Canada"
+    }
+  },
+  "cities": {
+    "boiestown": {
+      "latitude": 46.454155,
+      "longitude": -66.417093,
+      "coordinateSource": "geocoded-city",
+      "displayName": "Boiestown, Ludlow Parish, Rural Community of Upper Miramichi, Northumberland County, New Brunswick, Canada",
+      "sourceQuery": "Boiestown, New Brunswick, Canada"
+    },
+    "sunny corner": {
+      "latitude": 46.952699,
+      "longitude": -65.815252,
+      "coordinateSource": "geocoded-city",
+      "displayName": "Sunny Corner, Northesk Parish, Rural Community of Miramichi River Valley, Northumberland County, New Brunswick, E9E 1J1, Canada",
+      "sourceQuery": "Sunny Corner, New Brunswick, Canada"
+    },
+    "salisbury": {
+      "latitude": 48.221807,
+      "longitude": -64.884251,
+      "coordinateSource": "city-hash",
+      "displayName": null,
+      "sourceQuery": null
+    },
+    "springfield": {
+      "latitude": 46.303952,
+      "longitude": -64.266033,
+      "coordinateSource": "city-hash",
+      "displayName": null,
+      "sourceQuery": null
+    },
+    "rothesay": {
+      "latitude": 46.354897,
+      "longitude": -68.531018,
+      "coordinateSource": "city-hash",
+      "displayName": null,
+      "sourceQuery": null
+    },
+    "edmundston": {
+      "latitude": 47.3737,
+      "longitude": -68.3251,
+      "coordinateSource": "city-anchor",
+      "displayName": null,
+      "sourceQuery": null
+    },
+    "miramichi": {
+      "latitude": 47.0299,
+      "longitude": -65.5019,
+      "coordinateSource": "city-anchor",
+      "displayName": null,
+      "sourceQuery": null
+    },
+    "bristol": {
+      "latitude": 48.567639,
+      "longitude": -64.640581,
+      "coordinateSource": "city-hash",
+      "displayName": null,
+      "sourceQuery": null
+    },
+    "plaster rock": {
+      "latitude": 45.240545,
+      "longitude": -64.343207,
+      "coordinateSource": "city-hash",
+      "displayName": null,
+      "sourceQuery": null
+    },
+    "hampton": {
+      "latitude": 46.460057,
+      "longitude": -68.14397,
+      "coordinateSource": "city-hash",
+      "displayName": null,
+      "sourceQuery": null
+    },
+    "fredericton": {
+      "latitude": 45.9636,
+      "longitude": -66.6431,
+      "coordinateSource": "city-anchor",
+      "displayName": null,
+      "sourceQuery": null
+    },
+    "saint john": {
+      "latitude": 45.2733,
+      "longitude": -66.0633,
+      "coordinateSource": "city-anchor",
+      "displayName": null,
+      "sourceQuery": null
+    },
+    "oromocto": {
+      "latitude": 45.8351,
+      "longitude": -66.4796,
+      "coordinateSource": "city-anchor",
+      "displayName": null,
+      "sourceQuery": null
+    },
+    "harvey station": {
+      "latitude": 47.008989,
+      "longitude": -67.807618,
+      "coordinateSource": "city-hash",
+      "displayName": null,
+      "sourceQuery": null
+    },
+    "sussex": {
+      "latitude": 48.427836,
+      "longitude": -68.590693,
+      "coordinateSource": "city-hash",
+      "displayName": null,
+      "sourceQuery": null
+    },
+    "woodstock": {
+      "latitude": 46.152,
+      "longitude": -67.5922,
+      "coordinateSource": "city-anchor",
+      "displayName": null,
+      "sourceQuery": null
+    },
+    "saint stephen": {
+      "latitude": 45.896099,
+      "longitude": -67.085857,
+      "coordinateSource": "city-hash",
+      "displayName": null,
+      "sourceQuery": null
+    },
+    "saint george": {
+      "latitude": 46.859735,
+      "longitude": -66.092642,
+      "coordinateSource": "city-hash",
+      "displayName": null,
+      "sourceQuery": null
+    },
+    "perth-andover": {
+      "latitude": 45.644558,
+      "longitude": -68.69023,
+      "coordinateSource": "city-hash",
+      "displayName": null,
+      "sourceQuery": null
+    },
+    "sackville": {
+      "latitude": 47.572447,
+      "longitude": -67.645497,
+      "coordinateSource": "city-hash",
+      "displayName": null,
+      "sourceQuery": null
+    },
+    "dalhousie": {
+      "latitude": 48.0625,
+      "longitude": -66.3786,
+      "coordinateSource": "city-anchor",
+      "displayName": null,
+      "sourceQuery": null
+    },
+    "bathurst": {
+      "latitude": 47.6186,
+      "longitude": -65.6519,
+      "coordinateSource": "city-anchor",
+      "displayName": null,
+      "sourceQuery": null
+    },
+    "moncton": {
+      "latitude": 46.0878,
+      "longitude": -64.7782,
+      "coordinateSource": "city-anchor",
+      "displayName": null,
+      "sourceQuery": null
+    },
+    "stanley": {
+      "latitude": 47.883565,
+      "longitude": -66.310381,
+      "coordinateSource": "city-hash",
+      "displayName": null,
+      "sourceQuery": null
+    },
+    "campbellton": {
+      "latitude": 48.0075,
+      "longitude": -66.6727,
+      "coordinateSource": "city-anchor",
+      "displayName": null,
+      "sourceQuery": null
+    },
+    "doaktown": {
+      "latitude": 46.556969,
+      "longitude": -68.436555,
+      "coordinateSource": "city-hash",
+      "displayName": null,
+      "sourceQuery": null
+    }
+  }
+}

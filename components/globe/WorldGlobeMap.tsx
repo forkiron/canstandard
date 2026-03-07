@@ -1,6 +1,6 @@
 'use client';
 
-import { useCallback, useMemo, useRef, useState } from 'react';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import MapboxMap, {
   Layer as MapboxLayer,
   NavigationControl as MapboxNavigationControl,
@@ -20,10 +20,12 @@ import educationDataset from '../../lib/data/country-education-metrics.json';
 import bcSchoolDataset from '../../lib/data/bc-school-rankings.json';
 import abSchoolDataset from '../../lib/data/ab-school-rankings.json';
 import qcSchoolDataset from '../../lib/data/qc-school-rankings.json';
+import nbSchoolDataset from '../../lib/data/nb-school-rankings.json';
 import type { EducationCountryDataset } from '../../lib/types';
 import { getHeatDomain, heatColorFromValue } from './heatColor';
 import { MAP_STYLE_URL } from '../../lib/constants';
 import { SchoolDetailsPanel } from './SchoolDetailsPanel';
+import { useSchoolTourStore } from '@/stores/useSchoolTourStore';
 
 interface WorldGlobeMapProps {
   className?: string;
@@ -268,7 +270,7 @@ function darkenHexColor(hex: string, factor = 0.78) {
 }
 
 function getRatingColor(rating: number | null | undefined) {
-  if (rating === null || rating === undefined || isNaN(rating)) return '#94a3b8';
+  if (rating === null || rating === undefined || !Number.isFinite(rating)) return '#94a3b8';
   const value = Math.max(0, Math.min(10, rating));
   const hex = (c: string) => Number.parseInt(c.slice(1), 16);
   const interpolate = (c1: string, c2: string, t: number) => {
@@ -338,7 +340,17 @@ export function WorldGlobeMap({ className }: WorldGlobeMapProps) {
   const bcSchools = (bcSchoolDataset as { schools: BcSchoolRecord[] }).schools;
   const abSchools = (abSchoolDataset as { schools: BcSchoolRecord[] }).schools;
   const qcSchools = (qcSchoolDataset as { schools: BcSchoolRecord[] }).schools;
-  const canadaSchools = useMemo(() => [...bcSchools, ...abSchools, ...qcSchools], [bcSchools, abSchools, qcSchools]);
+  const nbSchools = (nbSchoolDataset as { schools: BcSchoolRecord[] }).schools;
+  const canadaSchools = useMemo(
+    () => [...bcSchools, ...abSchools, ...qcSchools, ...nbSchools],
+    [bcSchools, abSchools, qcSchools, nbSchools]
+  );
+  const tourSchoolIds = useSchoolTourStore((state) => state.schoolIds);
+  const tourIndex = useSchoolTourStore((state) => state.currentIndex);
+  const prevTourSchool = useSchoolTourStore((state) => state.prevSchool);
+  const nextTourSchool = useSchoolTourStore((state) => state.nextSchool);
+  const clearSchoolTour = useSchoolTourStore((state) => state.clearTour);
+  const setTourIndex = useSchoolTourStore((state) => state.setIndex);
   const academicByIso3 = useMemo(() => {
     const map = new Map<string, AcademicCountryMetric>();
     for (const record of records) {
@@ -455,6 +467,18 @@ export function WorldGlobeMap({ className }: WorldGlobeMapProps) {
       )
       .slice(0, 8);
   }, [canadaSchools, schoolQuery]);
+  const schoolById = useMemo(() => {
+    const map = new Map<string, BcSchoolRecord>();
+    for (const school of canadaSchools) {
+      map.set(school.id, school);
+    }
+    return map;
+  }, [canadaSchools]);
+  const schoolTour = useMemo(
+    () => tourSchoolIds.map((schoolId) => schoolById.get(schoolId)).filter((school): school is BcSchoolRecord => Boolean(school)),
+    [tourSchoolIds, schoolById]
+  );
+  const activeTourSchool = schoolTour.length > 0 ? schoolTour[Math.min(tourIndex, schoolTour.length - 1)] : null;
 
   const flyToCanada = useCallback((mapInstance: any) => {
     if (!mapInstance) return;
@@ -674,6 +698,49 @@ export function WorldGlobeMap({ className }: WorldGlobeMapProps) {
     },
     [flyToCanada, flyToCountry, flyToSchool, selectedSchool, preSchoolCameraState, activeLayer]
   );
+  useEffect(() => {
+    if (schoolTour.length === 0) return;
+
+    const boundedIndex = Math.max(0, Math.min(schoolTour.length - 1, tourIndex));
+    if (boundedIndex !== tourIndex) {
+      setTourIndex(boundedIndex);
+      return;
+    }
+
+    const school = schoolTour[boundedIndex];
+    setSchoolQuery(`${school.schoolName} (${school.city}, ${school.province})`);
+    setIsSchoolSearchOpen(false);
+    setActiveLayer('bc-schools');
+    setSelectedSchool((current) => (current?.id === school.id ? current : school));
+
+    requestAnimationFrame(() => {
+      const activeMap = hasMapboxToken ? getUnderlyingMap(mapboxRef) : getUnderlyingMap(maplibreRef);
+      setProjectionForMode(activeMap, 'bc-schools');
+      flyToSchool(activeMap, school);
+    });
+  }, [schoolTour, tourIndex, setTourIndex, hasMapboxToken, flyToSchool]);
+  useEffect(() => {
+    if (schoolTour.length === 0) return;
+
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key !== 'ArrowLeft' && event.key !== 'ArrowRight') return;
+      const target = event.target as HTMLElement | null;
+      const tagName = target?.tagName?.toLowerCase() ?? '';
+      if (tagName === 'input' || tagName === 'textarea' || target?.isContentEditable) return;
+
+      event.preventDefault();
+      if (event.key === 'ArrowRight') {
+        nextTourSchool();
+      } else {
+        prevTourSchool();
+      }
+    };
+
+    window.addEventListener('keydown', onKeyDown);
+    return () => {
+      window.removeEventListener('keydown', onKeyDown);
+    };
+  }, [schoolTour.length, nextTourSchool, prevTourSchool]);
 
   const interactiveLayers = activeLayer === 'bc-schools' 
     ? ['country-hit-layer', 'bc-school-points'] 
@@ -984,6 +1051,40 @@ export function WorldGlobeMap({ className }: WorldGlobeMapProps) {
         }} 
         getRatingColor={getRatingColor}
       />
+      {schoolTour.length > 0 && activeTourSchool && (
+        <div className="absolute bottom-24 left-1/2 z-20 flex -translate-x-1/2 items-center gap-2 rounded-xl border border-white/20 bg-black/70 px-3 py-2 text-xs text-slate-100 backdrop-blur">
+          <button
+            type="button"
+            onClick={prevTourSchool}
+            className="rounded-md border border-white/20 bg-white/5 px-2 py-1 text-sm transition hover:bg-white/15"
+            aria-label="Previous school"
+          >
+            ◀
+          </button>
+          <div className="min-w-48 text-center">
+            <p className="font-medium">{activeTourSchool.schoolName}</p>
+            <p className="text-[11px] text-slate-400">
+              {tourIndex + 1}/{schoolTour.length} • {activeTourSchool.city}, {activeTourSchool.province}
+            </p>
+            <p className="text-[10px] text-slate-500">Use ◀ ▶ buttons or keyboard arrows</p>
+          </div>
+          <button
+            type="button"
+            onClick={nextTourSchool}
+            className="rounded-md border border-white/20 bg-white/5 px-2 py-1 text-sm transition hover:bg-white/15"
+            aria-label="Next school"
+          >
+            ▶
+          </button>
+          <button
+            type="button"
+            onClick={clearSchoolTour}
+            className="rounded-md border border-white/20 bg-white/5 px-2 py-1 text-[11px] transition hover:bg-white/15"
+          >
+            End Tour
+          </button>
+        </div>
+      )}
     </div>
   );
 }

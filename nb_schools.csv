@@ -1,0 +1,45 @@
+province,school_name,city,rank_2019,rank_5yr,trend,overall_rating_2019,overall_rating_5yr,source,latitude,longitude,coordinate_source,geocode_score
+NB,Upper Miramichi Regional High School,Boiestown,1,2,stable,9.5,9.3,aims.ca,46.452404,-66.431155,geocoded-address,7
+NB,Grand Manan Community School,Grand Manan,2,5,up,9.5,9,aims.ca,44.687729,-66.765847,geocoded-school,26
+NB,Fredericton High School,Fredericton,3,3,stable,8.6,8.5,aims.ca,45.94218,-66.663716,geocoded-school,25
+NB,Miramichi Valley High School,Miramichi,4,8,up,8.6,8.2,aims.ca,47.007468,-65.582924,geocoded-school,26
+NB,Blackville School,Blackville,5,10,up,8.6,8.1,aims.ca,46.739604,-65.837397,geocoded-school,24
+NB,Petitcodiac Regional School,Petitcodiac,6,11,up,8.6,8.1,aims.ca,45.93432,-65.179592,geocoded-school,25
+NB,North & South Esk Regional High School,Sunny Corner,7,12,up,8.6,8,aims.ca,46.950634,-65.817869,geocoded-address,7
+NB,Riverview High School,Riverview,8,9,stable,8.6,8.1,aims.ca,46.05675,-64.801214,geocoded-school,25
+NB,JMA Armstrong Salisbury Middle School,Salisbury,9,13,stable,8,7.9,aims.ca,48.221807,-64.884251,city-hash,
+NB,Belleisle Regional High School,Springfield,10,14,stable,8,7.9,aims.ca,46.303952,-64.266033,city-hash,
+NB,Kennebecasis Valley High School,Rothesay,11,6,down,8,8.2,aims.ca,46.354897,-68.531018,city-hash,
+NB,Saint Mary's Academy,Edmundston,12,15,stable,8,7.8,aims.ca,47.3737,-68.3251,city-anchor,
+NB,James M Hill Memorial High School,Miramichi,13,16,stable,8,7.8,aims.ca,47.0299,-65.5019,city-anchor,
+NB,Carleton North Senior High School,Bristol,14,17,stable,8,7.7,aims.ca,48.567639,-64.640581,city-hash,
+NB,Tobique Valley High School,Plaster Rock,15,20,up,8,7.5,aims.ca,45.240545,-64.343207,city-hash,
+NB,Hampton High School,Hampton,16,18,stable,8,7.7,aims.ca,46.460057,-68.14397,city-hash,
+NB,Leo Hayes High School,Fredericton,17,19,stable,8,7.6,aims.ca,45.9636,-66.6431,city-anchor,
+NB,Saint John High School,Saint John,18,21,stable,8,7.6,aims.ca,45.2733,-66.0633,city-anchor,
+NB,Oromocto High School,Oromocto,19,22,stable,8,7.5,aims.ca,45.8351,-66.4796,city-anchor,
+NB,Harvey High School,Harvey Station,20,24,down,8,7.4,aims.ca,47.008989,-67.807618,city-hash,
+NB,Sussex Regional High School,Sussex,21,25,stable,8,7.3,aims.ca,48.427836,-68.590693,city-hash,
+NB,Woodstock High School,Woodstock,22,23,stable,7,7.2,aims.ca,46.152,-67.5922,city-anchor,
+NB,St Malachys Memorial High School,Saint John,23,26,stable,7,7.1,aims.ca,45.2733,-66.0633,city-anchor,
+NB,St Stephen High School,Saint Stephen,24,27,stable,7,7.1,aims.ca,45.896099,-67.085857,city-hash,
+NB,Fundy High School,Saint George,25,28,stable,7,7,aims.ca,46.859735,-66.092642,city-hash,
+NB,Rothesay High School,Rothesay,26,29,stable,7,7,aims.ca,46.354897,-68.531018,city-hash,
+NB,Southern Victoria High School,Perth-Andover,27,30,stable,7,6.9,aims.ca,45.644558,-68.69023,city-hash,
+NB,Tantramar Regional High School,Sackville,28,31,stable,7,6.9,aims.ca,47.572447,-67.645497,city-hash,
+NB,Dalhousie Regional High School,Dalhousie,29,32,stable,7,6.9,aims.ca,48.0625,-66.3786,city-anchor,
+NB,Bathurst High School,Bathurst,30,33,stable,7,6.8,aims.ca,47.6186,-65.6519,city-anchor,
+NB,Harbour View High School,Saint John,31,34,stable,7,6.8,aims.ca,45.2733,-66.0633,city-anchor,
+NB,Moncton High School,Moncton,32,35,stable,7,6.8,aims.ca,46.0878,-64.7782,city-anchor,
+NB,Bernice MacNaughton High School,Moncton,33,36,stable,7,6.8,aims.ca,46.0878,-64.7782,city-anchor,
+NB,Stanley Regional High School,Stanley,34,37,stable,7,6.7,aims.ca,47.883565,-66.310381,city-hash,
+NB,Sugarloaf Senior High School,Campbellton,35,38,stable,7,6.7,aims.ca,48.0075,-66.6727,city-anchor,
+NB,Doaktown Consolidated High School,Doaktown,36,39,stable,6.5,6.6,aims.ca,46.556969,-68.436555,city-hash,
+NB,Harrison Trimble High School,Moncton,37,40,stable,6.5,6.6,aims.ca,46.0987,-64.810422,geocoded-school,26
+NB,Sir James Dunn Academy,Saint Andrews,38,41,stable,6.5,6.6,aims.ca,45.0779,-67.050322,geocoded-school,18
+NB,Hartland High School,Hartland,39,42,down,6.5,6.5,aims.ca,46.301248,-67.52662,geocoded-school,19
+NB,Chipman Forest Avenue School,Chipman,40,43,stable,6.5,6.4,aims.ca,46.183086,-65.867451,geocoded-school,26
+NB,Caledonia Regional High School,Hillsborough,41,44,stable,6.5,6.4,aims.ca,45.928705,-64.653785,geocoded-school,26
+NB,Bonar Law Memorial School,Rexton,42,45,down,5.5,5.8,aims.ca,46.64145,-64.85849,geocoded-school,25
+NB,Cambridge Narrows School,Cambridge Narrows,43,46,down,5.5,5.7,aims.ca,45.837031,-65.953189,geocoded-school,18
+NB,Simonds High School,Saint John,44,47,down,5.5,5.7,aims.ca,45.298568,-65.993074,geocoded-school,25
