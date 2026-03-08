@@ -12,6 +12,7 @@ import abSchoolDataset from '@/lib/data/ab-school-rankings.json';
 import bcSchoolDataset from '@/lib/data/bc-school-rankings.json';
 import nbSchoolDataset from '@/lib/data/nb-school-rankings.json';
 import qcSchoolDataset from '@/lib/data/qc-school-rankings.json';
+import onSchoolDataset from '@/lib/data/on-school-rankings.json';
 
 const envAnalyzerAssistantId = process.env.BACKBOARD_ANALYZER_ASSISTANT_ID;
 const envAnalyzerThreadId = process.env.BACKBOARD_ANALYZER_THREAD_ID;
@@ -171,6 +172,7 @@ function getAllSchools(): SchoolRecord[] {
     ...pick(abSchoolDataset),
     ...pick(qcSchoolDataset),
     ...pick(nbSchoolDataset),
+    ...pick(onSchoolDataset),
   ] as SchoolRecord[];
 }
 
