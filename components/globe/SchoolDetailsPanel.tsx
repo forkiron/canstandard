@@ -122,7 +122,7 @@ export function SchoolDetailsPanel({ school, onClose, getRatingColor, adjustment
                     <span className={`text-2xl font-bold ${isDeflated ? 'text-emerald-400' : isInflated ? 'text-rose-400' : 'text-slate-300'}`}>
                       {af != null ? `${af > 0 ? '+' : ''}${af.toFixed(1)}` : '0.0'}
                     </span>
-                    <span className="text-[10px] text-slate-600">%</span>
+                    <span className="text-[10px] text-slate-600">pts</span>
                   </div>
                 </div>
 
