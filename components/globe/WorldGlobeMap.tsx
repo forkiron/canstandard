@@ -99,8 +99,8 @@ const BUILDINGS_LAYER: any = {
   },
 };
 
-const BC_HEAT_LAYER: any = {
-  id: 'bc-school-heat',
+const BC_GOOD_HEAT_LAYER: any = {
+  id: 'bc-school-heat-good',
   type: 'heatmap',
   paint: {
     'heatmap-weight': [
@@ -108,11 +108,13 @@ const BC_HEAT_LAYER: any = {
       ['linear'],
       ['coalesce', ['get', 'rating'], 0],
       0,
-      0.05,
+      0,
+      5,
+      0.2,
       10,
-      1,
+      1.25,
     ],
-    'heatmap-intensity': ['interpolate', ['linear'], ['zoom'], 3, 0.45, 8, 1.2, 12, 1.7],
+    'heatmap-intensity': ['interpolate', ['linear'], ['zoom'], 3, 0.5, 8, 1.2, 12, 1.5],
     'heatmap-color': [
       'interpolate',
       ['linear'],
@@ -120,18 +122,56 @@ const BC_HEAT_LAYER: any = {
       0,
       'rgba(0, 0, 0, 0)',
       0.2,
-      '#2a9d8f',
+      'rgba(55, 160, 85, 0.35)',
       0.4,
-      '#f4d35e',
+      '#38c172',
       0.6,
-      '#f08a24',
+      '#21d47d',
       0.8,
-      '#d62828',
+      '#0fa95d',
       1,
-      '#7f0000',
+      '#0a8a4c',
     ],
     'heatmap-radius': ['interpolate', ['linear'], ['zoom'], 3, 18, 8, 32, 12, 48],
-    'heatmap-opacity': ['interpolate', ['linear'], ['zoom'], 3, 0.85, 12, 0.45, 14, 0.05],
+    'heatmap-opacity': ['interpolate', ['linear'], ['zoom'], 3, 0.78, 12, 0.44, 14, 0.05],
+  },
+};
+
+const BC_BAD_HEAT_LAYER: any = {
+  id: 'bc-school-heat-bad',
+  type: 'heatmap',
+  paint: {
+    'heatmap-weight': [
+      'interpolate',
+      ['linear'],
+      ['coalesce', ['get', 'rating'], 0],
+      0,
+      0.75,
+      5,
+      0.06,
+      10,
+      0,
+    ],
+    'heatmap-intensity': ['interpolate', ['linear'], ['zoom'], 3, 0.34, 8, 0.9, 12, 1.2],
+    'heatmap-color': [
+      'interpolate',
+      ['linear'],
+      ['heatmap-density'],
+      0,
+      'rgba(0, 0, 0, 0)',
+      0.2,
+      'rgba(220, 65, 65, 0.32)',
+      0.45,
+      '#eb5a3a',
+      0.7,
+      '#e33d2f',
+      0.9,
+      '#c81d25',
+      1,
+      '#8b0000',
+    ],
+    'heatmap-radius': ['interpolate', ['linear'], ['zoom'], 3, 18, 8, 32, 12, 48],
+    'heatmap-opacity': ['interpolate', ['linear'], ['zoom'], 3, 0.5, 12, 0.32, 14, 0.04],
   },
 };
 
@@ -1021,7 +1061,8 @@ export function WorldGlobeMap({ className }: WorldGlobeMapProps) {
 
           {activeLayer === 'bc-schools' && (
             <MapboxSource id="bc-school-source" type="geojson" data={bcSchoolGeoJson as any}>
-              <MapboxLayer {...BC_HEAT_LAYER} />
+              <MapboxLayer {...BC_GOOD_HEAT_LAYER} />
+              <MapboxLayer {...BC_BAD_HEAT_LAYER} />
               <MapboxLayer {...BC_POINT_LAYER} />
               <MapboxLayer {...BC_LABEL_LAYER} />
             </MapboxSource>
@@ -1100,7 +1141,8 @@ export function WorldGlobeMap({ className }: WorldGlobeMapProps) {
 
           {activeLayer === 'bc-schools' && (
             <MapLibreSource id="bc-school-source" type="geojson" data={bcSchoolGeoJson as any}>
-              <MapLibreLayer {...BC_HEAT_LAYER} />
+              <MapLibreLayer {...BC_GOOD_HEAT_LAYER} />
+              <MapLibreLayer {...BC_BAD_HEAT_LAYER} />
               <MapLibreLayer {...BC_POINT_LAYER} />
               <MapLibreLayer {...BC_LABEL_LAYER} />
             </MapLibreSource>
