@@ -221,13 +221,13 @@ export function TestAnalyzerForm({ onResult }: { onResult: (res: AnalysisResult)
       onSubmit={handleSubmit}
       initial={{ opacity: 0, y: 10 }}
       animate={{ opacity: 1, y: 0 }}
-      className="space-y-4 rounded-2xl border border-slate-800 bg-slate-950/80 p-4 backdrop-blur-md"
+      className="space-y-4 rounded-2xl border border-white/15 bg-black/35 p-4 backdrop-blur-xl"
     >
       <div className="space-y-3">
-        <h3 className="mb-1 text-xl font-medium text-slate-100">Evaluate Test Difficulty</h3>
+        <h3 className="mb-1 text-xl font-medium uppercase tracking-[0.12em] text-zinc-100">EVALUATE TEST DIFFICULTY</h3>
 
         <div className="space-y-2">
-          <label className="text-sm font-medium text-slate-300">School (Search + Select)</label>
+          <label className="text-sm font-medium uppercase tracking-[0.12em] text-zinc-300">School (Search + Select)</label>
           <div className="relative">
             <input
               type="text"
@@ -242,10 +242,10 @@ export function TestAnalyzerForm({ onResult }: { onResult: (res: AnalysisResult)
                 window.setTimeout(() => setShowSchoolDropdown(false), 120);
               }}
               placeholder="Type school name, city, or province..."
-              className="w-full rounded-lg border border-slate-700 bg-slate-900 px-4 py-2.5 text-sm text-slate-200 outline-none focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 transition-all"
+              className="w-full rounded-lg border border-white/15 bg-black/45 px-4 py-2.5 text-sm text-zinc-100 placeholder:text-zinc-500 outline-none transition-all focus:border-white/40 focus:ring-1 focus:ring-white/30"
             />
             {showSchoolDropdown && filteredSchools.length > 0 && (
-              <ul className="absolute z-50 mt-1 max-h-56 w-full overflow-y-auto rounded-lg border border-slate-700 bg-slate-900 shadow-xl">
+              <ul className="absolute z-50 mt-1 max-h-56 w-full overflow-y-auto rounded-lg border border-white/15 bg-black/80 shadow-xl backdrop-blur-xl">
                 {filteredSchools.map((school) => (
                   <li
                     key={school.id}
@@ -255,33 +255,33 @@ export function TestAnalyzerForm({ onResult }: { onResult: (res: AnalysisResult)
                       setProvince(school.province);
                       setShowSchoolDropdown(false);
                     }}
-                    className="flex cursor-pointer items-center justify-between px-4 py-2.5 text-sm transition-colors hover:bg-slate-800"
+                    className="flex cursor-pointer items-center justify-between px-4 py-2.5 text-sm transition-colors hover:bg-white/10"
                   >
-                    <span className="font-medium text-slate-200">{school.schoolName}</span>
-                    <span className="ml-2 text-xs text-slate-500">{school.city}, {school.province}</span>
+                    <span className="font-medium text-zinc-100">{school.schoolName}</span>
+                    <span className="ml-2 text-xs text-zinc-400">{school.city}, {school.province}</span>
                   </li>
                 ))}
               </ul>
             )}
             {showSchoolDropdown && schoolSearch.trim().length > 0 && filteredSchools.length === 0 && (
-              <div className="absolute z-50 mt-1 w-full rounded-lg border border-slate-700 bg-slate-900 px-4 py-3 text-sm text-slate-400 shadow-xl">
+              <div className="absolute z-50 mt-1 w-full rounded-lg border border-white/15 bg-black/80 px-4 py-3 text-sm text-zinc-400 shadow-xl backdrop-blur-xl">
                 No schools found.
               </div>
             )}
           </div>
           {selectedSchool && (
-            <p className="text-xs text-emerald-400">
+            <p className="text-xs text-zinc-300">
               Selected: {selectedSchool.schoolName} ({selectedSchool.city}, {selectedSchool.province})
             </p>
           )}
         </div>
 
         <div className="space-y-2">
-          <label className="text-sm font-medium text-slate-300">Province / Territory</label>
+          <label className="text-sm font-medium uppercase tracking-[0.12em] text-zinc-300">Province / Territory</label>
           <select
             value={province}
             onChange={(e) => setProvince(e.target.value)}
-            className="w-full rounded-lg border border-slate-700 bg-slate-900 px-4 py-2.5 text-sm text-slate-200 outline-none focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 transition-all"
+            className="w-full rounded-lg border border-white/15 bg-black/45 px-4 py-2.5 text-sm text-zinc-100 outline-none transition-all focus:border-white/40 focus:ring-1 focus:ring-white/30"
           >
             <option value="AB">Alberta</option>
             <option value="BC">British Columbia</option>
@@ -300,7 +300,7 @@ export function TestAnalyzerForm({ onResult }: { onResult: (res: AnalysisResult)
         </div>
 
         <div className="space-y-2 pt-1">
-          <label className="text-sm font-medium text-slate-300">Upload Test PDF</label>
+          <label className="text-sm font-medium uppercase tracking-[0.12em] text-zinc-300">Upload Test PDF</label>
           <div
             onDrop={handleDrop}
             onDragOver={handleDragOver}
@@ -308,10 +308,10 @@ export function TestAnalyzerForm({ onResult }: { onResult: (res: AnalysisResult)
             onClick={() => fileInputRef.current?.click()}
             className={`flex cursor-pointer flex-col items-center justify-center gap-2 rounded-lg border-2 border-dashed px-4 py-5 text-center transition-all ${
               isDragOver
-                ? 'border-emerald-500 bg-emerald-500/10'
+                ? 'border-white/45 bg-white/10'
                 : pdfFile
-                ? 'border-emerald-700 bg-emerald-900/20'
-                : 'border-slate-700 bg-slate-900/50 hover:border-slate-500'
+                ? 'border-white/35 bg-white/10'
+                : 'border-white/20 bg-black/35 hover:border-white/35'
             }`}
           >
             <input
@@ -326,35 +326,35 @@ export function TestAnalyzerForm({ onResult }: { onResult: (res: AnalysisResult)
             />
             {pdfFile ? (
               <>
-                <svg className="h-6 w-6 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <svg className="h-6 w-6 text-zinc-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
-                <span className="text-sm font-medium text-emerald-300">{pdfFile.name}</span>
+                <span className="text-sm font-medium text-zinc-100">{pdfFile.name}</span>
                 <button
                   type="button"
                   onClick={(e) => {
                     e.stopPropagation();
                     setShowPdfPreview(true);
                   }}
-                  className="text-xs text-slate-400 hover:text-slate-200 transition-colors"
+                  className="text-xs text-zinc-400 transition-colors hover:text-zinc-200"
                 >
                   Preview
                 </button>
                 <button
                   type="button"
                   onClick={(e) => { e.stopPropagation(); setPdfFile(null); }}
-                  className="text-xs text-slate-500 hover:text-rose-400 transition-colors"
+                  className="text-xs text-zinc-500 transition-colors hover:text-zinc-300"
                 >
                   Remove
                 </button>
               </>
             ) : (
               <>
-                <svg className="h-6 w-6 text-slate-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <svg className="h-6 w-6 text-zinc-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
                 </svg>
-                <p className="text-sm text-slate-400">
-                  <span className="font-medium text-slate-200">Click or drag</span> a PDF here
+                <p className="text-sm text-zinc-400">
+                  <span className="font-medium text-zinc-200">Click or drag</span> a PDF here
                 </p>
               </>
             )}
@@ -362,21 +362,21 @@ export function TestAnalyzerForm({ onResult }: { onResult: (res: AnalysisResult)
         </div>
 
         <div className="space-y-2">
-          <label className="text-sm font-medium flex justify-between text-slate-300">
+          <label className="flex justify-between text-sm font-medium uppercase tracking-[0.12em] text-zinc-300">
             <span>Additional Notes</span>
-            <span className="text-xs text-slate-500 font-normal">Optional — paste extra context</span>
+            <span className="text-xs font-normal normal-case tracking-normal text-zinc-500">Optional - paste extra context</span>
           </label>
           <textarea
             value={testContent}
             onChange={(e) => setTestContent(e.target.value)}
             placeholder="E.g., 1. Calculate the derivative of f(x) = x^2 * sin(x)..."
-            className="h-24 w-full resize-none rounded-lg border border-slate-700 bg-slate-900 px-4 py-3 text-sm text-slate-200 outline-none focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 transition-all"
+            className="h-24 w-full resize-none rounded-lg border border-white/15 bg-black/45 px-4 py-3 text-sm text-zinc-100 placeholder:text-zinc-500 outline-none transition-all focus:border-white/40 focus:ring-1 focus:ring-white/30"
           />
         </div>
       </div>
 
       {error && (
-        <div className="rounded-lg border border-rose-900/50 bg-rose-500/10 p-3 text-sm text-rose-400">
+        <div className="rounded-lg border border-white/20 bg-black/40 p-3 text-sm text-zinc-300">
           {error}
         </div>
       )}
@@ -384,7 +384,7 @@ export function TestAnalyzerForm({ onResult }: { onResult: (res: AnalysisResult)
       <button
         type="submit"
         disabled={loading}
-        className="flex w-full items-center justify-center rounded-lg bg-emerald-600 px-4 py-3 text-sm font-medium text-white transition-colors hover:bg-emerald-500 disabled:bg-slate-800 disabled:text-slate-500"
+        className="flex w-full items-center justify-center rounded-lg border border-white/20 bg-black/55 px-4 py-3 text-sm font-medium uppercase tracking-[0.12em] text-zinc-100 transition-colors hover:bg-black/75 disabled:border-white/10 disabled:bg-black/30 disabled:text-zinc-500"
       >
         {loading ? (
           <span className="flex items-center gap-2">
@@ -401,15 +401,15 @@ export function TestAnalyzerForm({ onResult }: { onResult: (res: AnalysisResult)
 
       {showPdfPreview && pdfPreviewUrl && (
         <div className="fixed inset-0 z-[120] flex items-center justify-center bg-black/75 p-3">
-          <div className="flex h-[90vh] w-[min(70rem,96vw)] flex-col overflow-hidden rounded-xl border border-white/15 bg-slate-950 shadow-2xl">
+          <div className="flex h-[90vh] w-[min(70rem,96vw)] flex-col overflow-hidden rounded-xl border border-white/20 bg-black/55 shadow-2xl backdrop-blur-xl">
             <div className="flex items-center justify-between border-b border-white/10 px-4 py-3">
-              <p className="truncate text-sm font-medium text-slate-200">
+              <p className="truncate text-sm font-medium text-zinc-100">
                 {pdfFile?.name ?? 'PDF Preview'}
               </p>
               <button
                 type="button"
                 onClick={() => setShowPdfPreview(false)}
-                className="rounded-md border border-white/20 px-3 py-1 text-xs font-medium text-slate-200 transition hover:bg-white/10"
+                className="rounded-md border border-white/20 px-3 py-1 text-xs font-medium uppercase tracking-[0.12em] text-zinc-200 transition hover:bg-white/10"
               >
                 Close
               </button>
@@ -417,7 +417,7 @@ export function TestAnalyzerForm({ onResult }: { onResult: (res: AnalysisResult)
             <iframe
               title="Uploaded PDF preview"
               src={pdfPreviewUrl}
-              className="h-full w-full bg-slate-900"
+              className="h-full w-full bg-black/70"
             />
           </div>
         </div>

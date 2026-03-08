@@ -190,7 +190,7 @@ export default function BackboardQuestionBox() {
           <button
             type="button"
             onClick={resetConversation}
-            className="rounded-full border border-white/20 bg-black/65 px-3 py-2 text-xs font-medium text-slate-200 transition hover:bg-black/85"
+            className="rounded-full border border-white/20 bg-black/55 px-3 py-2 text-xs font-medium uppercase tracking-[0.12em] text-zinc-200 transition hover:bg-black/75"
           >
             Reset
           </button>
@@ -207,7 +207,7 @@ export default function BackboardQuestionBox() {
       </div>
 
       {open && (
-        <div className="mt-3 rounded-xl border border-white/15 bg-[#06090f]/95 p-3 shadow-xl shadow-black/40 backdrop-blur">
+        <div className="mt-3 rounded-xl border border-white/20 bg-black/45 p-3 shadow-xl shadow-black/55 backdrop-blur-xl">
           <div ref={listRef} className="max-h-[46vh] space-y-3 overflow-y-auto px-1 py-1">
             {messages.map((message) => (
               <div key={message.id} className={message.role === 'user' ? 'text-right' : 'text-left'}>
@@ -215,16 +215,16 @@ export default function BackboardQuestionBox() {
                   className={[
                     'inline-block max-w-[95%] rounded-lg px-3 py-2 text-sm leading-relaxed whitespace-pre-wrap',
                     message.role === 'user'
-                      ? 'bg-white text-black'
+                      ? 'bg-white/90 text-black'
                       : message.role === 'error'
                         ? 'bg-rose-950/70 text-rose-200'
-                        : 'bg-white/10 text-slate-100',
+                        : 'bg-white/10 text-zinc-100',
                   ].join(' ')}
                 >
                   {message.text}
                 </div>
                 {message.role === 'assistant' && (
-                  <p className="mt-1 text-[11px] text-slate-400">
+                  <p className="mt-1 text-[11px] text-zinc-400">
                     {message.meta?.mode ? `mode: ${message.meta.mode}` : 'mode: n/a'}
                     {message.meta?.intent ? ` • intent: ${message.meta.intent}` : ''}
                     {message.meta?.totalMatched !== undefined ? ` • matched: ${message.meta.totalMatched}` : ''}
@@ -235,7 +235,7 @@ export default function BackboardQuestionBox() {
                 )}
               </div>
             ))}
-            {loading && <p className="text-sm text-slate-400">Running school query...</p>}
+            {loading && <p className="text-sm text-zinc-400">Running school query...</p>}
           </div>
 
           <div className="mt-3 flex flex-wrap gap-2">
@@ -245,7 +245,7 @@ export default function BackboardQuestionBox() {
                 type="button"
                 disabled={loading}
                 onClick={() => sendQuestion(prompt)}
-                className="rounded-full border border-white/15 bg-white/5 px-3 py-1 text-xs text-slate-300 transition hover:bg-white/10 disabled:opacity-50"
+                className="rounded-full border border-white/20 bg-black/35 px-3 py-1 text-xs text-zinc-300 transition hover:bg-black/55 disabled:opacity-50"
               >
                 {prompt}
               </button>
@@ -264,14 +264,14 @@ export default function BackboardQuestionBox() {
                 }
               }}
               rows={2}
-              className="flex-1 resize-none rounded-lg border border-white/15 bg-black/50 px-3 py-2 text-sm text-white outline-none focus:border-slate-300/60 focus:ring-2 focus:ring-slate-200/20"
+              className="flex-1 resize-none rounded-lg border border-white/15 bg-black/45 px-3 py-2 text-sm text-zinc-100 placeholder:text-zinc-500 outline-none transition-all focus:border-white/40 focus:ring-1 focus:ring-white/30"
               placeholder={placeholder}
             />
             <button
               type="button"
               onClick={() => sendQuestion(question)}
               disabled={!question.trim() || loading}
-              className="rounded-lg bg-white px-4 py-2 text-sm font-semibold text-black transition hover:bg-slate-200 disabled:cursor-not-allowed disabled:opacity-50"
+              className="rounded-lg border border-white/80 bg-white px-4 py-2 text-sm font-semibold uppercase tracking-[0.12em] text-black shadow-[0_0_18px_rgba(255,255,255,0.45)] transition hover:bg-zinc-100 hover:shadow-[0_0_24px_rgba(255,255,255,0.65)] disabled:cursor-not-allowed disabled:border-white/30 disabled:bg-white/35 disabled:text-zinc-600 disabled:shadow-none"
             >
               {loading ? 'Thinking...' : 'Ask'}
             </button>

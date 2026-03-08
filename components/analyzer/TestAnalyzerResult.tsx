@@ -21,23 +21,23 @@ export function TestAnalyzerResult({ result, onReset }: { result: AnalysisResult
     <motion.div
       initial={{ opacity: 0, scale: 0.95 }}
       animate={{ opacity: 1, scale: 1 }}
-      className="space-y-6 rounded-2xl border border-slate-700 bg-slate-900 p-8 shadow-2xl relative overflow-hidden"
+      className="relative overflow-hidden space-y-6 rounded-2xl border border-white/15 bg-black/35 p-8 shadow-2xl shadow-black/45 backdrop-blur-xl"
     >
       <div className="absolute top-0 right-0 -mr-16 -mt-16 h-48 w-48 rounded-full bg-cyan-500 blur-[80px] opacity-15" />
 
       <div className="relative z-10">
-        <h3 className="mb-1 text-xl font-medium text-slate-100">Analysis Complete</h3>
-        <p className="text-sm text-slate-400">AXIOM AI Evaluation</p>
+        <h3 className="mb-1 text-xl font-medium text-zinc-100">Analysis Complete</h3>
+        <p className="text-sm text-zinc-400">AXIOM AI Evaluation</p>
         {result.agentLabel && (
           <p className="mt-1 text-xs text-cyan-300/90">Routed via {result.agentLabel}</p>
         )}
       </div>
 
-      <div className="relative z-10 rounded-xl border border-slate-800 bg-slate-950/50 p-5">
-        <span className="mb-2 block text-xs uppercase tracking-wider text-slate-500">Inherent Difficulty</span>
+      <div className="relative z-10 rounded-xl border border-white/15 bg-black/40 p-5 backdrop-blur-md">
+        <span className="mb-2 block text-xs uppercase tracking-wider text-zinc-500">Inherent Difficulty</span>
         <div className="flex items-baseline gap-1">
-          <span className="text-4xl font-bold text-slate-100">{result.estimatedDifficulty.toFixed(1)}</span>
-          <span className="text-slate-500 text-sm">/ 10</span>
+          <span className="text-4xl font-bold text-zinc-100">{result.estimatedDifficulty.toFixed(1)}</span>
+          <span className="text-sm text-zinc-500">/ 10</span>
         </div>
       </div>
 
@@ -61,7 +61,7 @@ export function TestAnalyzerResult({ result, onReset }: { result: AnalysisResult
 
       <button
         onClick={onReset}
-        className="w-full py-3 text-center text-sm font-medium text-slate-400 transition-colors hover:text-slate-200"
+        className="w-full rounded-lg border border-white/20 bg-black/45 py-3 text-center text-sm font-medium uppercase tracking-[0.12em] text-zinc-300 transition-colors hover:bg-black/70 hover:text-zinc-100"
       >
         Analyze Another Test
       </button>

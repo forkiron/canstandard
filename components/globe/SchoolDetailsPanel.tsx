@@ -41,12 +41,12 @@ export function SchoolDetailsPanel({ school, onClose, getRatingColor, adjustment
           animate={{ opacity: 1, x: 0, scale: 1 }}
           exit={{ opacity: 0, x: -50, scale: 0.95 }}
           transition={{ duration: 0.25, ease: 'easeOut' }}
-          className="absolute left-4 top-24 z-20 w-[min(28rem,calc(100vw-2rem))] rounded-2xl border border-white/10 bg-slate-950/80 p-5 shadow-2xl backdrop-blur-xl"
+          className="absolute left-4 top-24 z-20 w-[min(28rem,calc(100vw-2rem))] rounded-2xl border border-white/20 bg-black/55 p-5 shadow-2xl shadow-black/50 backdrop-blur-2xl"
         >
           <button
             type="button"
             onClick={onClose}
-            className="absolute right-4 top-4 rounded-full p-1 text-slate-400 hover:bg-white/10 hover:text-white transition-colors"
+            className="absolute right-4 top-4 rounded-full border border-white/20 bg-black/35 p-1 text-zinc-400 transition-colors hover:bg-white/10 hover:text-zinc-100"
           >
             <svg className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
               <path fillRule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clipRule="evenodd" />
@@ -54,10 +54,10 @@ export function SchoolDetailsPanel({ school, onClose, getRatingColor, adjustment
           </button>
 
           <div className="pr-8">
-            <h2 className="text-xl font-bold tracking-tight text-slate-100 mb-1">
+            <h2 className="mb-1 text-xl font-bold tracking-tight text-zinc-100">
               {school.schoolName}
             </h2>
-            <p className="text-sm text-slate-400 flex items-center gap-1.5 mb-6">
+            <p className="mb-6 flex items-center gap-1.5 text-[11px] uppercase tracking-[0.12em] text-zinc-400">
               <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
@@ -67,8 +67,8 @@ export function SchoolDetailsPanel({ school, onClose, getRatingColor, adjustment
 
             {/* Base metrics row */}
             <div className="grid grid-cols-2 gap-4">
-              <div className="rounded-xl border border-white/5 bg-white/5 p-4 flex flex-col justify-center items-center">
-                <div className="text-xs font-semibold uppercase tracking-wider text-slate-500 mb-1">
+              <div className="flex flex-col items-center justify-center rounded-xl border border-white/35 bg-white/10 p-4 backdrop-blur-2xl">
+                <div className="mb-1 text-[11px] font-semibold uppercase tracking-[0.12em] text-zinc-500">
                   Overall Rating
                 </div>
                 <div
@@ -76,15 +76,15 @@ export function SchoolDetailsPanel({ school, onClose, getRatingColor, adjustment
                   style={{ color: getRatingColor ? getRatingColor(school.rating) : '#10b981' }}
                 >
                   {school.rating != null ? school.rating.toFixed(1) : 'N/A'}
-                  {school.rating != null && <span className="text-lg text-slate-500 font-medium ml-1">/10</span>}
+                  {school.rating != null && <span className="ml-1 text-lg font-medium text-zinc-500">/10</span>}
                 </div>
               </div>
 
-              <div className="rounded-xl border border-white/5 bg-white/5 p-4 flex flex-col justify-center items-center">
-                <div className="text-xs font-semibold uppercase tracking-wider text-slate-500 mb-1">
+              <div className="flex flex-col items-center justify-center rounded-xl border border-white/35 bg-white/10 p-4 backdrop-blur-2xl">
+                <div className="mb-1 text-[11px] font-semibold uppercase tracking-[0.12em] text-zinc-500">
                   Provincial Rank
                 </div>
-                <div className="text-4xl font-extrabold text-white">
+                <div className="text-4xl font-extrabold text-zinc-100">
                   {school.rank != null ? `#${school.rank}` : 'N/A'}
                 </div>
               </div>
@@ -95,7 +95,7 @@ export function SchoolDetailsPanel({ school, onClose, getRatingColor, adjustment
               <div className="mt-4 space-y-3">
                 <div className="flex items-center gap-2">
                   <div className="h-px flex-1 bg-white/8" />
-                  <span className="text-[10px] tracking-widest text-slate-600 uppercase">
+                  <span className="text-[11px] uppercase tracking-[0.12em] text-zinc-500">
                     {adjustment.isDefault ? 'Estimated (Default)' : 'AI Analysis'}
                   </span>
                   <div className="h-px flex-1 bg-white/8" />
@@ -103,36 +103,36 @@ export function SchoolDetailsPanel({ school, onClose, getRatingColor, adjustment
 
                 <div className="grid grid-cols-2 gap-3">
                   {/* Test Difficulty */}
-                  <div className="rounded-xl border border-white/5 bg-white/5 p-3 flex flex-col items-center justify-center">
-                    <span className="text-[10px] font-semibold uppercase tracking-wider text-slate-500 mb-1">Difficulty</span>
-                    <span className="text-2xl font-bold text-slate-100">
+                  <div className="flex flex-col items-center justify-center rounded-xl border border-white/35 bg-white/10 p-3 backdrop-blur-2xl">
+                    <span className="mb-1 text-[11px] font-semibold uppercase tracking-[0.12em] text-zinc-500">Difficulty</span>
+                    <span className="text-2xl font-bold text-zinc-100">
                       {adjustment.estimatedDifficulty != null
                         ? adjustment.estimatedDifficulty.toFixed(1)
                         : '5.0'}
                     </span>
-                    <span className="text-[10px] text-slate-600">/10</span>
+                    <span className="text-[11px] text-zinc-500">/10</span>
                   </div>
 
                   {/* Adjustment Factor */}
                   <div className={`rounded-xl border p-3 flex flex-col items-center justify-center ${
-                    isDeflated ? 'border-emerald-500/30 bg-emerald-500/8' :
-                    isInflated ? 'border-rose-500/30 bg-rose-500/8' :
-                    'border-white/5 bg-white/5'
+                    isDeflated ? 'border-emerald-300/45 bg-white/10 backdrop-blur-2xl' :
+                    isInflated ? 'border-rose-300/45 bg-white/10 backdrop-blur-2xl' :
+                    'border-white/35 bg-white/10 backdrop-blur-2xl'
                   }`}>
-                    <span className="text-[10px] font-semibold uppercase tracking-wider text-slate-500 mb-1">Adjustment</span>
-                    <span className={`text-2xl font-bold ${isDeflated ? 'text-emerald-400' : isInflated ? 'text-rose-400' : 'text-slate-300'}`}>
+                    <span className="mb-1 text-[11px] font-semibold uppercase tracking-[0.12em] text-zinc-500">Adjustment</span>
+                    <span className={`text-2xl font-bold ${isDeflated ? 'text-emerald-300' : isInflated ? 'text-rose-300' : 'text-zinc-300'}`}>
                       {af != null ? `${af > 0 ? '+' : ''}${af.toFixed(1)}` : '0.0'}
                     </span>
-                    <span className="text-[10px] text-slate-600">pts</span>
+                    <span className="text-[11px] uppercase tracking-[0.1em] text-zinc-500">pts</span>
                   </div>
                 </div>
 
                 {!adjustment.isDefault && (
                   <div
-                    className={`rounded-lg px-3 py-2 text-xs ${
-                      isDeflated ? 'bg-emerald-500/10 text-emerald-400'
-                      : isInflated ? 'bg-rose-500/10 text-rose-400'
-                      : 'bg-white/5 text-slate-400'
+                    className={`rounded-lg border px-3 py-2 text-[11px] uppercase tracking-[0.08em] ${
+                      isDeflated ? 'border-emerald-300/35 bg-white/10 text-emerald-200 backdrop-blur-xl'
+                      : isInflated ? 'border-rose-300/35 bg-white/10 text-rose-200 backdrop-blur-xl'
+                      : 'border-white/35 bg-white/10 text-zinc-300 backdrop-blur-xl'
                     }`}
                   >
                     {isDeflated ? '↑ Grade Deflation — school grades harder than average'
@@ -141,7 +141,7 @@ export function SchoolDetailsPanel({ school, onClose, getRatingColor, adjustment
                   </div>
                 )}
                 {adjustmentCount != null && adjustmentCount > 0 && (
-                  <div className="text-xs text-slate-500 mt-1.5">
+                  <div className="mt-1.5 text-[11px] uppercase tracking-[0.1em] text-zinc-500">
                     Based on {adjustmentCount} {adjustmentCount === 1 ? 'analysis' : 'analyses'}
                   </div>
                 )}
