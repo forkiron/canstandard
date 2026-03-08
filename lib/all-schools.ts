@@ -9,19 +9,21 @@ export interface AnalyzerSchoolOption {
   schoolName: string;
   city: string;
   province: string;
+  rating?: number;
 }
 
 function pickSchools(source: unknown): AnalyzerSchoolOption[] {
   const raw = source as { schools?: unknown[] };
   if (!Array.isArray(raw.schools)) return [];
 
-  return raw.schools
+  return (raw.schools as any[])
     .map((entry) => {
       const school = entry as {
         id?: unknown;
         schoolName?: unknown;
         city?: unknown;
         province?: unknown;
+        rating?: unknown;
       };
 
       if (
@@ -38,9 +40,10 @@ function pickSchools(source: unknown): AnalyzerSchoolOption[] {
         schoolName: school.schoolName,
         city: school.city,
         province: school.province,
-      } satisfies AnalyzerSchoolOption;
+        rating: typeof school.rating === 'number' ? school.rating : undefined,
+      };
     })
-    .filter((school): school is AnalyzerSchoolOption => school !== null);
+    .filter((school: any): school is AnalyzerSchoolOption => school !== null) as AnalyzerSchoolOption[];
 }
 
 export const ANALYZER_SCHOOL_OPTIONS: AnalyzerSchoolOption[] = [
