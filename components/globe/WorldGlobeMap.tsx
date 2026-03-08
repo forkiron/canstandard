@@ -906,6 +906,43 @@ export function WorldGlobeMap({ className }: WorldGlobeMapProps) {
     };
   }, [schoolTour.length, nextTourSchool, prevTourSchool]);
 
+  useEffect(() => {
+    const handleGlobalKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        const target = event.target as HTMLElement | null;
+        const tagName = target?.tagName?.toLowerCase() ?? '';
+        if (tagName === 'input' || tagName === 'textarea' || target?.isContentEditable) return;
+
+        setSelectedSchool(null);
+        setIsSchoolSearchOpen(false);
+        setAcademicHoverCard(null);
+
+        const activeMap = hasMapboxToken ? getUnderlyingMap(mapboxRef) : getUnderlyingMap(maplibreRef);
+        if (activeMap) {
+          if (preSchoolCameraState) {
+            activeMap.flyTo({
+              ...preSchoolCameraState,
+              duration: 1500,
+              essential: true,
+            });
+            setPreSchoolCameraState(null);
+          } else {
+            if (activeLayer === 'bc-schools') {
+              flyToCanada(activeMap);
+            } else {
+              flyToWorld(activeMap);
+            }
+          }
+        }
+      }
+    };
+
+    window.addEventListener('keydown', handleGlobalKeyDown);
+    return () => {
+      window.removeEventListener('keydown', handleGlobalKeyDown);
+    };
+  }, [hasMapboxToken, preSchoolCameraState, activeLayer, flyToCanada, flyToWorld]);
+
   const interactiveLayers = activeLayer === 'bc-schools' 
     ? ['country-hit-layer', 'bc-school-points'] 
     : ['country-hit-layer'];

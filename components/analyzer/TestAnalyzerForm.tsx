@@ -276,28 +276,7 @@ export function TestAnalyzerForm({ onResult }: { onResult: (res: AnalysisResult)
           )}
         </div>
 
-        <div className="space-y-2">
-          <label className="text-sm font-medium uppercase tracking-[0.12em] text-zinc-300">Province / Territory</label>
-          <select
-            value={province}
-            onChange={(e) => setProvince(e.target.value)}
-            className="w-full rounded-lg border border-white/15 bg-black/45 px-4 py-2.5 text-sm text-zinc-100 outline-none transition-all focus:border-white/40 focus:ring-1 focus:ring-white/30"
-          >
-            <option value="AB">Alberta</option>
-            <option value="BC">British Columbia</option>
-            <option value="MB">Manitoba</option>
-            <option value="NB">New Brunswick</option>
-            <option value="NL">Newfoundland &amp; Labrador</option>
-            <option value="NS">Nova Scotia</option>
-            <option value="NT">Northwest Territories</option>
-            <option value="NU">Nunavut</option>
-            <option value="ON">Ontario</option>
-            <option value="PE">Prince Edward Island</option>
-            <option value="QC">Quebec</option>
-            <option value="SK">Saskatchewan</option>
-            <option value="YT">Yukon</option>
-          </select>
-        </div>
+
 
         <div className="space-y-2 pt-1">
           <label className="text-sm font-medium uppercase tracking-[0.12em] text-zinc-300">Upload Test PDF</label>
