@@ -35,6 +35,11 @@ function FadeIn({ children, className, delay = 0 }: { children: React.ReactNode;
 }
 
 export default function LandingPage() {
+  const handleScrollToGrade = (event: React.MouseEvent<HTMLAnchorElement>) => {
+    event.preventDefault();
+    document.getElementById('section-grade')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  };
+
   const verticalMask = {
     maskImage: 'linear-gradient(to bottom, transparent, black 12%, black 88%, transparent)',
     WebkitMaskImage: 'linear-gradient(to bottom, transparent, black 12%, black 88%, transparent)',
@@ -124,6 +129,7 @@ export default function LandingPage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.65, ease: 'easeOut' }}
+            className="ml-1 sm:ml-2"
           >
             <p className={`mb-6 text-[10px] tracking-[0.3em] text-zinc-500 ${monoFont.className}`}>AXIOM</p>
             <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold leading-[1.05] tracking-tight text-white">
@@ -145,6 +151,7 @@ export default function LandingPage() {
               </Link>
               <a
                 href="#section-grade"
+                onClick={handleScrollToGrade}
                 className={`text-xs font-medium tracking-[0.1em] text-zinc-400 transition hover:text-white ${monoFont.className}`}
               >
                 SEE HOW IT WORKS ↓
