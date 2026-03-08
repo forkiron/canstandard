@@ -6,12 +6,20 @@ import { RouteTransitionOverlay } from '../../components/transitions/RouteTransi
 import { TestAnalyzerForm } from '../../components/analyzer/TestAnalyzerForm';
 import { TestAnalyzerResult } from '../../components/analyzer/TestAnalyzerResult';
 
+interface AnalysisResult {
+  estimatedDifficulty: number;
+  adjustmentFactor: number;
+  rationale: string;
+  curriculumAlignment?: string;
+  questionStyle?: string;
+  questionCount?: number;
+  // Pass-through context (set by form, not by AI)
+  classAverage?: number;
+  province?: string;
+}
+
 export default function AnalyzerPage() {
-  const [analysisResult, setAnalysisResult] = useState<{
-    estimatedDifficulty: number;
-    adjustmentFactor: number;
-    rationale: string;
-  } | null>(null);
+  const [analysisResult, setAnalysisResult] = useState<AnalysisResult | null>(null);
 
   return (
     <AppShell
@@ -19,7 +27,7 @@ export default function AnalyzerPage() {
       subtitle="Standardize difficulty across curricula"
     >
       <RouteTransitionOverlay />
-      
+
       <section className="mx-auto max-w-3xl pt-8">
         <div className="mb-10 text-center">
           <h2 className="text-3xl font-bold bg-gradient-to-r from-emerald-400 to-cyan-400 bg-clip-text text-transparent mb-4">
@@ -31,15 +39,14 @@ export default function AnalyzerPage() {
         </div>
 
         <div className="relative">
-          {/* Decorative glow behind the active component */}
           <div className="absolute inset-0 -z-10 bg-gradient-to-b from-emerald-900/20 to-transparent blur-3xl rounded-[3rem]" />
-          
+
           {!analysisResult ? (
             <TestAnalyzerForm onResult={setAnalysisResult} />
           ) : (
-            <TestAnalyzerResult 
-              result={analysisResult} 
-              onReset={() => setAnalysisResult(null)} 
+            <TestAnalyzerResult
+              result={analysisResult}
+              onReset={() => setAnalysisResult(null)}
             />
           )}
         </div>

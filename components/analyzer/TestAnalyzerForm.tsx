@@ -120,7 +120,11 @@ export function TestAnalyzerForm({ onResult }: { onResult: (res: AnalysisResult)
         throw new Error(data.error || 'Analysis failed. Make sure your API key is set.');
       }
 
-      onResult(data.result as AnalysisResult);
+      onResult({
+        ...data.result,
+        classAverage: parseFloat(classAverage),
+        province,
+      } as AnalysisResult);
     } catch (err: any) {
       setError(err.message);
     } finally {

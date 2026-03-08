@@ -11,6 +11,8 @@ interface AnalysisResult {
   curriculumAlignment?: string;
   questionStyle?: string;
   questionCount?: number;
+  classAverage?: number;
+  province?: string;
 }
 
 export function TestAnalyzerResult({ result, onReset }: { result: AnalysisResult, onReset: () => void }) {
@@ -18,6 +20,7 @@ export function TestAnalyzerResult({ result, onReset }: { result: AnalysisResult
   const [selectedSchool, setSelectedSchool] = useState<AnalyzerSchoolOption | null>(null);
   const [saveStatus, setSaveStatus] = useState<'idle' | 'saving' | 'saved' | 'error'>('idle');
   const [showDropdown, setShowDropdown] = useState(false);
+  const [savedMAdj, setSavedMAdj] = useState<number | null>(null);
 
   const isInflated = result.adjustmentFactor < 0;
   const isDeflated = result.adjustmentFactor > 0;
@@ -60,10 +63,14 @@ export function TestAnalyzerResult({ result, onReset }: { result: AnalysisResult
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           schoolId: selectedSchool.id,
-          adjustmentFactor: result.adjustmentFactor,
+          estimatedDifficulty: result.estimatedDifficulty,
+          classAverage: result.classAverage,
+          province: result.province ?? selectedSchool.province,
         }),
       });
       if (!res.ok) throw new Error('Failed to save');
+      const json = await res.json();
+      setSavedMAdj(json.mAdj ?? null);
       setSaveStatus('saved');
     } catch {
       setSaveStatus('error');
@@ -206,6 +213,19 @@ export function TestAnalyzerResult({ result, onReset }: { result: AnalysisResult
            saveStatus === 'saving' ? 'Saving...' :
            selectedSchool ? `Save to ${selectedSchool.schoolName}` : 'Select a school first'}
         </button>
+
+        {saveStatus === 'saved' && savedMAdj != null && result.classAverage != null && (
+          <div className="rounded-lg border border-emerald-700/40 bg-emerald-900/20 px-4 py-3 text-xs text-emerald-300 space-y-1">
+            <p className="font-semibold text-emerald-200">Standardized result saved ✓</p>
+            <p>
+              Raw class avg: <span className="font-mono font-bold text-white">{result.classAverage.toFixed(1)}%</span>
+              {' '}→ Adjusted: <span className="font-mono font-bold text-emerald-300">{savedMAdj.toFixed(1)}%</span>
+            </p>
+            <p className="text-emerald-500">
+              M_adj = {result.classAverage.toFixed(1)} + 2×(Dt−5) + 1.5×(S−S_avg)
+            </p>
+          </div>
+        )}
       </div>
 
       <button

@@ -328,7 +328,7 @@ export function WorldGlobeMap({ className }: WorldGlobeMapProps) {
     pitch: number;
     bearing: number;
   } | null>(null);
-  const [adjustmentOverrides, setAdjustmentOverrides] = useState<Record<string, number>>({});
+  const [adjustmentOverrides, setAdjustmentOverrides] = useState<Record<string, { adjustmentFactor: number; estimatedDifficulty?: number; mAdj?: number }>>({});
 
   useEffect(() => {
     fetch('/api/school-adjustment')
@@ -364,6 +364,45 @@ export function WorldGlobeMap({ className }: WorldGlobeMapProps) {
       return school.rating >= minSchoolRating && school.rating <= maxSchoolRating;
     });
   }, [canadaSchools, minSchoolRating, maxSchoolRating]);
+
+  // ── Province median strength ratings ──────────────────────────────────────
+  const provinceMedians = useMemo(() => {
+    const byProvince: Record<string, number[]> = {};
+    for (const s of canadaSchools) {
+      if (s.rating == null) continue;
+      const prov = (s.province ?? 'BC').toUpperCase();
+      (byProvince[prov] ??= []).push(s.rating);
+    }
+    const medians: Record<string, number> = {};
+    for (const [prov, ratings] of Object.entries(byProvince)) {
+      ratings.sort((a, b) => a - b);
+      const mid = Math.floor(ratings.length / 2);
+      medians[prov] = ratings.length % 2 === 0
+        ? (ratings[mid - 1] + ratings[mid]) / 2
+        : ratings[mid];
+    }
+    return medians;
+  }, [canadaSchools]);
+
+  // ── Merged adjustments: real overrides + computed defaults for every school ─
+  // For unanalyzed schools: Dt=5 → difficulty bonus = 2*(5-5) = 0,
+  //   so adjustment = 1.5*(S - S_avg) only.
+  const schoolAdjustments = useMemo(() => {
+    const W_S = 1.5;
+    const result: Record<string, { adjustmentFactor: number; estimatedDifficulty?: number; mAdj?: number; isDefault?: boolean }> = {};
+    for (const s of canadaSchools) {
+      if (adjustmentOverrides[s.id]) {
+        result[s.id] = adjustmentOverrides[s.id];
+      } else {
+        const prov = (s.province ?? 'BC').toUpperCase();
+        const S_avg = provinceMedians[prov] ?? 5;
+        const S = s.rating ?? S_avg;
+        const af = parseFloat((W_S * (S - S_avg)).toFixed(2));
+        result[s.id] = { adjustmentFactor: af, estimatedDifficulty: 5, isDefault: true };
+      }
+    }
+    return result;
+  }, [canadaSchools, adjustmentOverrides, provinceMedians]);
   const tourSchoolIds = useSchoolTourStore((state) => state.schoolIds);
   const tourIndex = useSchoolTourStore((state) => state.currentIndex);
   const prevTourSchool = useSchoolTourStore((state) => state.prevSchool);
@@ -1129,7 +1168,7 @@ export function WorldGlobeMap({ className }: WorldGlobeMapProps) {
           }
         }} 
         getRatingColor={getRatingColor}
-        adjustmentFactor={selectedSchool ? adjustmentOverrides[selectedSchool.id] : undefined}
+        adjustment={selectedSchool ? schoolAdjustments[selectedSchool.id] : undefined}
       />
       {schoolTour.length > 0 && activeTourSchool && (
         <div className="absolute bottom-24 left-1/2 z-20 flex -translate-x-1/2 items-center gap-2 rounded-xl border border-white/20 bg-black/70 px-3 py-2 text-xs text-slate-100 backdrop-blur">
